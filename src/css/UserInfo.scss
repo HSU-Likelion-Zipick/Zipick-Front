@@ -126,7 +126,7 @@ img{
             border-radius: 8px;
         }
     }
-    }
+}
 }
 
     
@@ -156,12 +156,40 @@ img{
                     color: #FF5927;
                     background: #fff7f3;
             }
-        
-    }
+        }
     }
 }
-    
+
+ .monthly-income{
+        display: flex;
+        flex-direction: column;
+    .monthly-title{
+        font-weight: bold;
+        font-size:1.1rem;
+        margin-bottom:12px;
+        margin-top: 40px;
+        margin-left: 10px;
     }
+    .monthly-input-group{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        span{ //"약" 이랑 "만원" 글자 설정정
+            margin-left: 10px;
+            color:#888;
+            font-size: 1rem;
+        }
+        .monthly-input{
+            width:220px;
+            height: 40px;
+            border: 1px solid #ccc; //월수입입 박스 테두리 
+            border-radius: 8px;
+        }
+    }
+}
+
+    
+}
 
 
 hr {

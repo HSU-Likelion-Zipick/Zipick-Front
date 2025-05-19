@@ -49,6 +49,16 @@ const UserInfo = () => {
                 </div>
             </div>
 
+{/* 월수익 부분 */}
+            <div className="monthly-income">
+                    <div className="monthly-title">월수익</div>
+                    <div className="monthly-input-group">
+                        <span>약</span>
+                        <input type="text" className="monthly-input" />
+                        <span>만원</span>
+                    </div>
+                </div>
+
         </div>{/* big-box 닫는div */}
 
     </div>
