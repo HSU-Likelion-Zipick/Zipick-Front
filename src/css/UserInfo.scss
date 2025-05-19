@@ -1,0 +1,108 @@
+.top-image{
+     display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 45px; //맨 위에서부터 img 머리 부분까지 거리리
+  
+img{
+    width: 121px;
+    height: 24px;
+    margin-bottom: 23px;
+}
+}
+
+.top-text{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+
+
+.yourinfo{
+    color:#FF5927;
+}
+}
+
+.big-box{
+    width: 820px;
+    background:white;
+    margin: 15px auto;
+    border-radius: 20px;
+    box-shadow: 0 2px 20px black;
+    padding: 25px 40px 60px 40px;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column; //이걸 써야 big-box 안에 있는 것들이 세로로 쌓임(밑에 성별, 나이 등)
+
+    .step-bar{
+        position: relative;
+        width:100%;
+        height:36px;
+        background:#F1EFEF;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        
+        .step-progress1{
+            position: absolute; //부모(위에 relative) 기준으로 위치를 잡기 위한 것: 자유로움움
+            left:0;
+            top:0;
+            bottom: 0;
+            width:50%;
+            background: #FF5927;
+            border-radius: 20px;
+            z-index: 1; //중간에 위치하게 함
+
+        }
+
+        .step-title{
+            z-index: 2; //맨 위로 올라오게 함
+            color:white;
+            font-weight: bold;
+            font-size: 1rem;
+            padding-left: 20px;
+        }
+
+
+    }
+
+    .gender-age{
+        display:flex;
+        align-items: flex-end;
+        margin-top: 50px;
+        gap: 40px;
+
+    .gender{
+        display:flex;
+        flex-direction: column;
+        min-width: 340px;// 성별과 나이 거리 조절
+        .gender-title{
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+        .gender-btns{
+            display: flex;;
+            gap:20px;
+            .gender-btn{
+                width:150px;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background:#fff;
+                font-size: 1rem;
+                color:#666;
+                cursor:pointer; //커서 올라가면 손모양으로 바뀜
+                
+                &:hover, &.active {
+                    border: 2px solid #FF5927;
+                    color: #FF5927;
+                    background: #fff7f3;
+            }
+        }
+    }
+    }
+
+    
+    }
+}
