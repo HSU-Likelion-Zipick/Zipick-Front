@@ -1,11 +1,11 @@
 import React from "react";
-import ZIPPiCk from "../components/ZIPPiCk";
-import "../css/UserInfo.css";
+import ZIPPICk from "../components/ZIPPICk.png";
+import "../css/UserInfo.scss";
 
 const UserInfo = () => {
   return (
-    <div className="user-info-container">
-        <img src={ZIPPiCk} alt="ZIPPiCk"/>
+    <div className="top-image">
+        <img src={ZIPPICk} alt="ZIPPiCk"/>
       
     </div>
   )
