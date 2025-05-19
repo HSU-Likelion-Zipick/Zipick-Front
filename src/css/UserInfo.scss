@@ -2,11 +2,22 @@
      display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 45px; //맨 위에서부터 img 머리 부분까지 거리리
   
 img{
     width: 121px;
-    height: 30px;
+    height: 24px;
     margin-bottom: 23px;
 }
+}
+
+.top-text{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.top-text span{
+    color:#FF5927;
 }
