@@ -4,7 +4,8 @@ import "../css/UserInfo.css";
 
 const UserInfo = () => {
   return (
-    <div>
+    <div className="user-info-container">
+        <img src={ZIPPiCk} alt="ZIPPiCk"/>
       
     </div>
   )
