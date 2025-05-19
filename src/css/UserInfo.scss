@@ -15,9 +15,54 @@ img{
     display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 10px;
+
+
+.yourinfo{
+    color:#FF5927;
+}
 }
 
-.top-text span{
-    color:#FF5927;
+.big-box{
+    width: 820px;
+    background:white;
+    margin: 15px auto;
+    border-radius: 20px;
+    box-shadow: 0 2px 20px black;
+    padding: 25px 40px 60px 40px;
+    min-height: 700px;
+    display: flex;
+
+    .step-bar{
+        position: relative;
+        width:100%;
+        height:36px;
+        background:#F1EFEF;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        
+        .step-progress1{
+            position: absolute; //부모(위에 relative) 기준으로 위치를 잡기 위한 것: 자유로움움
+            left:0;
+            top:0;
+            bottom: 0;
+            width:50%;
+            background: #FF5927;
+            border-radius: 20px;
+            z-index: 1; //중간에 위치하게 함
+
+        }
+
+        .step-title{
+            z-index: 2; //맨 위로 올라오게 함
+            color:white;
+            font-weight: bold;
+            font-size: 1rem;
+            padding-left: 20px;
+            
+
+        }
+
+    }
 }
