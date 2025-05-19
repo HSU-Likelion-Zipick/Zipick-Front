@@ -30,13 +30,24 @@ const UserInfo = () => {
 
                 <div className="age">
                     <div className="age-title">나이</div>
-                    <div className="age-input-grpup">
+                    <div className="age-input-group">
                         <span>만</span>
                         <input type="text" className="age-input" />
                         <span>세</span>
                     </div>
                 </div>
             </div>{/* gender-age 닫는 div */}
+             <hr />
+            <div className="job-section">
+                <div className="job-title">직업</div>
+                <div className="job-btns">
+                    <button className="job-btn">학생</button>
+                    <button className="job-btn">취준생</button>
+                    <button className="job-btn">직장인</button>
+                    <button className="job-btn">프리랜서</button>
+                    <button className="job-btn">무직</button>
+                </div>
+            </div>
 
         </div>{/* big-box 닫는div */}
 

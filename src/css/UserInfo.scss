@@ -103,6 +103,70 @@ img{
     }
     }
 
+    .age{
+        display: flex;
+        flex-direction: column;
+    .age-title{
+        font-weight: bold;
+        font-size:1.1rem;
+        margin-bottom:12px;
+    }
+    .age-input-group{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        span{ //"만" 이랑 "세" 글자 설정정
+            color:#888;
+            font-size: 1rem;
+        }
+        .age-input{
+            width:90px;
+            height: 40px;
+            border: 1px solid #ccc; //나이 박스 테두리 
+            border-radius: 8px;
+        }
+    }
+    }
+}
+
+    
+    .job-section{
+        display:flex;
+        flex-direction: column;
+    .job-title{
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    .job-btns{
+            display: flex;;
+            gap:20px;
+            .job-btn{
+                width:150px;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background:#fff;
+                font-size: 1rem;
+                color:#666;
+                cursor:pointer; //커서 올라가면 손모양으로 바뀜
+                
+                &:hover, &.active {
+                    border: 2px solid #FF5927;
+                    color: #FF5927;
+                    background: #fff7f3;
+            }
+        
+    }
+    }
+}
     
     }
+
+
+hr {
+  border: none;
+  border-top: 1.5px solid #B0B0B0;  // 두께, 색상 원하는 대로
+  margin: 40px 0;                   // 위아래 여백
+  width: 100%;
 }
