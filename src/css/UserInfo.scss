@@ -32,6 +32,7 @@ img{
     padding: 25px 40px 60px 40px;
     min-height: 700px;
     display: flex;
+    flex-direction: column; //이걸 써야 big-box 안에 있는 것들이 세로로 쌓임(밑에 성별, 나이 등)
 
     .step-bar{
         position: relative;
@@ -60,9 +61,48 @@ img{
             font-weight: bold;
             font-size: 1rem;
             padding-left: 20px;
-            
-
         }
 
+
+    }
+
+    .gender-age{
+        display:flex;
+        align-items: flex-end;
+        margin-top: 50px;
+        gap: 40px;
+
+    .gender{
+        display:flex;
+        flex-direction: column;
+        min-width: 340px;// 성별과 나이 거리 조절
+        .gender-title{
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+        .gender-btns{
+            display: flex;;
+            gap:20px;
+            .gender-btn{
+                width:150px;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background:#fff;
+                font-size: 1rem;
+                color:#666;
+                cursor:pointer; //커서 올라가면 손모양으로 바뀜
+                
+                &:hover, &.active {
+                    border: 2px solid #FF5927;
+                    color: #FF5927;
+                    background: #fff7f3;
+            }
+        }
+    }
+    }
+
+    
     }
 }
