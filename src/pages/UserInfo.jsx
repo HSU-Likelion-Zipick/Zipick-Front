@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import ZIPPICK from "../assets/ZIPPICK.png";
 import "../css/UserInfo.scss";
 
 const UserInfo = () => {
+  const [gender, setGender] = useState("");
+  const [age, setAge] = useState("");
+  const [job, setJob] = useState("");
+  const [monthlyIncome, setMonthlyIncome] = useState("");
+  const [fund, setFund] = useState("");
+  const [transportation, setTransportation] = useState("");
+  const [livingPattern, setLivingPattern] = useState("");
+
+  const isFormValid =
+    gender &&
+    age &&
+    job &&
+    monthlyIncome &&
+    fund &&
+    transportation &&
+    livingPattern;
+
   return (
     <div className="top">
-      {" "}
       {/* 밑에 div 들의 대빵 설정 */}
       <div className="top-image">
-        {" "}
         {/* ZIPPICK 이미지 */}
         <img src={ZIPPICK} alt="ZIPPICK" />
       </div>
       <div className="top-text">
-        {" "}
         {/* ZIPPICK 이미지 밑 글씨씨 */}
         <h3>
-          {" "}
           &nbsp; &nbsp; &nbsp;꼭 맞는 집을 찾기 전<br />
           <span className="yourinfo">&nbsp;당신의 정보</span>가 필요해요!
         </h3>
@@ -31,32 +44,67 @@ const UserInfo = () => {
           <div className="gender">
             <div className="gender-title">성별</div>
             <div className="gender-btns">
-              <button className="gender-btn">남자</button>
-              <button className="gender-btn">여자</button>
+              <button 
+              className="{`gender-btn ${gender==="남자" ? "active" : ""}`}
+              onClick={() => setGender("남자")}>
+                남자 </button>
+                <button
+                className="{`gender-btn ${gender==="여자" ? "active" : ""}}
+                onClick={() => setGender("여자")}>
+                여자 </button>
             </div>
-          </div>
+            {!gender&&<div className="warning">성별을 선택해주세요</div>}
+            </div>
+
 
           <div className="age">
             <div className="age-title">나이</div>
             <div className="age-input-group">
               <span>만</span>
-              <input type="text" className="age-input" />
-              <span>세</span>
+              <input type="text" className="age-input" value={age} onChange={(e)=>setAge(e.target.value)} />
+                 <span>세</span>
             </div>
+            {!age && <div className="warning-text">나이를 입력해주세요.</div>}
           </div>
         </div>
         {/* gender-age 닫는 div */}
         <hr />
         <div className="job-section">
-          <div className="job-title">직업</div>
-          <div className="job-btns">
-            <button className="job-btn">학생</button>
-            <button className="job-btn">취준생</button>
-            <button className="job-btn">직장인</button>
-            <button className="job-btn">프리랜서</button>
-            <button className="job-btn">무직</button>
-          </div>
-        </div>
+  <div className="job-title">직업</div>
+  <div className="job-btns">
+    <button
+      className={`job-btn ${job === "학생" ? "active" : ""}`}
+      onClick={() => setJob("학생")}
+    >
+      학생
+    </button>
+    <button
+      className={`job-btn ${job === "취준생" ? "active" : ""}`}
+      onClick={() => setJob("취준생")}
+    >
+      취준생
+    </button>
+    <button
+      className={`job-btn ${job === "직장인" ? "active" : ""}`}
+      onClick={() => setJob("직장인")}
+    >
+      직장인
+    </button>
+    <button
+      className={`job-btn ${job === "프리랜서" ? "active" : ""}`}
+      onClick={() => setJob("프리랜서")}
+    >
+      프리랜서
+    </button>
+    <button
+      className={`job-btn ${job === "무직" ? "active" : ""}`}
+      onClick={() => setJob("무직")}
+    >
+      무직
+    </button>
+  </div>
+  {!job && <div className="warning-text">직업을 선택해주세요.</div>}
+</div>
 
         {/* 월수익 부분 */}
         <div className="monthly-income">
