@@ -1,31 +1,31 @@
-.top-image{
-     display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 45px; //맨 위에서부터 img 머리 부분까지 거리리
-  
-img{
-    width: 121px;
-    height: 24px;
-    margin-bottom: 23px;
-}
-}
-
-.top-text{
+.top-image {
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 45px; //맨 위에서부터 img 머리 부분까지 거리리
 
-
-.yourinfo{
-    color:#FF5927;
+    img {
+        width: 121px;
+        height: 24px;
+        margin-bottom: 23px;
+    }
 }
+
+.top-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+
+
+    .yourinfo {
+        color: #FF5927;
+    }
 }
 
-.big-box{
+.big-box {
     width: 820px;
-    background:white;
+    background: white;
     margin: 15px auto;
     border-radius: 20px;
     box-shadow: 0 2px 20px black;
@@ -34,30 +34,30 @@ img{
     display: flex;
     flex-direction: column; //이걸 써야 big-box 안에 있는 것들이 세로로 쌓임(밑에 성별, 나이 등)
 
-    .step-bar{
+    .step-bar {
         position: relative;
-        width:100%;
-        height:36px;
-        background:#F1EFEF;
+        width: 100%;
+        height: 36px;
+        background: #F1EFEF;
         border-radius: 20px;
         display: flex;
         align-items: center;
-        
-        .step-progress1{
+
+        .step-progress1 {
             position: absolute; //부모(위에 relative) 기준으로 위치를 잡기 위한 것: 자유로움움
-            left:0;
-            top:0;
+            left: 0;
+            top: 0;
             bottom: 0;
-            width:50%;
+            width: 50%;
             background: #FF5927;
             border-radius: 20px;
             z-index: 1; //중간에 위치하게 함
 
         }
 
-        .step-title{
+        .step-title {
             z-index: 2; //맨 위로 올라오게 함
-            color:white;
+            color: white;
             font-weight: bold;
             font-size: 1rem;
             padding-left: 20px;
@@ -66,227 +66,277 @@ img{
 
     }
 
-    .gender-age{
-        display:flex;
+    .gender-age {
+        display: flex;
         align-items: flex-end;
         margin-top: 50px;
         gap: 40px;
 
-    .gender{
-        display:flex;
+        .gender {
+            display: flex;
+            flex-direction: column;
+            min-width: 340px; // 성별과 나이 거리 조절
+
+            .gender-title {
+                font-weight: bold;
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+            }
+
+            .gender-btns {
+                display: flex;
+                ;
+                gap: 20px;
+
+                .gender-btn {
+                    width: 150px;
+                    height: 40px;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    background: #fff;
+                    font-size: 1rem;
+                    color: #666;
+                    cursor: pointer; //커서 올라가면 손모양으로 바뀜
+
+                    &:hover,
+                    &.active {
+                        border: 2px solid #FF5927;
+                        color: #FF5927;
+                        background: #fff7f3;
+                    }
+                }
+            }
+        }
+
+        .age {
+            display: flex;
+            flex-direction: column;
+
+            .age-title {
+                font-weight: bold;
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+            }
+
+            .age-input-group {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                span {
+                    //"만" 이랑 "세" 글자 설정정
+                    color: #888;
+                    font-size: 1rem;
+                }
+
+                .age-input {
+                    width: 90px;
+                    height: 40px;
+                    border: 1px solid #ccc; //나이 박스 테두리 
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+
+
+    .job-section {
+        display: flex;
         flex-direction: column;
-        min-width: 340px;// 성별과 나이 거리 조절
-        .gender-title{
+
+        .job-title {
             font-weight: bold;
             font-size: 1.1rem;
             margin-bottom: 12px;
         }
-        .gender-btns{
-            display: flex;;
-            gap:20px;
-            .gender-btn{
-                width:150px;
+
+        .job-btns {
+            display: flex;
+            ;
+            gap: 20px;
+
+            .job-btn {
+                width: 150px;
                 height: 40px;
                 border: 1px solid #ccc;
                 border-radius: 8px;
-                background:#fff;
+                background: #fff;
                 font-size: 1rem;
-                color:#666;
-                cursor:pointer; //커서 올라가면 손모양으로 바뀜
-                
-                &:hover, &.active {
+                color: #666;
+                cursor: pointer; //커서 올라가면 손모양으로 바뀜
+
+                &:hover,
+                &.active {
                     border: 2px solid #FF5927;
                     color: #FF5927;
                     background: #fff7f3;
+                }
             }
         }
     }
-    }
 
-    .age{
+    .monthly-income {
         display: flex;
         flex-direction: column;
-    .age-title{
-        font-weight: bold;
-        font-size:1.1rem;
-        margin-bottom:12px;
-    }
-    .age-input-group{
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        span{ //"만" 이랑 "세" 글자 설정정
-            color:#888;
-            font-size: 1rem;
-        }
-        .age-input{
-            width:90px;
-            height: 40px;
-            border: 1px solid #ccc; //나이 박스 테두리 
-            border-radius: 8px;
-        }
-    }
-}
-}
 
-    
-    .job-section{
-        display:flex;
-        flex-direction: column;
-    .job-title{
-        font-weight: bold;
-        font-size: 1.1rem;
-        margin-bottom: 12px;
-    }
-    .job-btns{
-            display: flex;;
-            gap:20px;
-            .job-btn{
-                width:150px;
-                height: 40px;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-                background:#fff;
-                font-size: 1rem;
-                color:#666;
-                cursor:pointer; //커서 올라가면 손모양으로 바뀜
-                
-                &:hover, &.active {
-                    border: 2px solid #FF5927;
-                    color: #FF5927;
-                    background: #fff7f3;
-            }
-        }
-    }
-}
-
- .monthly-income{
-        display: flex;
-        flex-direction: column;
-    .monthly-title{
-        font-weight: bold;
-        font-size:1.1rem;
-        margin-bottom:12px;
-        margin-top: 40px;
-        margin-left: 10px;
-    }
-    .monthly-input-group{
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        span{ //"약" 이랑 "만원" 글자 설정정
+        .monthly-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            margin-top: 40px;
             margin-left: 10px;
-            color:#888;
-            font-size: 1rem;
         }
-        .monthly-input{
-            width:220px;
-            height: 40px;
-            border: 1px solid #ccc; //월수입입 박스 테두리 
-            border-radius: 8px;
-            
+
+        .monthly-input-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            span {
+                //"약" 이랑 "만원" 글자 설정정
+                margin-left: 10px;
+                color: #888;
+                font-size: 1rem;
+            }
+
+            .monthly-input {
+                width: 220px;
+                height: 40px;
+                border: 1px solid #ccc; //월수입입 박스 테두리 
+                border-radius: 8px;
+
+            }
         }
     }
-}
 
-   
-.fund{
+
+    .fund {
         display: flex;
         flex-direction: column;
-    .fund-title{
-        font-weight: bold;
-        font-size:1.1rem;
-        margin-bottom:12px;
-        margin-top: 40px;
-        margin-left: 10px;
-    }
-    .fund-input-group{
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        span{ //"약" 이랑 "만원" 글자 설정정
+
+        .fund-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            margin-top: 40px;
             margin-left: 10px;
-            color:#888;
-            font-size: 1rem;
         }
-        .fund-input{
-            width:220px;
-            height: 40px;
-            border: 1px solid #ccc; //월수입 박스 테두리 
-            border-radius: 8px;
-            
+
+        .fund-input-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            span {
+                //"약" 이랑 "만원" 글자 설정정
+                margin-left: 10px;
+                color: #888;
+                font-size: 1rem;
+            }
+
+            .fund-input {
+                width: 220px;
+                height: 40px;
+                border: 1px solid #ccc; //월수입 박스 테두리 
+                border-radius: 8px;
+
+            }
         }
     }
-}
 
 
-.transportation-section{
-        display:flex;
+    .transportation-section {
+        display: flex;
         flex-direction: column;
-    .transportation-title{
-        font-weight: bold;
-        font-size: 1.1rem;
-        margin-bottom: 12px;
-    }
-    .transportation-btns{
-            display: flex;;
-            gap:20px;
-            .transportation-btn{
-                width:150px;
+
+        .transportation-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .transportation-btns {
+            display: flex;
+            ;
+            gap: 20px;
+
+            .transportation-btn {
+                width: 150px;
                 height: 40px;
                 border: 1px solid #ccc;
                 border-radius: 8px;
-                background:#fff;
+                background: #fff;
                 font-size: 1rem;
-                color:#666;
-                cursor:pointer; //커서 올라가면 손모양으로 바뀜
-                
-                &:hover, &.active {
+                color: #666;
+                cursor: pointer; //커서 올라가면 손모양으로 바뀜
+
+                &:hover,
+                &.active {
                     border: 2px solid #FF5927;
                     color: #FF5927;
                     background: #fff7f3;
+                }
+            }
+        }
+    }
+
+
+    .livingpattern-section {
+        display: flex;
+        flex-direction: column;
+
+        .livingpattern-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .livingpattern-btns {
+            display: flex;
+            ;
+            gap: 20px;
+
+            .livingpattern-btn {
+                width: 150px;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background: #fff;
+                font-size: 1rem;
+                color: #666;
+                cursor: pointer; //커서 올라가면 손모양으로 바뀜
+
+                &:hover,
+                &.active {
+                    border: 2px solid #FF5927;
+                    color: #FF5927;
+                    background: #fff7f3;
+                }
             }
         }
     }
 }
 
-
-.livingpattern-section{
-        display:flex;
-        flex-direction: column;
-    .livingpattern-title{
-        font-weight: bold;
-        font-size: 1.1rem;
-        margin-bottom: 12px;
-    }
-    .livingpattern-btns{
-            display: flex;;
-            gap:20px;
-            .livingpattern-btn{
-                width:150px;
-                height: 40px;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-                background:#fff;
-                font-size: 1rem;
-                color:#666;
-                cursor:pointer; //커서 올라가면 손모양으로 바뀜
-                
-                &:hover, &.active {
-                    border: 2px solid #FF5927;
-                    color: #FF5927;
-                    background: #fff7f3;
-            }
-        }
-    }
-}
+.next-button {
+    width: 90%;
+    max-width: 440px;
+    margin: 25px auto auto;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #FF5927;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    display: block;
 
 }
-
 
 hr {
-  border: none;
-  border-top: 1.5px solid #B0B0B0;  // 두께, 색상 원하는 대로
-  margin: 40px 0;                   // 위아래 여백
-  width: 100%;
+    border: none;
+    border-top: 1.5px solid #B0B0B0; // 두께, 색상 원하는 대로
+    margin: 40px 0; // 위아래 여백
+    width: 100%;
 }

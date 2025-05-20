@@ -4,6 +4,7 @@ import App from './App';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Navigate } from "react-router-dom"; // Navigate 컴포넌트 import
 import UserInfo from './pages/UserInfo';
+import HouseInfo from "./pages/HouseInfo";
 
 const router=createBrowserRouter([
   {
@@ -12,7 +13,8 @@ const router=createBrowserRouter([
 
     children: [
       {path: "/",element: <Navigate to="/userinfo" replace />},
-      {path: "userinfo", element: <UserInfo />}, 
+      {path: "userinfo", element: <UserInfo /> }, 
+      {path: "houseinfo", element: <HouseInfo />}, 
 
     ],
   },
