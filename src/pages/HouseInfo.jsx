@@ -6,7 +6,7 @@ import { useState } from 'react';
 const HouseInfo = () => {
     const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
     const [parkingType, setParkingType] = useState(""); //주차 가능 여부 상태 관리
-   
+    const [elevatorType, setElevatorType] = useState(""); //엘리베이터 여부 상태 관리
     const handleRentTypeChange = (e) => {
         setRentType(e.target.value);
     }
@@ -15,6 +15,9 @@ const HouseInfo = () => {
         setParkingType(e.target.value);
     }
 
+    const handleElevatorChange = (e) => {
+        setElevatorType(e.target.value);
+    }
 
     return (
         <div className="house"> {/* 밑에 div 들의 대빵 설정 */}
@@ -146,7 +149,7 @@ const HouseInfo = () => {
                         <span className="radio-text">가능</span>
                         </label>
 
-                        <lable className="radio-label">
+                        <label className="radio-label">
                             <input
                                 type="radio"
                                 name="parkingType"
@@ -155,12 +158,95 @@ const HouseInfo = () => {
                                 className="radio-input" />
                             <span className="radio-text">불가능</span>
                             
-                        </lable>
+                        </label>
+                    </div>
+                </div> {/*parking 닫는 div */}
+                
+                <div className="floor-elevator-wrapper">
+                <div className="floor">
+                <div className="floor-title">층수</div>
+                <div className="floor-input-group">
+                    <input type="text" className="floor-input" />
+                        <span>층</span>
+                        <span>중에</span>
+                        <input type="text" className="floor-input" />
+                        <span>층</span>
+                        <span className="vertical-line"></span>
+                </div>
+            </div>
+             
+                <div className="elevator">
+                    <div className="elevator-title">엘리베이터</div>
+                    <div className="elevator-radio-group">
+                        <label className="radio-label">
+                            <input
+                                type="radio"
+                                name="elevatorType"
+                                value="있음"
+                                checked={elevatorType === '있음'}
+                                onChange={handleElevatorChange}
+                            className="radio-input"/>
+
+                           <span className="radio-text">있음</span>
+                        </label>
                         
 
+                        <label className="radio-label">
+                            <input
+                                type="radio"
+                                name="elevatorType"
+                                value="없음"
+                                checked={elevatorType === '없음'}
+                                onChange={handleElevatorChange}
+                            className="radio-input"/>
+
+                           <span className="radio-text">없음</span>
+                           </label>
+
+                    </div> {/*radio-group 닫는 div*/}
+                </div> {/*elevator 닫는 div*/}
+                </div> {/*floor-elevator-wrapper 닫는 div */}
+                
+                <div className="direction-date-wrapper">
+                <div className="house-type">
+                <div className="type-title">집 방향</div>
+                <div className="type-btns">
+                    <button className="type-btn">동향</button>
+                    <button className="type-btn">서향</button>
+                    <button className="type-btn">남향</button>
+                    <button className="type-btn">북향</button>
                     </div>
-                 </div>
-             
+                    </div>
+                    
+                    <div className="size">
+                <div className="size-title">준공일</div>
+                <div className="size-input-group">
+                    <input type="text" className="size-input" />
+                </div>
+                </div>
+                
+             </div> {/*direction-date-wrapper 닫는 div */}
+
+             <div className="house-type">
+                <div className="type-title">옵션</div>
+                <div className="type-btns">
+                    <button className="type-btn">싱크대</button>
+                    <button className="type-btn">에어컨</button>
+                    <button className="type-btn">신발장</button>
+                    <button className="type-btn">세탁기</button>
+                    <button className="type-btn">서랍장</button>
+                    <button className="type-btn">냉장고</button>
+                    <button className="type-btn">옷장</button>
+                    <button className="type-btn">인덕션</button>
+                    <button className="type-btn">책상</button>
+                    <button className="type-btn">침대</button>
+                    <button className="type-btn">책장</button>
+                     <button className="type-btn">없음</button>
+
+                </div>
+            </div>
+                <hr className="underLine" />    
+
 
             </div>{/* big-box 닫는div */}
     
