@@ -119,18 +119,34 @@ const UserInfo = () => {
           <div className="monthly-title">월수익</div>
           <div className="monthly-input-group">
             <span>약</span>
-            <input type="text" className="monthly-input" />
+            <input
+              type="text"
+              className="monthly-input"
+              value={monthlyIncome}
+              onChange={(e) => setMonthlyIncome(e.target.value)}
+            />
             <span>만원</span>
           </div>
+          {!monthlyIncome && (
+            <div className="warning-text">월수익을 입력해주세요.</div>
+          )}
         </div>
         {/* 여유자금 부분 */}
         <div className="fund">
           <div className="fund-title">여유자금</div>
           <div className="fund-input-group">
             <span>약</span>
-            <input type="text" className="fund-input" />
+            <input
+              type="text"
+              className="fund-input"
+              value={fund}
+              onChange={(e) => setFund(e.target.value)}
+            />
             <span>만원</span>
           </div>
+          {!fund && (
+            <div className="warning-text">여유자금을 입력해주세요.</div>
+          )}
         </div>
         {/* 여유자금 부분 마감 */}
         <hr />
