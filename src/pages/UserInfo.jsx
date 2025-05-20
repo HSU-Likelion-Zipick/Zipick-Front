@@ -1,8 +1,14 @@
 import React from 'react';
 import ZIPPICK from "../assets/ZIPPICK.png";
 import "../css/UserInfo.scss";
+import { useNavigate } from 'react-router-dom';
 
 const UserInfo = () => {
+    const navigate = useNavigate();
+
+    const handleHouseInf = () => {
+        navigate('/houseinfo');
+    }
 
   return (
     <div className="top"> {/* 밑에 div 들의 대빵 설정 */}
@@ -96,7 +102,7 @@ const UserInfo = () => {
 
         </div>{/* big-box 닫는div */}
 
-        <button className="next-button" >
+        <button className="next-button" onClick={handleHouseInf}>
             다음으로
         </button>
 
