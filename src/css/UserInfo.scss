@@ -220,6 +220,67 @@ img{
 }
 
 
+.transportation-section{
+        display:flex;
+        flex-direction: column;
+    .transportation-title{
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    .transportation-btns{
+            display: flex;;
+            gap:20px;
+            .transportation-btn{
+                width:150px;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background:#fff;
+                font-size: 1rem;
+                color:#666;
+                cursor:pointer; //커서 올라가면 손모양으로 바뀜
+                
+                &:hover, &.active {
+                    border: 2px solid #FF5927;
+                    color: #FF5927;
+                    background: #fff7f3;
+            }
+        }
+    }
+}
+
+
+.livingpattern-section{
+        display:flex;
+        flex-direction: column;
+    .livingpattern-title{
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    .livingpattern-btns{
+            display: flex;;
+            gap:20px;
+            .livingpattern-btn{
+                width:150px;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background:#fff;
+                font-size: 1rem;
+                color:#666;
+                cursor:pointer; //커서 올라가면 손모양으로 바뀜
+                
+                &:hover, &.active {
+                    border: 2px solid #FF5927;
+                    color: #FF5927;
+                    background: #fff7f3;
+            }
+        }
+    }
+}
+
 }
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import ZIPPICK from "../components/ZIPPICK.png";
+import ZIPPICK from "../assets/ZIPPICK.png";
 import "../css/UserInfo.scss";
 
 const UserInfo = () => {
@@ -71,6 +71,28 @@ const UserInfo = () => {
 {/* 여유자금 부분 마감 */}
             <hr />
                 
+                {/* 이동 수단 부분 */}
+                 <div className="transportation-section">
+                <div className="transportation-title">이동수단</div>
+                <div className="transportation-btns">
+                    <button className="transportation-btn">도보</button>
+                    <button className="transportation-btn">자전거</button>
+                    <button className="transportation-btn">대중교통</button>
+                    <button className="transportation-btn">자차</button>
+                </div>
+            </div>
+{/* 이동 수단 부분 마감 */}
+
+{/* 생활 패턴 부분 */}
+                <div className="livingpattern-section">
+                <div className="livingpattern-title">생활 패턴</div>
+                <div className="livingpattern-btns">
+                    <button className="livingpattern-btn">아침형</button>
+                    <button className="livingpattern-btn">야행성</button>
+                    <button className="livingpattern-btn">불규칙</button>
+                </div>
+            </div>
+            {/* 생활 패턴 부분 마감 */}
 
         </div>{/* big-box 닫는div */}
 
