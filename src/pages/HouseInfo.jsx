@@ -5,9 +5,14 @@ import { useState } from 'react';
 
 const HouseInfo = () => {
     const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
-
+    const [parkingType, setParkingType] = useState(""); //주차 가능 여부 상태 관리
+   
     const handleRentTypeChange = (e) => {
         setRentType(e.target.value);
+    }
+
+    const handleParkingChange = (e) => {
+        setParkingType(e.target.value);
     }
 
 
@@ -125,7 +130,37 @@ const HouseInfo = () => {
 
                 </div>
             </div>
-            <hr className="underLine"/>               
+                <hr className="underLine" />    
+                    
+                <div className="parking">
+                    <div className="parking-title">주차여부</div>
+                    <div className="parking-radio-group">
+                        <label className="radio-label">
+                            <input
+                                type="radio"
+                                name="parkingType"
+                                value="가능"
+                                chekced={parkingType === '가능'}
+                                onChange={handleParkingChange}
+                                className="radio-input"/>
+                        <span className="radio-text">가능</span>
+                        </label>
+
+                        <lable className="radio-label">
+                            <input
+                                type="radio"
+                                name="parkingType"
+                                value="불가능"
+                                onChange={handleParkingChange}
+                                className="radio-input" />
+                            <span className="radio-text">불가능</span>
+                            
+                        </lable>
+                        
+
+                    </div>
+                 </div>
+             
 
             </div>{/* big-box 닫는div */}
     

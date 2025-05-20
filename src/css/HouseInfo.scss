@@ -80,6 +80,7 @@
       }
     }
 
+    // 집 명칭
     .house {
       display: flex;
       flex-direction: column;
@@ -99,12 +100,13 @@
         .house-input {
           width: 100%;
           height: 40px;
-          border: 1px solid #ccc; //나이 박스 테두리
+          border: 1px solid #ccc;
           border-radius: 8px;
         }
       }
     }
 
+    // 집 종류
     .house-type {
       display: flex;
       flex-direction: column;
@@ -141,6 +143,7 @@
       }
     }
 
+    //평수
     .size {
       display: flex;
       flex-direction: column;
@@ -174,6 +177,7 @@
       }
     }
 
+    // 전월세
     .monthly {
       display: flex;
       flex-direction: column;
@@ -262,8 +266,64 @@
       }
     }
 
+    // 언더라인
     .underLine {
       margin-bottom: 10px;
+    }
+
+    //주차 가능 여부
+    .parking {
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+
+      .parking-title {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+      }
+
+      .parking-radio-group {
+        display: flex;
+        gap: 20px;
+
+        .radio-label {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          .radio-input {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            margin-right: 8px;
+            position: relative;
+
+            &:checked {
+              border-color: #ff5927;
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 12px;
+                height: 12px;
+                background-color: #ff5927;
+                border-radius: 50%;
+              }
+            }
+          }
+
+          .radio-text {
+            font-size: 1rem;
+            color: #666;
+          }
+        }
+      }
     }
 
     .next-button {
