@@ -3,6 +3,7 @@ import ZIPPICK from "../components/ZIPPICK.png";
 import "../css/UserInfo.scss";
 
 const UserInfo = () => {
+
   return (
     <div className="top"> {/* 밑에 div 들의 대빵 설정 */}
     <div className="top-image"> {/* ZIPPICK 이미지 */}
@@ -58,6 +59,18 @@ const UserInfo = () => {
                         <span>만원</span>
                     </div>
                 </div>
+{/* 여유자금 부분 */}
+            <div className="fund">
+                <div className="fund-title">여유자금</div>
+                <div className="fund-input-group">
+                    <span>약</span>
+                    <input type="text" className="fund-input" />
+                    <span>만원</span>
+                </div>
+            </div>
+{/* 여유자금 부분 마감 */}
+            <hr />
+                
 
         </div>{/* big-box 닫는div */}
 
