@@ -2,6 +2,7 @@ import React from 'react'
 import ZIPPICK from "../assets/ZIPPICK.png";
 import "../css/HouseInfo.scss";
 import { useState } from 'react';
+import "../css/GlobalStyles.scss";
 
 const HouseInfo = () => {
     const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
@@ -143,7 +144,7 @@ const HouseInfo = () => {
                                 type="radio"
                                 name="parkingType"
                                 value="가능"
-                                chekced={parkingType === '가능'}
+                                checked={parkingType === '가능'}
                                 onChange={handleParkingChange}
                                 className="radio-input"/>
                         <span className="radio-text">가능</span>
@@ -247,13 +248,41 @@ const HouseInfo = () => {
             </div>
                 <hr className="underLine" />    
 
+                
+                <div className="walktime-wrapper">
+                <div className="size">
+                <div className="size-title">역/정류장까지</div>
+                <div className="size-input-group">
+                    <span>도보</span>
+                    <input type="text" className="size-input" />
+                            <span>분</span>
+                            <span className="vertical-line"></span>
+                        </div>
+                        
+                </div>
+
+                    <div className="size">
+                        <div className="size-title">목적지까지
+                        <span className="suabtitle">(학교, 직장 등)</span>
+                    </div>
+                <div className="size-input-group">
+                    <span>도보</span>
+                    <input type="text" className="size-input" />
+                    <span>분</span>
+                </div>
+                </div>
+            </div> {/*walktime wrapper 닫는 div */}
 
             </div>{/* big-box 닫는div */}
     
+            <div className="button-wrapper">
+            <button className="next-button" >
+                이전으로
+            </button>
             <button className="next-button" >
                 다음으로
             </button>
-    
+            </div>
         </div>
       )
 }
