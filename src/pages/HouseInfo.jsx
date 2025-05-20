@@ -3,11 +3,18 @@ import ZIPPICK from "../assets/ZIPPICK.png";
 import "../css/HouseInfo.scss";
 import { useState } from 'react';
 import "../css/GlobalStyles.scss";
+import { useNavigate } from 'react-router-dom';
 
 const HouseInfo = () => {
     const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
     const [parkingType, setParkingType] = useState(""); //주차 가능 여부 상태 관리
     const [elevatorType, setElevatorType] = useState(""); //엘리베이터 여부 상태 관리
+    const navigate = useNavigate();
+
+    const handleUserInfo = () => {
+        navigate('/userinfo');
+    }
+
     const handleRentTypeChange = (e) => {
         setRentType(e.target.value);
     }
@@ -20,6 +27,7 @@ const HouseInfo = () => {
         setElevatorType(e.target.value);
     }
 
+    
     return (
         <div className="house"> {/* 밑에 div 들의 대빵 설정 */}
         <div className="top-image"> {/* ZIPPICK 이미지 */}
@@ -276,10 +284,10 @@ const HouseInfo = () => {
             </div>{/* big-box 닫는div */}
     
             <div className="button-wrapper">
-            <button className="next-button" >
+            <button className="next-button" onClick={handleUserInfo}>
                 이전으로
             </button>
-            <button className="next-button" >
+            <button className="next-button">
                 다음으로
             </button>
             </div>
