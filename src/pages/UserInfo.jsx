@@ -44,25 +44,33 @@ const UserInfo = () => {
           <div className="gender">
             <div className="gender-title">성별</div>
             <div className="gender-btns">
-              <button 
-              className="{`gender-btn ${gender==="남자" ? "active" : ""}`}
-              onClick={() => setGender("남자")}>
-                남자 </button>
-                <button
-                className="{`gender-btn ${gender==="여자" ? "active" : ""}}
-                onClick={() => setGender("여자")}>
-                여자 </button>
+              <button
+                className={`gender-btn ${gender === "남자" ? "active" : ""}`}
+                onClick={() => setGender("남자")}
+              >
+                남자{" "}
+              </button>
+              <button
+                className={`gender-btn ${gender === "여자" ? "active" : ""}`}
+                onClick={() => setGender("여자")}
+              >
+                여자{" "}
+              </button>
             </div>
-            {!gender&&<div className="warning">성별을 선택해주세요</div>}
-            </div>
-
+            {!gender && <div className="warning">성별을 선택해주세요</div>}
+          </div>
 
           <div className="age">
             <div className="age-title">나이</div>
             <div className="age-input-group">
               <span>만</span>
-              <input type="text" className="age-input" value={age} onChange={(e)=>setAge(e.target.value)} />
-                 <span>세</span>
+              <input
+                type="text"
+                className="age-input"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+              />
+              <span>세</span>
             </div>
             {!age && <div className="warning-text">나이를 입력해주세요.</div>}
           </div>
@@ -70,41 +78,41 @@ const UserInfo = () => {
         {/* gender-age 닫는 div */}
         <hr />
         <div className="job-section">
-  <div className="job-title">직업</div>
-  <div className="job-btns">
-    <button
-      className={`job-btn ${job === "학생" ? "active" : ""}`}
-      onClick={() => setJob("학생")}
-    >
-      학생
-    </button>
-    <button
-      className={`job-btn ${job === "취준생" ? "active" : ""}`}
-      onClick={() => setJob("취준생")}
-    >
-      취준생
-    </button>
-    <button
-      className={`job-btn ${job === "직장인" ? "active" : ""}`}
-      onClick={() => setJob("직장인")}
-    >
-      직장인
-    </button>
-    <button
-      className={`job-btn ${job === "프리랜서" ? "active" : ""}`}
-      onClick={() => setJob("프리랜서")}
-    >
-      프리랜서
-    </button>
-    <button
-      className={`job-btn ${job === "무직" ? "active" : ""}`}
-      onClick={() => setJob("무직")}
-    >
-      무직
-    </button>
-  </div>
-  {!job && <div className="warning-text">직업을 선택해주세요.</div>}
-</div>
+          <div className="job-title">직업</div>
+          <div className="job-btns">
+            <button
+              className={`job-btn ${job === "학생" ? "active" : ""}`}
+              onClick={() => setJob("학생")}
+            >
+              학생
+            </button>
+            <button
+              className={`job-btn ${job === "취준생" ? "active" : ""}`}
+              onClick={() => setJob("취준생")}
+            >
+              취준생
+            </button>
+            <button
+              className={`job-btn ${job === "직장인" ? "active" : ""}`}
+              onClick={() => setJob("직장인")}
+            >
+              직장인
+            </button>
+            <button
+              className={`job-btn ${job === "프리랜서" ? "active" : ""}`}
+              onClick={() => setJob("프리랜서")}
+            >
+              프리랜서
+            </button>
+            <button
+              className={`job-btn ${job === "무직" ? "active" : ""}`}
+              onClick={() => setJob("무직")}
+            >
+              무직
+            </button>
+          </div>
+          {!job && <div className="warning-text">직업을 선택해주세요.</div>}
+        </div>
 
         {/* 월수익 부분 */}
         <div className="monthly-income">
@@ -131,10 +139,33 @@ const UserInfo = () => {
         <div className="transportation-section">
           <div className="transportation-title">이동수단</div>
           <div className="transportation-btns">
-            <button className="transportation-btn">도보</button>
-            <button className="transportation-btn">자전거</button>
-            <button className="transportation-btn">대중교통</button>
-            <button className="transportation-btn">자차</button>
+            <button
+              className={`transportation-btn${transportation === "도보" ? "active" : ""}`}
+              onClick={() => setTransportation("도보")}
+            >
+              도보
+            </button>
+
+            <button
+              className={`transportation-btn${transportation === "자전거" ? "active" : ""}`}
+              onClick={() => setTransportation("자전거")}
+            >
+              자전거
+            </button>
+
+            <button
+              className={`transportation-btn${transportation === "대중교통" ? "active" : ""}`}
+              onClick={() => setTransportation("대중교통")}
+            >
+              대중교통
+            </button>
+
+            <button
+              className={`transportation-btn${transportation === "자가용" ? "active" : ""}`}
+              onClick={() => setTransportation("자가용")}
+            >
+              자가용
+            </button>
           </div>
         </div>
         {/* 이동 수단 부분 마감 */}
