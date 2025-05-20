@@ -140,33 +140,36 @@ const UserInfo = () => {
           <div className="transportation-title">이동수단</div>
           <div className="transportation-btns">
             <button
-              className={`transportation-btn${transportation === "도보" ? "active" : ""}`}
+              className={`transportation-btn ${transportation === "도보" ? "active" : ""}`}
               onClick={() => setTransportation("도보")}
             >
               도보
             </button>
 
             <button
-              className={`transportation-btn${transportation === "자전거" ? "active" : ""}`}
+              className={`transportation-btn ${transportation === "자전거" ? "active" : ""}`}
               onClick={() => setTransportation("자전거")}
             >
               자전거
             </button>
 
             <button
-              className={`transportation-btn${transportation === "대중교통" ? "active" : ""}`}
+              className={`transportation-btn ${transportation === "대중교통" ? "active" : ""}`}
               onClick={() => setTransportation("대중교통")}
             >
               대중교통
             </button>
 
             <button
-              className={`transportation-btn${transportation === "자가용" ? "active" : ""}`}
+              className={`transportation-btn ${transportation === "자가용" ? "active" : ""}`}
               onClick={() => setTransportation("자가용")}
             >
               자가용
             </button>
           </div>
+          {!transportation && (
+            <div className="warning-text">이동수단을 선택해주세요.</div>
+          )}
         </div>
         {/* 이동 수단 부분 마감 */}
 
@@ -174,10 +177,34 @@ const UserInfo = () => {
         <div className="livingpattern-section">
           <div className="livingpattern-title">생활 패턴</div>
           <div className="livingpattern-btns">
-            <button className="livingpattern-btn">아침형</button>
-            <button className="livingpattern-btn">야행성</button>
-            <button className="livingpattern-btn">불규칙</button>
+            <button
+              className={`livingpattern-btn ${
+                livingPattern === "아침형" ? "active" : ""
+              }`}
+              onClick={() => setLivingPattern("아침형")}
+            >
+              아침형
+            </button>
+            <button
+              className={`livingpattern-btn ${
+                livingPattern === "야행성" ? "active" : ""
+              }`}
+              onClick={() => setLivingPattern("야행성")}
+            >
+              야행성
+            </button>
+            <button
+              className={`livingpattern-btn ${
+                livingPattern === "불규칙" ? "active" : ""
+              }`}
+              onClick={() => setLivingPattern("불규칙")}
+            >
+              불규칙
+            </button>
           </div>
+          {!livingPattern && (
+            <div className="warning-text">생활 패턴을 선택해주세요.</div>
+          )}
         </div>
         {/* 생활 패턴 부분 마감 */}
       </div>
