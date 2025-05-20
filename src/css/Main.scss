@@ -1,0 +1,15 @@
+
+.maintop {
+  display: flex; 
+  height: 100vh;
+  background: linear-gradient(to bottom,#FFB580 , #FFF5EB); // 연한 그라데이션 배경
+
+  .main-left{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+  }
+
+}
+  

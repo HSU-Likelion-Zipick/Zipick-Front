@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import ZIPPICK from "../assets/ZIPPICK.png";
 import "../css/UserInfo.scss";
 
@@ -95,6 +95,10 @@ const UserInfo = () => {
             {/* 생활 패턴 부분 마감 */}
 
         </div>{/* big-box 닫는div */}
+
+        <button className="next-button" >
+            다음으로
+        </button>
 
     </div>
   )
