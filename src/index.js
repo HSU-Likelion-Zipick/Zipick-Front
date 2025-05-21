@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom"; // Navigate 컴포넌트 import
 import UserInfo from "./pages/UserInfo";
 import Main from "./Main";
 import Mainnext from "./Mainnext";
+import Recommend from "./pages/Recommend";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { path: "userinfo", element: <UserInfo /> },
       { path: "main", element: <Main /> },
       { path: "mainnext", element: <Mainnext /> },
+      { path: "recommend", element: <Recommend /> },
     ],
   },
 ]);

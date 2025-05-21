@@ -37,7 +37,9 @@ const UserInfo = () => {
       <div className="big-box">
         <div className="step-bar">
           <div className="step-progress1"></div> {/* step 1 오렌지바 */}
-          <span className="step-title">STEP 1</span>
+          <span className="step-title">
+            STEP 1. 당신의 정보를 입력해 주세요!
+          </span>
         </div>
 
         <div className="gender-age">
