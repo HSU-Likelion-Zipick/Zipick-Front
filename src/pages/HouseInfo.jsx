@@ -613,9 +613,12 @@ const HouseInfo = () => {
                 </div>
 
                     <div className="size">
-                    <div className="field-container">
-                        <div className="size-title">목적지까지
-                                <span className="suabtitle">(학교, 직장 등)</span></div>
+                        <div className="field-container">
+                            <div className="size-title">목적지까지
+                            <span className="suabtitle">(학교, 직장 등)</span>
+                        </div>
+                                
+                            
                             {errors.walkTimeDestination && <span className="error-message">{errors.walkTimeDestination}</span>}
                             </div>
                 <div className="size-input-group">
