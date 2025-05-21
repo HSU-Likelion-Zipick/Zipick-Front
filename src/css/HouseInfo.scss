@@ -175,6 +175,9 @@
             color: black;
             background: #ffcaba;
           }
+          &:disabled {
+            background: gray;
+          }
         }
       }
     }
@@ -533,9 +536,9 @@
             }
             &:hover,
             &.active {
-              border: 2px solid #ff5927;
-              color: #ff5927;
-              background: #fff7f3;
+              border: none;
+              color: black;
+              background: #ffcaba;
             }
           }
         }
@@ -560,6 +563,7 @@
           gap: 10px;
 
           .size-input {
+            text-align: center;
             width: 100px;
             height: 40px;
             border: 1px solid #ccc; //월수입 박스 테두리
