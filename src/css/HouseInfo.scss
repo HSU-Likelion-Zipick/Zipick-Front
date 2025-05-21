@@ -526,7 +526,11 @@
             font-size: 1rem;
             color: #666;
             cursor: pointer; //커서 올라가면 손모양으로 바뀜
-
+            &:disabled {
+              opacity: 0.5;
+              cursor: not-allowed;
+              background-color: #e0e0e0;
+            }
             &:hover,
             &.active {
               border: 2px solid #ff5927;

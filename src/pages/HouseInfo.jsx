@@ -15,6 +15,41 @@ const HouseInfo = () => {
     const [errors, setErrors] = useState({});
     const [selectedDirection, setSelectedDirection] = useState('');
     const [selectedOptions, setSelectedOptions] = useState([]);
+
+    const [isNoneSelected, setIsNoneSelected] = useState(false);
+
+
+    const handleOptionClick = (option) => {
+        if (option === '없음') {
+            setSelectedOptions(['없음']);
+        } else {
+            setSelectedOptions(prev => {
+                if (prev.includes('없음')) {
+                    return [option];
+                }
+                if (prev.includes(option)) {
+                    return prev.filter(item => item !== option);
+                }
+                return [...prev, option];
+            });
+        }
+    };
+
+    const handleDirectionClick = (direction) => {
+        setSelectedDirection(direction);
+        setFormData(prev => ({
+            ...prev,
+            direction: direction
+        }));
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    }
     
     const [formData, setFormData] = useState({
         houseName: '',
@@ -108,15 +143,25 @@ const HouseInfo = () => {
         }
     };
 
-    const handleUtilityClick = (utiilty) => {
-        setSelectedUtilities(prev => {
-            if (prev.includes(utiilty)) {
-                return prev.filter(item => item !== utiilty)
+    const handleUtilityClick = (utility) => {
+        if (utility === '없음') {
+            setIsNoneSelected(true);
+            setSelectedUtilities(['없음']);
+        } else {
+            if (selectedUtilities.includes('없음')) {
+                setIsNoneSelected(false);
+                setSelectedUtilities([utility]);
             } else {
-                return [...prev, utiilty];
+                setSelectedUtilities(prev => {
+                    if (prev.includes(utility)) {
+                        return prev.filter(item => item !== utility);
+                    } else {
+                        return [...prev, utility];
+                    }
+                });
             }
-        })
-    }
+        }
+    };
 
     const handleButtonClick = (buttonName) => {
         setSelectedButton(buttonName);
@@ -162,10 +207,13 @@ const HouseInfo = () => {
                 <div className="house">
                     <div className="field-container">
                     <div className="house-title">집 명칭</div>
-                    {errors.houseName && <span className="error">{errors.houseType}</span>} </div>
+                    {errors.houseName && <span className="error">{errors.houseName}</span>} </div>
                     <div className="house-input-group">
                         <input
                             type="text"
+                            name="houseName"
+                            value={formData.houseName}
+                            onChange={handleInputChange}
                             className="house-input" />
                        
                         </div>           
@@ -213,7 +261,12 @@ const HouseInfo = () => {
                     </div>
                 <div className="size-input-group">
                     <span>약</span>
-                    <input type="text" className="size-input" />
+                        <input
+                            type="text"
+                            name="size"
+                            value={formData.size}
+                            onChange={handleInputChange}
+                            className="size-input" />
                     <span>만원</span>
                 </div>
                 </div>
@@ -237,7 +290,13 @@ const HouseInfo = () => {
                              <span className="radio-text">전세</span>
                             {rentType === '전세' && (
                                 <div className="input-with-line">
-                                    <input type="text" className="monthly-input"/>
+                                    <input
+                                        type="text"
+                                        name="rentAmount"
+                                        value={formData.rentAmount}
+                                        onChange={handleInputChange}
+                                        className="monthly-input" />
+                
                                     <span className="vertical-line"></span>
                                 </div>
                            )}
@@ -256,9 +315,19 @@ const HouseInfo = () => {
                             {rentType === '월세' && (
                                 <div className="input-with-line">
                                     <span>보증금</span>
-                                    <input type="text" className="monthly-input" />
+                                    <input
+                                        type="text"
+                                        name="deposit"
+                                        value={formData.deposit}
+                                        onChange={handleInputChange}
+                                        className="monthly-input" />
                                     <span> / 월</span>
-                                    <input type="text" className="monthly-input" />
+                                    <input
+                                        type="text"
+                                        name="monthlyRent"
+                                        value={formData.monthlyRent}
+                                        onChange={handleInputChange}
+                                        className="monthly-input" />
                                     <span>만원</span>
                            </div>
                            )}
@@ -274,7 +343,12 @@ const HouseInfo = () => {
                         {errors.maintenanceFee && <span className="error-message">{errors.maintenanceFee}</span>}
                  </div>
                 <div className="size-input-group">
-                    <input type="text" className="size-input" />
+                        <input
+                            type="text"
+                            name="maintenanceFee"
+                            value={formData.maintenanceFee}
+                            onChange={handleInputChange}
+                            className="size-input" />
                     <span>만원</span>
                 </div>
                 </div>
@@ -362,10 +436,19 @@ const HouseInfo = () => {
                         <div className="floor-title">층수</div>
                         {errors.floor && <span className="error-message">{errors.floor}</span>}</div>
                 <div className="floor-input-group">
-                    <input type="text" className="floor-input" />
+                            <input
+                                type="text"
+                                name="totalFloor"
+                                value={formData.totalFloor}
+                                onChange={handleInputChange}
+                                className="floor-input" />
                         <span>층</span>
                         <span>중에</span>
-                        <input type="text" className="floor-input" />
+                            <input type="text"
+                                name="currentFloor"
+                                value={formData.currentFloor}
+                                onChange={handleInputChange}
+                                className="floor-input" />
                         <span>층</span>
                         <span className="vertical-line"></span>
                 </div>
@@ -413,11 +496,23 @@ const HouseInfo = () => {
                             {errors.direction && <span className="error-message">{errors.direction}</span>}
                             </div>
                 <div className="type-btns">
-                    <button className="type-btn">동향</button>
-                    <button className="type-btn">서향</button>
-                    <button className="type-btn">남향</button>
-                    <button className="type-btn">북향</button>
-                    </div>
+    <button
+        className={`type-btn ${selectedDirection === '동향' ? 'active' : ''}`}
+        onClick={() => handleDirectionClick('동향')}
+    >동향</button>
+    <button
+        className={`type-btn ${selectedDirection === '서향' ? 'active' : ''}`}
+        onClick={() => handleDirectionClick('서향')}
+    >서향</button>
+    <button
+        className={`type-btn ${selectedDirection === '남향' ? 'active' : ''}`}
+        onClick={() => handleDirectionClick('남향')}
+    >남향</button>
+    <button
+        className={`type-btn ${selectedDirection === '북향' ? 'active' : ''}`}
+        onClick={() => handleDirectionClick('북향')}
+    >북향</button>
+</div>
                     </div>
                     
                     <div className="size">
@@ -426,7 +521,12 @@ const HouseInfo = () => {
                             {errors.constructionDate && <span className="error-message">{errors.constructionDate}</span>}
                             </div>
                 <div className="size-input-group">
-                    <input type="text" className="size-input" />
+                            <input
+                                type="text"
+                                name="constructionDate"
+                                value={formData.constructionDate}
+                                onChange={handleInputChange}
+                                className="size-input" />
                 </div>
                 </div>
                 
@@ -435,21 +535,57 @@ const HouseInfo = () => {
                 <div className="house-type">
                 <div className="field-container">
                     <div className="type-title">옵션</div>
-                        {errors.options && <span className="error-message">{errors.options}</span>}
-                        </div>
+                        <span className="error-message">포함되는 항목을 모두 선택해주세요</span>
+                    </div>
                 <div className="type-btns">
-                    <button className="type-btn">싱크대</button>
-                    <button className="type-btn">에어컨</button>
-                    <button className="type-btn">신발장</button>
-                    <button className="type-btn">세탁기</button>
-                    <button className="type-btn">서랍장</button>
-                    <button className="type-btn">냉장고</button>
-                    <button className="type-btn">옷장</button>
-                    <button className="type-btn">인덕션</button>
-                    <button className="type-btn">책상</button>
-                    <button className="type-btn">침대</button>
-                    <button className="type-btn">책장</button>
-                     <button className="type-btn">없음</button>
+                <button 
+        className={`type-btn ${selectedOptions.includes('싱크대') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('싱크대')} disabled={isNoneSelected}
+                        >싱크대</button>
+                    <button 
+        className={`type-btn ${selectedOptions.includes('에어컨') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('에어컨')} disabled={isNoneSelected}
+                        >에어컨</button>
+                    <button 
+        className={`type-btn ${selectedOptions.includes('신발장') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('신발장')} disabled={isNoneSelected}
+                        >신발장</button>
+                    <button 
+        className={`type-btn ${selectedOptions.includes('세탁기') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('세탁기')} disabled={isNoneSelected}
+                        >세탁기</button>
+                    <button 
+        className={`type-btn ${selectedOptions.includes('서랍장') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('서랍장')} disabled={isNoneSelected}
+                        >서랍장</button>
+                    <button 
+        className={`type-btn ${selectedOptions.includes('냉장고') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('냉장고')} disabled={isNoneSelected}
+                        >냉장고</button>
+                    <button 
+        className={`type-btn ${selectedOptions.includes('옷장') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('옷장')} disabled={isNoneSelected}
+                        >옷장</button>
+                    <button 
+        className={`type-btn ${selectedOptions.includes('인덕션') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('인덕션')} disabled={isNoneSelected}
+                        >인덕션</button>
+                    <button 
+        className={`type-btn ${selectedOptions.includes('책상') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('책상')} disabled={isNoneSelected}
+                        >책상</button>
+                    <button 
+        className={`type-btn ${selectedOptions.includes('침대') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('침대')} disabled={isNoneSelected}
+                        >침대</button>
+                    <button 
+        className={`type-btn ${selectedOptions.includes('책장') ? 'active' : ''}`}
+        onClick={() => handleOptionClick('책장')} disabled={isNoneSelected}
+                        >책장</button>
+                        <button 
+        className={`type-btn ${selectedOptions.includes('없음') ? 'active' : ''}`}
+                            onClick={() => handleOptionClick('없음')}
+                        >없음</button>
 
                 </div>
             </div>
@@ -464,7 +600,12 @@ const HouseInfo = () => {
                             </div>
                 <div className="size-input-group">
                     <span>도보</span>
-                    <input type="text" className="size-input" />
+                            <input
+                                type="text"
+                                name="walkTimeStation"
+                                value={formData.walkTimeStation}
+                                onChange={handleInputChange}
+                                className="size-input" />
                             <span>분</span>
                             <span className="vertical-line"></span>
                         </div>
@@ -479,7 +620,12 @@ const HouseInfo = () => {
                             </div>
                 <div className="size-input-group">
                     <span>도보</span>
-                    <input type="text" className="size-input" />
+                            <input
+                                type="text"
+                                name="walkTimeDestination"
+                                value={formData.walkTimeDestination}
+                                onChange={handleInputChange}
+                                className="size-input" />
                     <span>분</span>
                 </div>
                 </div>
