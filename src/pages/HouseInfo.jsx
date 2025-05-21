@@ -9,6 +9,24 @@ const HouseInfo = () => {
     const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
     const [parkingType, setParkingType] = useState(""); //주차 가능 여부 상태 관리
     const [elevatorType, setElevatorType] = useState(""); //엘리베이터 여부 상태 관리
+    const [selectedButton, setSelectedButton] = useState(null); // 버튼 클릭 여부 관리
+    const[selectedUtilities, setSelectedUtilities] = useState([]);
+
+    const handleUtilityClick = (utiilty) => {
+        setSelectedUtilities(prev => {
+            if (prev.includes(utiilty)) {
+                return prev.filter(item => item !== utiilty)
+            } else {
+                return [...prev, utiilty];
+            }
+        })
+    }
+
+    const handleButtonClick = (buttonName) => {
+        setSelectedButton(buttonName);
+    }
+
+
     const navigate = useNavigate();
 
     const handleUserInfo = () => {
@@ -56,11 +74,31 @@ const HouseInfo = () => {
                 <div className="house-type">
                 <div className="type-title">집종류</div>
                 <div className="type-btns">
-                    <button className="type-btn">원룸</button>
-                    <button className="type-btn">빌라/투룸</button>
-                    <button className="type-btn">상가</button>
-                    <button className="type-btn">아파트</button>
-                    <button className="type-btn">오피스텔</button>
+                        <button
+                            className={`type-btn ${selectedButton === '원룸' ? 'active' : ''}`}
+                            onClick={() => handleButtonClick('원룸')}
+                        >
+                            원룸</button>
+                            <button
+                            className={`type-btn ${selectedButton === '빌라/투룸' ? 'active' : ''}`}
+                            onClick={() => handleButtonClick('빌라/투룸')}
+                        >
+                            빌라/투룸</button>
+                            <button
+                            className={`type-btn ${selectedButton === '상가' ? 'active' : ''}`}
+                            onClick={() => handleButtonClick('상가')}
+                        >
+                            상가</button>
+                            <button
+                            className={`type-btn ${selectedButton === '아파트' ? 'active' : ''}`}
+                            onClick={() => handleButtonClick('아파트')}
+                        >
+                            아파트</button>
+                            <button
+                            className={`type-btn ${selectedButton === '오피스텔' ? 'active' : ''}`}
+                            onClick={() => handleButtonClick('오피스텔')}
+                        >
+                            오피스텔</button>
                 </div>
             </div>
 
@@ -131,14 +169,40 @@ const HouseInfo = () => {
                 <div className="house-type">
                 <div className="type-title">관리비 포함</div>
                 <div className="type-btns">
-                    <button className="type-btn">수도료</button>
-                    <button className="type-btn">난방비</button>
-                    <button className="type-btn">전기료</button>
-                    <button className="type-btn">일반(공용)관리비</button>
-                    <button className="type-btn">가스사용료</button>
-                    <button className="type-btn">TV사용료</button>
-                    <button className="type-btn">기타관리비</button>
-                    <button className="type-btn">인터넷사용료</button>
+                <button 
+        className={`type-btn ${selectedUtilities.includes('수도료') ? 'active' : ''}`}
+        onClick={() => handleUtilityClick('수도료')}
+                        >
+                            수도료</button>
+                            <button 
+        className={`type-btn ${selectedUtilities.includes('난방비') ? 'active' : ''}`}
+        onClick={() => handleUtilityClick('난방비')}
+                        >난방비</button>
+                        
+                        <button 
+            className={`type-btn ${selectedUtilities.includes('전기료') ? 'active' : ''}`}
+            onClick={() => handleUtilityClick('전기료')}
+        >전기료</button>
+                    <button 
+            className={`type-btn ${selectedUtilities.includes('일반 관리비') ? 'active' : ''}`}
+            onClick={() => handleUtilityClick('일반 관리비')}
+        >일반(공용)관리비</button>
+                    <button 
+            className={`type-btn ${selectedUtilities.includes('가스사용료') ? 'active' : ''}`}
+            onClick={() => handleUtilityClick('가스사용료')}
+        >가스사용료</button>
+                    <button 
+            className={`type-btn ${selectedUtilities.includes('TV사용료') ? 'active' : ''}`}
+            onClick={() => handleUtilityClick('TV사용료')}
+        >TV사용료</button>
+                    <button 
+            className={`type-btn ${selectedUtilities.includes('기타관리비') ? 'active' : ''}`}
+            onClick={() => handleUtilityClick('기타관리비')}
+        >기타관리비</button>
+                   <button 
+            className={`type-btn ${selectedUtilities.includes('인터넷사용료') ? 'active' : ''}`}
+            onClick={() => handleUtilityClick('인터넷사용료')}
+        >인터넷사용료</button>
 
                 </div>
             </div>
