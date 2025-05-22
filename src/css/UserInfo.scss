@@ -42,6 +42,7 @@
     display: flex;
     align-items: center;
 
+
     .step-progress1 {
       position: absolute; //부모(위에 relative) 기준으로 위치를 잡기 위한 것: 자유로움움
       left: 0;
@@ -178,20 +179,18 @@
       margin-bottom: 12px;
       margin-top: 40px;
       margin-left: 10px;
-    }
 
+    }
     .monthly-input-group {
       display: flex;
       align-items: center;
       gap: 8px;
-
       span {
         //"약" 이랑 "만원" 글자 설정정
         margin-left: 10px;
         color: #888;
         font-size: 1rem;
       }
-
       .monthly-input {
         width: 220px;
         height: 40px;
@@ -204,7 +203,6 @@
   .fund {
     display: flex;
     flex-direction: column;
-
     .fund-title {
       font-weight: bold;
       font-size: 1.1rem;
@@ -212,19 +210,16 @@
       margin-top: 40px;
       margin-left: 10px;
     }
-
     .fund-input-group {
       display: flex;
       align-items: center;
       gap: 8px;
-
       span {
         //"약" 이랑 "만원" 글자 설정정
         margin-left: 10px;
         color: #888;
         font-size: 1rem;
       }
-
       .fund-input {
         width: 220px;
         height: 40px;

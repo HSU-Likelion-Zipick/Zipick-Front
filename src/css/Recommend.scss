@@ -1,0 +1,23 @@
+.top-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 45px; //맨 위에서부터 img 머리 부분까지 거리리
+
+  img {
+    width: 121px;
+    height: 24px;
+    margin-bottom: 23px;
+  }
+}
+
+.right-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+
+  .yourinfo {
+    color: #ff5927;
+  }
+}

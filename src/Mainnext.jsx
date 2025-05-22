@@ -19,20 +19,18 @@ const Main = () => {
           당신이 궁금해요
         </div>
         <div className="input-wrap">
-          <div className="input-label">불러드릴 이름을 알려주세요!</div>
-          <input
-            className="input-box"
-            type="text"
-            placeholder=""
-            value={nickname}
-            onChange={(e) => setNickname(e.target.value)}
-          />
+          <div className="input-label">
+            이제부터 '마스코트'가 "{nickname}"님에게 <br />
+            꼭맞는 집을 골라줄 거예요
+            <br /> <br />
+            <span className="askquestion">
+              꼭 맞는 집을 위해 몇가지 질문을 해볼게요.
+            </span>
+          </div>
         </div>
 
         {/*이름 입력이 안되면 버튼 활성화 안됌 */}
-        <button className="next-button" disabled={!nickname}>
-          다음으로
-        </button>
+        <button className="next-button">다음으로</button>
       </div>
     </div>
   );
