@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ZIPPICK from "../assets/ZIPPICK.png";
-import "../css/UserInfo.scss";
+import "../css/Recommend.scss";
 
 const UserInfo = () => {
   return (
@@ -10,13 +10,15 @@ const UserInfo = () => {
         {/* ZIPPICK 이미지 */}
         <img src={ZIPPICK} alt="ZIPPICK" />
       </div>
-      <div className="top-text">
+      <div className="right-text">
         {/* ZIPPICK 이미지 밑 글씨씨 */}
         <h3>
-          <span className="yourinfo">&nbsp;'PICK'</span>가 필요해요!
+          <span className="yourinfo">&nbsp;'PICK씨 '</span>는
           <br />
-          &nbsp; &nbsp; &nbsp;꼭 맞는 집을 찾기 전
+          이렇게 생각해요
         </h3>
+        <br />
+        <span className="checknow">지금 확인해보세요!</span>
       </div>
 
       {/* big-box 닫는div */}
