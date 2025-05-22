@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import ZIPPICK from "../assets/ZIPPICK.png";
 import "../css/UserInfo.scss";
+import { useNavigate } from 'react-router-dom';
 
 const UserInfo = () => {
+
+    const navigate = useNavigate();
+
+    const handleHouseInf = () => {
+        navigate('/houseinfo');
+    }
+
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
   const [job, setJob] = useState("");
@@ -19,6 +27,7 @@ const UserInfo = () => {
     fund &&
     transportation &&
     livingPattern;
+
 
   return (
     <div className="top">
@@ -227,7 +236,7 @@ const UserInfo = () => {
         {/* 생활 패턴 부분 마감 */}
       </div>
       {/* big-box 닫는div */}
-      <button className="next-button">다음으로</button>
+      <button className="next-button" onClick={handleHouseInf}>다음으로</button>
     </div>
   );
 };
