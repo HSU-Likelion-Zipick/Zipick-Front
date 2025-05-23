@@ -1,29 +1,32 @@
 .recommend-wrapper {
   font-family: "Noto Sans KR", sans-serif;
   padding: 40px;
-  position: relative;
+  //position: relative; 필요없는 코드드
+  display: flex;
+  flex-direction: column;
+  width: 100vw; // 이 3개 사용해야 밑에서 조절하기 편함함
 
   //상단 유저 이름, 로고, 마스코트
   .top-bar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    width: 100vw;
+    justify-content: center;
 
     .top-left {
       font-size: 14px;
       color: #333;
-      margin-left: 230px;
+     // margin-left: 230px; 
+     position:absolute;
+     left:10vw //이거 가지고 위치 조절 가능능
     }
 
     .top-logo img {
       width: 100px;
-      margin-left: -206px; //상단 로고
+      //margin-left: -206px; //상단 로고
     }
 
-    .top-right img {
-      width: 60px;
-    }
   }
 
   //소개 텍스트 + 추천 카드 + 마스코트

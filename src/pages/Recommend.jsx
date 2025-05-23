@@ -2,9 +2,8 @@ import React from "react";
 import ZIPPICK from "../assets/ZIPPICK.png";
 import PlusHome from "../assets/plushome.png";
 import HiMascot from "../assets/himascot.png";
-// *** 제가 수정한 Recommend.test.scss 파일로 임시 적용해뒀으니까 확인해보고 추후 수정해주세요. *****
-// import "../css/Recommend.scss";
-import "../css/Recommend.test.scss";
+import "../css/Recommend.scss";
+
 
 const Recommend = () => {
   return (
@@ -15,9 +14,6 @@ const Recommend = () => {
         <div className="top-logo">
           <img src={ZIPPICK} alt="ZIPPICK 로고" />
         </div>
-        {/* 현재 top-right 내부에 내용이 없어서 css요소가 적용이 안돼요.
-        있어도 의미 없는 부분이라 주석 처리했습니다. */}
-        {/* <div className="top-right"></div> */}
       </div>
 
       {/* 상단 영역 */}
@@ -42,9 +38,9 @@ const Recommend = () => {
               <br />
               8㎡
               <br />
-              월세 800000원
+              월세 8000만원
               <br />
-              관리비 70000원
+              관리비 70만원 
             </p>
           </div>
           <div className="card">
@@ -55,9 +51,9 @@ const Recommend = () => {
               <br />
               8㎡
               <br />
-              월세 800000원
+              월세 8000만원
               <br />
-              관리비 70000원
+              관리비 70만원 
             </p>
           </div>
           {/* 동대문 자취방 카드 - 마스코트가 위에 뜨게 */}
@@ -72,9 +68,9 @@ const Recommend = () => {
               <br />
               8㎡
               <br />
-              월세 800000원
+              월세 8000만원
               <br />
-              관리비 70000원
+              관리비 70만원 
             </p>
           </div>
         </div>
@@ -105,9 +101,9 @@ const Recommend = () => {
             <br />
             8㎡
             <br />
-            월세 800000원
-            <br />
-            관리비 70000원
+            월세 8000만원
+              <br />
+              관리비 70만원 
           </p>
         </div>
         <div className="card">
@@ -118,9 +114,9 @@ const Recommend = () => {
             <br />
             8㎡
             <br />
-            월세 800000원
-            <br />
-            관리비 70000원
+            월세 8000만원
+              <br />
+              관리비 70만원 
           </p>
         </div>
         <div className="card">
@@ -131,9 +127,9 @@ const Recommend = () => {
             <br />
             8㎡
             <br />
-            월세 800000원
-            <br />
-            관리비 70000원
+            월세 8000만원
+              <br />
+              관리비 70만원 
           </p>
         </div>
       </div>
