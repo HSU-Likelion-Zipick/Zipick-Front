@@ -1,11 +1,21 @@
 import React from "react";
+import ZIPPICK from "../assets/ZIPPICK.png";
 import PlusHome from "../assets/plushome.png";
-import HiMascot from "../assets/himascot.png";
+import HiMascot from "../assets/himascot.png"; // 마스코트 이미지
 import "../css/Recommend.scss";
 
 const Recommend = () => {
   return (
     <div className="recommend-wrapper">
+      {/* 상단 로고/닉네임 바 */}
+      <div className="top-bar">
+        <div className="top-left">아기사자 (님)</div>
+        <div className="top-logo">
+          <img src={ZIPPICK} alt="ZIPPICK 로고" />
+        </div>
+        <div className="top-right"></div>
+      </div>
+
       {/* 상단 영역 */}
       <div className="top">
         {/* 좌측 텍스트 영역 */}
@@ -18,7 +28,7 @@ const Recommend = () => {
           <span className="checknow">지금 확인해보세요!</span>
         </div>
 
-        {/* 추천 카드들 (전부 동일한 이름으로) */}
+        {/* 추천 카드들 */}
         <div className="recommend-cards">
           <div className="card highlight">
             <img src={PlusHome} alt="아이콘" className="card-icon" />
@@ -46,8 +56,8 @@ const Recommend = () => {
               관리비 70000원
             </p>
           </div>
+          {/* 동대문 자취방 카드 - 마스코트가 위에 뜨게 */}
           <div className="card mascot-card">
-            {/* 마스코트 이미지를 카드 위에 배치 */}
             <div className="mascot-above">
               <img src={HiMascot} alt="마스코트" />
             </div>
@@ -81,7 +91,7 @@ const Recommend = () => {
         나와 비슷한 사람들은 이렇게 <span>추천받았어요!</span>
       </div>
 
-      {/* 하단 추천 카드들도 이름 동일하게! */}
+      {/* 하단 추천 카드 */}
       <div className="recommend-others">
         <div className="card">
           <img src={PlusHome} alt="아이콘" className="card-icon" />
@@ -124,8 +134,8 @@ const Recommend = () => {
         </div>
       </div>
 
-      {/* CTA 버튼 */}
-      <div className="cta">
+      {/* 하단 버튼튼*/}
+      <div className="thx">
         <button>고마워!</button>
       </div>
     </div>
