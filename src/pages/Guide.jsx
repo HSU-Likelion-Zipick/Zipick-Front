@@ -1,8 +1,9 @@
 import React from 'react'
+import "../css/Guide.scss";
 
 const Guide = () => {
   return (
-    <div>
+    <div className="guide">
       
     </div>
   )

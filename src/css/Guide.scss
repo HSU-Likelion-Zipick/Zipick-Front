@@ -1,0 +1,10 @@
+.guide {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 245, 235, 0.5) 0%,
+    rgba(255, 181, 128, 0.5) 100%
+  );
+}

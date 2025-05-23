@@ -26,7 +26,7 @@ const Home = () => {
         <p className="Zipick">" ZIPICK "  </p>
         <span className="help"> 이 도와줄게요!</span>
       </div>
-      <button className="next-button" onClick={handleNextHome}>다음으로</button>
+      <button className="next-button" onClick={handleNextHome}>zipick이 뭔데?</button>
     </div>
   )
 }
