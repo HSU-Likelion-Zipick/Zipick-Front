@@ -9,6 +9,7 @@ import UserInfo from "./pages/UserInfo";
 import Main from "./Main";
 import Mainnext from "./Mainnext";
 import Recommend from "./pages/Recommend";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
 
     children: [
       { path: "/", element: <Navigate to="/userinfo" replace /> },
+      { path: "home", element: <Home /> },
       { path: "userinfo", element: <UserInfo /> },
       {path: "houseinfo", element: <HouseInfo />}, 
       { path: "main", element: <Main /> },
