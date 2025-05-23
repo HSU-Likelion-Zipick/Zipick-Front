@@ -26,3 +26,23 @@
     }
   }
 }
+.home-content1 {
+  display: flex;
+  color: #959595;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 500;
+}
+
+.home-content2 {
+  display: flex;
+  font-size: 34px;
+  margin-top: 50px;
+  font-weight: 600;
+  justify-content: center;
+  .Zipick {
+    color: #ff5927;
+  }
+}
