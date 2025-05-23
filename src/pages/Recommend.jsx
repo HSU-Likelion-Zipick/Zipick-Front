@@ -1,7 +1,7 @@
 import React from "react";
 import ZIPPICK from "../assets/ZIPPICK.png";
 import PlusHome from "../assets/plushome.png";
-import HiMascot from "../assets/himascot.png"; // 마스코트 이미지
+import HiMascot from "../assets/himascot.png";
 import "../css/Recommend.scss";
 
 const Recommend = () => {
