@@ -13,10 +13,47 @@
     justify-content: left;
     font-size: 34px;
     font-weight: 600;
-    margin-top: 90px;
+    margin-top: 70px;
     margin-left: 181px;
+    margin-bottom: 50px;
     .zip {
       color: #ff5927;
+    }
+  }
+
+  .guidebox {
+    display: flex;
+    flex-wrap: wrap; // 공간 부족시 줄 바꿈
+    justify-content: left;
+    justify-items: center;
+
+    .box1 {
+      text-align: center;
+      color: white;
+      width: 600px;
+      height: 300px;
+      border-radius: 25.251px;
+      margin-left: 181px;
+      background: linear-gradient(180deg, #ff5927 0%, #fff5eb 100%);
+
+      .content {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        margin-top: 40px;
+      }
+      .subcontent {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        margin-top: 20px;
+      }
+      .guide1 {
+        width: 560px;
+        height: 170px;
+        flex-shrink: 0;
+        aspect-ratio: 564/209;
+      }
     }
   }
 }

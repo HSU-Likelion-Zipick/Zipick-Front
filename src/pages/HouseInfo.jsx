@@ -296,6 +296,7 @@ const HouseInfo = () => {
                                         value={formData.rentAmount}
                                         onChange={handleInputChange}
                                         className="monthly-input" />
+                                        <span>만원</span>
                 
                                     <span className="vertical-line"></span>
                                 </div>
