@@ -3,7 +3,7 @@
   padding: 40px;
   position: relative;
 
-  // 1. 상단 유저 이름, 로고, 마스코트
+  //상단 유저 이름, 로고, 마스코트
   .top-bar {
     display: flex;
     justify-content: space-between;
@@ -26,10 +26,10 @@
     }
   }
 
-  // 2. 소개 텍스트 + 추천 카드 + 마스코트
+  //소개 텍스트 + 추천 카드 + 마스코트
   .top {
     display: flex;
-    justify-content: center; // 중앙 배치
+    justify-content: center;
     align-items: flex-start;
     gap: 60px;
     margin-bottom: 60px;
@@ -105,12 +105,12 @@
           }
         }
 
-        // 동대문 자취방 카드에만 마스코트 겹치게
+        //동대문 자취방 카드에만 마스코트 겹치게
         &.mascot-card {
           position: relative;
           .mascot-above {
             position: absolute;
-            top: -84px; // 카드 위로 절반 정도 겹치도록 조절
+            top: -84px; //카드 위로 절반 정도 겹치도록 조절
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
@@ -124,7 +124,7 @@
     }
   }
 
-  // 3. TIP 배너 영역
+  //TIP 배너 영역
   .tip-section {
     background-color: #ff5927;
     color: white;
@@ -155,7 +155,7 @@
     }
   }
 
-  // 4. 하단 추천 안내 텍스트
+  //하단 추천 안내 텍스트
   .others-title {
     text-align: center;
     font-size: 18px;
@@ -168,7 +168,7 @@
     }
   }
 
-  // 5. 하단 추천 카드들
+  //하단 추천 카드들
   .recommend-others {
     display: flex;
     justify-content: center;
@@ -206,7 +206,7 @@
     }
   }
 
-  // 6. 하단 thx 버튼
+  //하단 thx 버튼
   .thx {
     display: flex;
     justify-content: center;
