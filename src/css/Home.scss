@@ -1,9 +1,28 @@
 .home {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   background: linear-gradient(
     180deg,
     rgba(255, 245, 235, 0.5) 0%,
     rgba(255, 181, 128, 0.5) 100%
   );
+  .bubbles {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+    margin-top: 70px;
+    .bubble1 {
+      width: 315px;
+      height: 121px;
+      margin-left: 250px;
+    }
+    .bubble2 {
+      width: 315px;
+      height: 121px;
+      margin-right: 300px;
+      margin-top: -40px;
+    }
+  }
 }
