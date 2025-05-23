@@ -2,7 +2,9 @@ import React from "react";
 import ZIPPICK from "../assets/ZIPPICK.png";
 import PlusHome from "../assets/plushome.png";
 import HiMascot from "../assets/himascot.png";
-import "../css/Recommend.scss";
+// *** 제가 수정한 Recommend.test.scss 파일로 임시 적용해뒀으니까 확인해보고 추후 수정해주세요. *****
+// import "../css/Recommend.scss";
+import "../css/Recommend.test.scss";
 
 const Recommend = () => {
   return (
@@ -13,7 +15,9 @@ const Recommend = () => {
         <div className="top-logo">
           <img src={ZIPPICK} alt="ZIPPICK 로고" />
         </div>
-        <div className="top-right"></div>
+        {/* 현재 top-right 내부에 내용이 없어서 css요소가 적용이 안돼요.
+        있어도 의미 없는 부분이라 주석 처리했습니다. */}
+        {/* <div className="top-right"></div> */}
       </div>
 
       {/* 상단 영역 */}
