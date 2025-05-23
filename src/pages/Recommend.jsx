@@ -1,5 +1,6 @@
 import React from "react";
-import ZIPPICK from "../assets/ZIPPICK.png";
+import PlusHome from "../assets/plushome.png";
+import HiMascot from "../assets/himascot.png";
 import "../css/Recommend.scss";
 
 const Recommend = () => {
@@ -7,13 +8,8 @@ const Recommend = () => {
     <div className="recommend-wrapper">
       {/* 상단 영역 */}
       <div className="top">
-        {/* 밑에 div 들의 대빵 설정 */}
-        <div className="top-image">
-          {/* ZIPPICK 이미지 */}
-          <img src={ZIPPICK} alt="ZIPPICK" />
-        </div>
+        {/* 좌측 텍스트 영역 */}
         <div className="left-text">
-          {/* ZIPPICK 이미지 밑 글씨씨 */}
           <h3>
             <span className="yourinfo">&nbsp;'PICK씨 '</span>는<br />
             이렇게 생각해요
@@ -21,50 +17,56 @@ const Recommend = () => {
           <br />
           <span className="checknow">지금 확인해보세요!</span>
         </div>
-        {/* big-box 닫는div */}
+
+        {/* 추천 카드들 (전부 동일한 이름으로) */}
+        <div className="recommend-cards">
+          <div className="card highlight">
+            <img src={PlusHome} alt="아이콘" className="card-icon" />
+            <h4>✨ 한성대 입구 자취방 ✨</h4>
+            <p>
+              원룸
+              <br />
+              8㎡
+              <br />
+              월세 800000원
+              <br />
+              관리비 70000원
+            </p>
+          </div>
+          <div className="card">
+            <img src={PlusHome} alt="아이콘" className="card-icon" />
+            <h4>성신여대 빌라</h4>
+            <p>
+              빌라
+              <br />
+              8㎡
+              <br />
+              월세 800000원
+              <br />
+              관리비 70000원
+            </p>
+          </div>
+          <div className="card mascot-card">
+            {/* 마스코트 이미지를 카드 위에 배치 */}
+            <div className="mascot-above">
+              <img src={HiMascot} alt="마스코트" />
+            </div>
+            <img src={PlusHome} alt="아이콘" className="card-icon" />
+            <h4>동대문 자취방</h4>
+            <p>
+              원룸
+              <br />
+              8㎡
+              <br />
+              월세 800000원
+              <br />
+              관리비 70000원
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* 추천 결과 카드들 */}
-      <div className="recommend-cards">
-        <div className="card highlight">
-          <h4>✨ 한성대 입구 자취방 ✨</h4>
-          <p>
-            원룸
-            <br />
-            8㎡
-            <br />
-            월세 8000만원
-            <br />
-            관리비 70만원
-          </p>
-        </div>
-        <div className="card">
-          <h4>성신여대 빌라</h4>
-          <p>
-            빌라
-            <br />
-            8㎡
-            <br />
-            월세 8000만원
-            <br />
-            관리비 70만원
-          </p>
-        </div>
-        <div className="card">
-          <h4>둥대문 자취방</h4>
-          <p>
-            원룸
-            <br />
-            8㎡
-            <br />
-            월세 8000만원
-            <br />
-            관리비 70만원
-          </p>
-        </div>
-      </div>
-
-      {/* 알아보럭 가기 버튼 있는 세션 */}
+      {/* TIP 배너 */}
       <div className="tip-section">
         <p>
           ‘PICK씨’가 알려주는 쾌적한 자취방 고르는 TIP
@@ -74,49 +76,57 @@ const Recommend = () => {
         <button>알아보러 가기 →</button>
       </div>
 
-      {/* 하단 부분  */}
+      {/* 하단 텍스트 */}
       <div className="others-title">
         나와 비슷한 사람들은 이렇게 <span>추천받았어요!</span>
       </div>
 
-      {/* 하단 추천 결과 카드들 */}
+      {/* 하단 추천 카드들도 이름 동일하게! */}
       <div className="recommend-others">
         <div className="card">
+          <img src={PlusHome} alt="아이콘" className="card-icon" />
           <h4>✨ 한성대 입구 자취방 ✨</h4>
           <p>
             원룸
             <br />
             8㎡
             <br />
-            월세 8000만원
+            월세 800000원
             <br />
-            관리비 70만원
+            관리비 70000원
           </p>
         </div>
         <div className="card">
+          <img src={PlusHome} alt="아이콘" className="card-icon" />
           <h4>성신여대 빌라</h4>
           <p>
             빌라
             <br />
             8㎡
             <br />
-            월세 8000만원
+            월세 800000원
             <br />
-            관리비 70만원
+            관리비 70000원
           </p>
         </div>
         <div className="card">
+          <img src={PlusHome} alt="아이콘" className="card-icon" />
           <h4>동대문 자취방</h4>
           <p>
             원룸
             <br />
             8㎡
             <br />
-            월세 8000만원
+            월세 800000원
             <br />
-            관리비 70만원
+            관리비 70000원
           </p>
         </div>
+      </div>
+
+      {/* CTA 버튼 */}
+      <div className="cta">
+        <button>고마워!</button>
       </div>
     </div>
   );
