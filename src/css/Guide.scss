@@ -119,8 +119,8 @@
         background: #ffcaba;
 
         .guidemascot {
-          width: 150px;
-          height: 150px;
+          width: 160px;
+          height: 160px;
           flex-shrink: 0;
           align-items: center;
         }
@@ -169,22 +169,23 @@
       flex-direction: column;
       align-items: flex-start;
       align-self: flex-start;
-      margin-top: 360px;
+      margin-top: 320px;
       .zip {
-        font-size: 20px;
+        font-size: 30px;
         font-weight: 600;
         color: #ff5927;
       }
 
       .use {
-        font-size: 20px;
+        font-size: 30px;
         font-weight: 600;
         margin-top: 5px;
+        margin-bottom: 20px;
       }
 
       .help-button {
         width: 100%;
-        max-width: 200px;
+        max-width: 250px;
         margin-top: 20px;
         height: 48px;
         border: none;
