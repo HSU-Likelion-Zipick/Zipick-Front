@@ -5,7 +5,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-
   backdrop-filter: blur(6px); //뒷배경 흐림 효과
   display: flex;
   align-items: center;
@@ -17,32 +16,48 @@
   background-color: white;
   border-radius: 20px;
   padding: 40px;
-  width: 420px;
+  width: 500px;
+  height: 300px;
   text-align: center;
+  justify-content: center;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); // 살짝 그림자 효과
 }
-// 마스코트 이미지 스타일
-.guidemascot {
-  width: 100px;
-  margin-bottom: 20px;
-}
-.modal-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-// 서브 메시지 (작은 설명 텍스트)
-.modal-subtitle {
-  font-size: 15px;
-  color: #333;
-  margin-bottom: 30px;
-}
+
+.content {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  // 마스코트 이미지 스타일
+  .guidemascot {
+    justify-content: center;
+    width: 150px;
+  }
+  .titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .modal-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    // 서브 메시지 (작은 설명 텍스트)
+    .modal-subtitle {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+  } //titles div
+} //content div
+
 .modal-buttons {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 20px;
 
   .no-button {
+    min-width: 120px; // 최소 너비 지정
     background-color: white;
     color: #ff5927;
     border: 2px solid #ff5927;
@@ -59,6 +74,7 @@
 
   // "네" 버튼: 배경이 채워진 스타일
   .yes-button {
+    min-width: 120px; // 최소 너비 지정
     background-color: #ff5927;
     color: white;
     border: none;
