@@ -13,6 +13,9 @@ const Guide = () => {
               <span className='use'> 이렇게 이용해요!</span>
           </div>
           
+
+          <div className='guide-content'>
+              <div className='left-section'>
           <div className='guidebox'>
               <div className='box1'>
                   <p className='content'>1. 나에 대해 알려줘요!</p>
@@ -54,7 +57,17 @@ const Guide = () => {
                       
               </div> {/*box2 닫는 div */}
           
-              </div> {/*underbox 닫는 div */}
+                  </div> {/*underbox 닫는 div */}
+                  
+                  </div> {/*left-section 닫는 div */}
+
+             <div className='help'>
+             <p className='zip'>" ZIPICK " 의</p> 
+              <p className='use'> 도움이 필요한가요?</p>
+              <button className="help-button" >도와줘!</button>
+          </div>
+          
+          </div> {/*guide-content 닫는 div */}
 
 
 
