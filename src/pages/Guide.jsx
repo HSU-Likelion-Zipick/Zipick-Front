@@ -1,10 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import "../css/Guide.scss";
 import guide1 from "../assets/guide1.png";
 import guidemascot from "../assets/guidemascot.png";
 import guide2 from "../assets/guide2.png";
 import guide3 from "../assets/guide3.png";
+
 const Guide = () => {
+
+    const navigate = useNavigate();
+    const handleToMain = () => {
+      navigate('/main'); 
+    }
+    
   return (
       <div className="guide">
        
@@ -58,13 +66,13 @@ const Guide = () => {
               </div> {/*box2 닫는 div */}
           
                   </div> {/*underbox 닫는 div */}
-                  
+
                   </div> {/*left-section 닫는 div */}
 
              <div className='help'>
              <p className='zip'>" ZIPICK " 의</p> 
               <p className='use'> 도움이 필요한가요?</p>
-              <button className="help-button" >도와줘!</button>
+              <button className="help-button" onClick={handleToMain}>도와줘!</button>
           </div>
           
           </div> {/*guide-content 닫는 div */}
