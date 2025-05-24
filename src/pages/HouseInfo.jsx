@@ -334,6 +334,9 @@ const HouseInfo = () => {
                     <div className="field-container">
                         <div className="monthly-title">전월세</div>
                         {errors.rentType && <span className="error-message">{errors.rentType}</span>}
+                        {errors.rentAmount && <span className="error-message">{errors.rentAmount}</span>}
+                        {errors.deposit && <span className="error-message">{errors.deposit}</span>}
+                        {errors.monthlyRent && <span className="error-message">{errors.monthlyRent}</span>}
                     </div>
                     <div className="radio-group">
                         <label className="radio-label">
@@ -415,6 +418,7 @@ const HouseInfo = () => {
                     <div className="field-container">
                         <div className="type-title">관리비 포함</div>
                         <span className="error-message">포함되는 항목을 모두 선택해주세요</span>
+                        {errors.utilities && <span className="error-message">{errors.utilities}</span>}
                     </div>
                     <div className="field-container">
                         <div className="type-btns">
@@ -492,6 +496,7 @@ const HouseInfo = () => {
                     <div className="floor">
                         <div className="field-container">
                             <div className="floor-title">층수</div>
+                            <span className="error-message">(반지하는 -1/ 4층, 건물의 옥상의 경우 5/4로 입력)</span>
                             {errors.floor && <span className="error-message">{errors.floor}</span>}</div>
                         <div className="floor-input-group">
                             <input
@@ -596,6 +601,8 @@ const HouseInfo = () => {
                     <div className="field-container">
                         <div className="type-title">옵션</div>
                         <span className="error-message">포함되는 항목을 모두 선택해주세요</span>
+                        {errors.options && <span className="error-message">{errors.options}</span>}
+
                     </div>
                     <div className="type-btns">
                         <button
