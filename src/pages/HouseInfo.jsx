@@ -4,6 +4,7 @@ import "../css/HouseInfo.scss";
 import { useState } from "react";
 import "../css/GlobalStyles.scss";
 import { useNavigate } from "react-router-dom";
+import ConfirmModal from "../components/ConfirmModal";
 
 const HouseInfo = () => {
   const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
@@ -17,6 +18,52 @@ const HouseInfo = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
 
   const [isNoneSelected, setIsNoneSelected] = useState(false);
+
+  const [showModal, setShowModal] = useState(false); //모달 표시 여부 상태
+
+  const resetForm = () => {
+    setFormData({
+      houseName: "",
+      houseType: "",
+      size: "",
+      rentAmount: "",
+      deposit: "",
+      monthlyRent: "",
+      maintenanceFee: "",
+      totalFloor: "",
+      currentFloor: "",
+      constructionDate: "",
+      walkTimeStation: "",
+      walkTimeDestination: "",
+    });
+    setSelectedButton(null);
+    setRentType("");
+    setSelectedUtilities([]);
+    setParkingType("");
+    setElevatorType("");
+    setSelectedDirection("");
+    setSelectedOptions([]);
+    setIsNoneSelected(false);
+    setErrors({});
+  };
+
+  const handleModalYes = () => {
+    resetForm(); // 폼 상태 초기화
+    setShowModal(false);
+    navigate("/houseinfo");
+    window.scrollTo(0, 0); // 스크롤 맨 위로 이동
+  };
+
+  const handleModalNo = () => {
+    setShowModal(false);
+  };
+
+  const handleNext = () => {
+    if (validateForm()) {
+      //모든 유효성 검사를 통과하면 모달을 띄워줌
+      setShowModal(true);
+    }
+  };
 
   const handleOptionClick = (option) => {
     if (option === "없음") {
@@ -64,7 +111,6 @@ const HouseInfo = () => {
     walkTimeStation: "",
     walkTimeDestination: "",
   });
-
   //유효성 검사 함수
   const validateForm = () => {
     const newErrors = {};
@@ -135,12 +181,6 @@ const HouseInfo = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleNext = () => {
-    if (validateForm()) {
-      navigate("/recommend"); // 다음 페이지로 이동
-    }
-  };
-
   const handleUtilityClick = (utility) => {
     if (utility === "없음") {
       setIsNoneSelected(true);
@@ -168,7 +208,7 @@ const HouseInfo = () => {
   const navigate = useNavigate();
 
   const handleUserInfo = () => {
-    navigate("/userinfo");
+    navigate("/recommend");
   };
 
   const handleRentTypeChange = (e) => {
@@ -316,6 +356,7 @@ const HouseInfo = () => {
                 </div>
               )}
             </label>
+
             <label className="radio-label">
               <input
                 type="radio"
@@ -510,8 +551,10 @@ const HouseInfo = () => {
                   onChange={handleElevatorChange}
                   className="radio-input"
                 />
+
                 <span className="radio-text">있음</span>
               </label>
+
               <label className="radio-label">
                 <input
                   type="radio"
@@ -521,6 +564,7 @@ const HouseInfo = () => {
                   onChange={handleElevatorChange}
                   className="radio-input"
                 />
+
                 <span className="radio-text">없음</span>
               </label>
             </div>{" "}
@@ -580,6 +624,7 @@ const HouseInfo = () => {
                 onChange={handleInputChange}
                 className="size-input"
               />
+              <span>년</span>
             </div>
           </div>
         </div>{" "}
@@ -699,12 +744,14 @@ const HouseInfo = () => {
               <span className="vertical-line"></span>
             </div>
           </div>
+
           <div className="size">
             <div className="field-container">
               <div className="size-title">
                 목적지까지
                 <span className="suabtitle">(학교, 직장 등)</span>
               </div>
+
               {errors.walkTimeDestination && (
                 <span className="error-message">
                   {errors.walkTimeDestination}
@@ -735,6 +782,10 @@ const HouseInfo = () => {
           다음으로
         </button>
       </div>
+      {/*모달 조건부 렌더링 */}
+      {showModal && (
+        <ConfirmModal onYes={handleModalYes} onNo={handleModalNo} />
+      )}
     </div>
   );
 };

@@ -6,7 +6,6 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Navigate } from "react-router-dom"; // Navigate 컴포넌트 import
 
-
 import HouseInfo from "./pages/HouseInfo";
 import UserInfo from "./pages/UserInfo";
 import Main from "./Main";
@@ -14,6 +13,7 @@ import Mainnext from "./Mainnext";
 import Recommend from "./pages/Recommend";
 import Home from "./pages/Home";
 import Guide from "./pages/Guide";
+import LoadingModal from "./components/LoadingModal";
 
 const router = createBrowserRouter([
   {
@@ -25,10 +25,11 @@ const router = createBrowserRouter([
       { path: "home", element: <Home /> },
       { path: "guide", element: <Guide /> },
       { path: "userinfo", element: <UserInfo /> },
-      {path: "houseinfo", element: <HouseInfo />}, 
+      { path: "houseinfo", element: <HouseInfo /> },
       { path: "main", element: <Main /> },
       { path: "mainnext", element: <Mainnext /> },
       { path: "recommend", element: <Recommend /> },
+      { path: "loadingmodal", element: <LoadingModal /> },
     ],
   },
 ]);

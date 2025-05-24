@@ -23,14 +23,84 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); // 살짝 그림자 효과
 }
 
+.loading-title {
+  color: #ff5927;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.loading-mascot {
+  width: 100px;
+  margin: 12px 0 8px 0;
+  display: block;
+}
+
+.loading-message {
+  margin: 8px 0 8px 0;
+  font-size: 17px;
+  color: #232323;
+  text-align: center;
+  font-weight: 500;
+
+  .highlight {
+    color: #ff5927;
+    font-weight: 700;
+  }
+}
+
+.loading-text {
+  color: #bdbdbd;
+  font-size: 13px;
+  margin-bottom: 18px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.progress-wrap {
+  width: 85%;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  background: #ffe6df;
+  border-radius: 20px;
+  height: 12px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background: #ff5927;
+  border-radius: 20px;
+  width: 80%;
+  animation: progress-move 1.25s cubic-bezier(0.9, 0.25, 0.6, 1) infinite
+    alternate;
+}
+
+@keyframes progress-move {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 95%;
+  }
+}
+
+// ---- 기존 .content, .modal-buttons 스타일도 유지 ----
+
 .content {
   display: flex;
   gap: 20px;
   margin-top: 20px;
-  // 마스코트 이미지 스타일
-  .guidemascot {
+
+  .loading-mascot {
     justify-content: center;
-    width: 150px;
+    width: 100px;
   }
   .titles {
     display: flex;
@@ -41,52 +111,17 @@
       font-weight: bold;
       margin-bottom: 8px;
     }
-    // 서브 메시지 (작은 설명 텍스트)
     .modal-subtitle {
       font-size: 15px;
       color: #333;
       margin-bottom: 30px;
     }
-  } //titles div
-} //content div
+  }
+}
 
 .modal-buttons {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 20px;
-
-  .no-button {
-    min-width: 120px; // 최소 너비 지정
-    background-color: white;
-    color: #ff5927;
-    border: 2px solid #ff5927;
-    padding: 10px 30px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  .no-button:hover {
-    background-color: #ffe6df;
-  }
-
-  // "네" 버튼: 배경이 채워진 스타일
-  .yes-button {
-    min-width: 120px; // 최소 너비 지정
-    background-color: #ff5927;
-    color: white;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-
-  .yes-button:hover {
-    background-color: #e34e20;
-  }
 }

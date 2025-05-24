@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ZIPPICK from "../assets/ZIPPICK.png";
 import PlusHome from "../assets/plushome.png";
 import HiMascot from "../assets/himascot.png";
+import LoadingModal from "../components/LoadingModal";
 import "../css/Recommend.scss";
 
-
 const Recommend = () => {
+  const [loading, setLoading] = useState(true);
+
+  //페이지 진입후 로딩
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000); // 숫자에 따라 로딩 시간 다름
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="recommend-wrapper">
       {/* 상단 로고/닉네임 바 */}
@@ -40,7 +49,7 @@ const Recommend = () => {
               <br />
               월세 8000만원
               <br />
-              관리비 70만원 
+              관리비 70만원
             </p>
           </div>
           <div className="card">
@@ -53,7 +62,7 @@ const Recommend = () => {
               <br />
               월세 8000만원
               <br />
-              관리비 70만원 
+              관리비 70만원
             </p>
           </div>
           {/* 동대문 자취방 카드 - 마스코트가 위에 뜨게 */}
@@ -70,7 +79,7 @@ const Recommend = () => {
               <br />
               월세 8000만원
               <br />
-              관리비 70만원 
+              관리비 70만원
             </p>
           </div>
         </div>
@@ -102,8 +111,8 @@ const Recommend = () => {
             8㎡
             <br />
             월세 8000만원
-              <br />
-              관리비 70만원 
+            <br />
+            관리비 70만원
           </p>
         </div>
         <div className="card">
@@ -115,8 +124,8 @@ const Recommend = () => {
             8㎡
             <br />
             월세 8000만원
-              <br />
-              관리비 70만원 
+            <br />
+            관리비 70만원
           </p>
         </div>
         <div className="card">
@@ -128,10 +137,11 @@ const Recommend = () => {
             8㎡
             <br />
             월세 8000만원
-              <br />
-              관리비 70만원 
+            <br />
+            관리비 70만원
           </p>
         </div>
+        {loading && <LoadingModal />}
       </div>
 
       {/* 하단 버튼튼*/}
