@@ -272,7 +272,7 @@ const HouseInfo = () => {
                             name="houseName"
                             value={formData.houseName}
                             onChange={handleInputChange}
-                            className="house-input" />
+                            className={`house-input ${errors.houseName ? 'error-border' : ''}`} />
                        
                     </div>
 
@@ -285,27 +285,27 @@ const HouseInfo = () => {
                         {errors.houseType && <span className="error-message">{errors.houseType}</span>}</div>
                     <div className="type-btns">
                         <button
-                            className={`type-btn ${selectedButton === '원룸' ? 'active' : ''}`}
+                            className={`type-btn ${selectedButton === '원룸' ? 'active' : ''} ${errors.houseType ? 'error-border' : ''} `}
                             onClick={() => handleButtonClick('원룸')}
                         >
                             원룸</button>
                         <button
-                            className={`type-btn ${selectedButton === '빌라/투룸' ? 'active' : ''}`}
+                            className={`type-btn ${selectedButton === '빌라/투룸' ? 'active' : ''} ${errors.houseType ? 'error-border' : ''} `}
                             onClick={() => handleButtonClick('빌라/투룸')}
                         >
                             빌라/투룸</button>
                         <button
-                            className={`type-btn ${selectedButton === '상가' ? 'active' : ''}`}
+                            className={`type-btn ${selectedButton === '상가' ? 'active' : ''} ${errors.houseType ? 'error-border' : ''} `}
                             onClick={() => handleButtonClick('상가')}
                         >
                             상가</button>
                         <button
-                            className={`type-btn ${selectedButton === '아파트' ? 'active' : ''}`}
+                            className={`type-btn ${selectedButton === '아파트' ? 'active' : ''} ${errors.houseType ? 'error-border' : ''} `}
                             onClick={() => handleButtonClick('아파트')}
                         >
                             아파트</button>
                         <button
-                            className={`type-btn ${selectedButton === '오피스텔' ? 'active' : ''}`}
+                            className={`type-btn ${selectedButton === '오피스텔' ? 'active' : ''} ${errors.houseType ? 'error-border' : ''} `}
                             onClick={() => handleButtonClick('오피스텔')}
                         >
                             오피스텔</button>
@@ -324,7 +324,7 @@ const HouseInfo = () => {
                             name="size"
                             value={formData.size}
                             onChange={handleInputChange}
-                            className="size-input" />
+                            className={`size-input ${errors.size ? 'error-border' : ''}`} />
                         <span>만원</span>
                     </div>
                 </div>
@@ -346,7 +346,7 @@ const HouseInfo = () => {
                                 value="전세"
                                 checked={rentType === '전세'}
                                 onChange={handleRentTypeChange}
-                                className="radio-input" />
+                                className={`radio-input ${errors.rentType ? 'error-border' : ''}`} />
                             
                             <span className="radio-text">전세</span>
                             {rentType === '전세' && (
@@ -356,7 +356,7 @@ const HouseInfo = () => {
                                         name="rentAmount"
                                         value={formData.rentAmount}
                                         onChange={handleInputChange}
-                                        className="monthly-input" />
+                                        className={`monthly-input ${errors.rentAmount ? 'error-border' : ''}`} />
                                     <span>만원</span>
                 
                                     <span className="vertical-line"></span>
@@ -372,7 +372,7 @@ const HouseInfo = () => {
                                 value="월세"
                                 checked={rentType === '월세'}
                                 onChange={handleRentTypeChange}
-                                className="radio-input" />
+                                className={`radio-input ${errors.rentType ? 'error-border' : ''}`} />
                             <span className="radio-text">월세</span>
                             {rentType === '월세' && (
                                 <div className="input-with-line">
@@ -382,14 +382,14 @@ const HouseInfo = () => {
                                         name="deposit"
                                         value={formData.deposit}
                                         onChange={handleInputChange}
-                                        className="monthly-input" />
+                                        className={`monthly-input ${errors.deposit ? 'error-border' : ''}`} />
                                     <span> / 월</span>
                                     <input
                                         type="text"
                                         name="monthlyRent"
                                         value={formData.monthlyRent}
                                         onChange={handleInputChange}
-                                        className="monthly-input" />
+                                        className={`monthly-input ${errors.monthlyRent ? 'error-border' : ''}`} />
                                     <span>만원</span>
                                 </div>
                             )}
@@ -409,7 +409,7 @@ const HouseInfo = () => {
                             name="maintenanceFee"
                             value={formData.maintenanceFee}
                             onChange={handleInputChange}
-                            className="size-input" />
+                            className={`size-input ${errors.maintenanceFee ? 'error-border' : ''}`} />
                         <span>만원</span>
                     </div>
                 </div>
@@ -423,37 +423,37 @@ const HouseInfo = () => {
                     <div className="field-container">
                         <div className="type-btns">
                             <button
-                                className={`type-btn ${selectedUtilities.includes('수도료') ? 'active' : ''}`}
+                                className={`type-btn ${selectedUtilities.includes('수도료') ? 'active' : ''} ${errors.utilities ? 'error-border' : ''} `}
                                 onClick={() => handleUtilityClick('수도료')}
                             >
                                 수도료</button>
                             <button
-                                className={`type-btn ${selectedUtilities.includes('난방비') ? 'active' : ''}`}
+                                className={`type-btn ${selectedUtilities.includes('난방비') ? 'active' : ''} ${errors.utilities ? 'error-border' : ''} `}
                                 onClick={() => handleUtilityClick('난방비')}
                             >난방비</button>
                         
                             <button
-                                className={`type-btn ${selectedUtilities.includes('전기료') ? 'active' : ''}`}
+                                className={`type-btn ${selectedUtilities.includes('전기료') ? 'active' : ''} ${errors.utilities ? 'error-border' : ''} `}
                                 onClick={() => handleUtilityClick('전기료')}
                             >전기료</button>
                             <button
-                                className={`type-btn ${selectedUtilities.includes('일반 관리비') ? 'active' : ''}`}
+                                className={`type-btn ${selectedUtilities.includes('일반 관리비') ? 'active' : ''} ${errors.utilities ? 'error-border' : ''} `}
                                 onClick={() => handleUtilityClick('일반 관리비')}
                             >일반(공용)관리비</button>
                             <button
-                                className={`type-btn ${selectedUtilities.includes('가스사용료') ? 'active' : ''}`}
+                                className={`type-btn ${selectedUtilities.includes('가스사용료') ? 'active' : ''} ${errors.utilities ? 'error-border' : ''} `}
                                 onClick={() => handleUtilityClick('가스사용료')}
                             >가스사용료</button>
                             <button
-                                className={`type-btn ${selectedUtilities.includes('TV사용료') ? 'active' : ''}`}
+                                className={`type-btn ${selectedUtilities.includes('TV사용료') ? 'active' : ''} ${errors.utilities ? 'error-border' : ''} `}
                                 onClick={() => handleUtilityClick('TV사용료')}
                             >TV사용료</button>
                             <button
-                                className={`type-btn ${selectedUtilities.includes('기타관리비') ? 'active' : ''}`}
+                                className={`type-btn ${selectedUtilities.includes('기타관리비') ? 'active' : ''} ${errors.utilities ? 'error-border' : ''} `}
                                 onClick={() => handleUtilityClick('기타관리비')}
                             >기타관리비</button>
                             <button
-                                className={`type-btn ${selectedUtilities.includes('인터넷사용료') ? 'active' : ''}`}
+                                className={`type-btn ${selectedUtilities.includes('인터넷사용료') ? 'active' : ''} ${errors.utilities ? 'error-border' : ''} `}
                                 onClick={() => handleUtilityClick('인터넷사용료')}
                             >인터넷사용료</button>
 
@@ -475,7 +475,7 @@ const HouseInfo = () => {
                                 value="가능"
                                 checked={parkingType === '가능'}
                                 onChange={handleParkingChange}
-                                className="radio-input" />
+                                className={`radio-input ${errors.parking ? 'error-border' : ''}`} />
                             <span className="radio-text">가능</span>
                         </label>
 
@@ -485,7 +485,7 @@ const HouseInfo = () => {
                                 name="parkingType"
                                 value="불가능"
                                 onChange={handleParkingChange}
-                                className="radio-input" />
+                                className={`radio-input ${errors.parking ? 'error-border' : ''}`} />
                             <span className="radio-text">불가능</span>
                             
                         </label>
@@ -504,14 +504,14 @@ const HouseInfo = () => {
                                 name="totalFloor"
                                 value={formData.totalFloor}
                                 onChange={handleInputChange}
-                                className="floor-input" />
+                                className={`floor-input ${errors.floor ? 'error-border' : ''}`} />
                             <span>층</span>
                             <span>중에</span>
                             <input type="text"
                                 name="currentFloor"
                                 value={formData.currentFloor}
                                 onChange={handleInputChange}
-                                className="floor-input" />
+                                className={`floor-input ${errors.floor ? 'error-border' : ''}`} />
                             <span>층</span>
                             <span className="vertical-line"></span>
                         </div>
@@ -530,7 +530,7 @@ const HouseInfo = () => {
                                     value="있음"
                                     checked={elevatorType === '있음'}
                                     onChange={handleElevatorChange}
-                                    className="radio-input" />
+                                    className={`radio-input ${errors.elevator ? 'error-border' : ''}`} />
 
                                 <span className="radio-text">있음</span>
                             </label>
@@ -543,7 +543,7 @@ const HouseInfo = () => {
                                     value="없음"
                                     checked={elevatorType === '없음'}
                                     onChange={handleElevatorChange}
-                                    className="radio-input" />
+                                    className={`radio-input ${errors.elevator ? 'error-border' : ''}`} />
 
                                 <span className="radio-text">없음</span>
                             </label>
@@ -560,19 +560,19 @@ const HouseInfo = () => {
                         </div>
                         <div className="type-btns">
                             <button
-                                className={`type-btn ${selectedDirection === '동향' ? 'active' : ''}`}
+                                className={`type-btn ${selectedDirection === '동향' ? 'active' : ''}  ${errors.direction ? 'error-border' : ''} `}
                                 onClick={() => handleDirectionClick('동향')}
                             >동향</button>
                             <button
-                                className={`type-btn ${selectedDirection === '서향' ? 'active' : ''}`}
+                                className={`type-btn ${selectedDirection === '서향' ? 'active' : ''} ${errors.direction ? 'error-border' : ''} `}
                                 onClick={() => handleDirectionClick('서향')}
                             >서향</button>
                             <button
-                                className={`type-btn ${selectedDirection === '남향' ? 'active' : ''}`}
+                                className={`type-btn ${selectedDirection === '남향' ? 'active' : ''} ${errors.direction ? 'error-border' : ''} `}
                                 onClick={() => handleDirectionClick('남향')}
                             >남향</button>
                             <button
-                                className={`type-btn ${selectedDirection === '북향' ? 'active' : ''}`}
+                                className={`type-btn ${selectedDirection === '북향' ? 'active' : ''} ${errors.direction ? 'error-border' : ''} `}
                                 onClick={() => handleDirectionClick('북향')}
                             >북향</button>
                         </div>
@@ -589,7 +589,7 @@ const HouseInfo = () => {
                                 name="constructionDate"
                                 value={formData.constructionDate}
                                 onChange={handleInputChange}
-                                className="size-input" />
+                                className={`size-input ${errors.constructionDate ? 'error-border' : ''}`} />
                             <span>년</span>
                         </div>
                         
@@ -606,51 +606,51 @@ const HouseInfo = () => {
                     </div>
                     <div className="type-btns">
                         <button
-                            className={`type-btn ${selectedOptions.includes('싱크대') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('싱크대') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('싱크대')} disabled={isNoneSelected}
                         >싱크대</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('에어컨') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('에어컨') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('에어컨')} disabled={isNoneSelected}
                         >에어컨</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('신발장') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('신발장') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('신발장')} disabled={isNoneSelected}
                         >신발장</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('세탁기') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('세탁기') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('세탁기')} disabled={isNoneSelected}
                         >세탁기</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('서랍장') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('서랍장') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('서랍장')} disabled={isNoneSelected}
                         >서랍장</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('냉장고') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('냉장고') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('냉장고')} disabled={isNoneSelected}
                         >냉장고</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('옷장') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('옷장') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('옷장')} disabled={isNoneSelected}
                         >옷장</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('인덕션') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('인덕션') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('인덕션')} disabled={isNoneSelected}
                         >인덕션</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('책상') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('책상') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('책상')} disabled={isNoneSelected}
                         >책상</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('침대') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('침대') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('침대')} disabled={isNoneSelected}
                         >침대</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('책장') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('책장') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('책장')} disabled={isNoneSelected}
                         >책장</button>
                         <button
-                            className={`type-btn ${selectedOptions.includes('없음') ? 'active' : ''}`}
+                            className={`type-btn ${selectedOptions.includes('없음') ? 'active' : ''} ${errors.options ? 'error-border' : ''} `}
                             onClick={() => handleOptionClick('없음')}
                         >없음</button>
 
@@ -672,7 +672,7 @@ const HouseInfo = () => {
                                 name="walkTimeStation"
                                 value={formData.walkTimeStation}
                                 onChange={handleInputChange}
-                                className="size-input" />
+                                className={`size-input ${errors.walkTimeStation ? 'error-border' : ''}`} />
                             <span>분</span>
                             <span className="vertical-line"></span>
                         </div>
@@ -695,7 +695,7 @@ const HouseInfo = () => {
                                 name="walkTimeDestination"
                                 value={formData.walkTimeDestination}
                                 onChange={handleInputChange}
-                                className="size-input" />
+                                className={`size-input ${errors.walkTimeDestination ? 'error-border' : ''}`}  />
                             <span>분</span>
                         </div>
                     </div>
