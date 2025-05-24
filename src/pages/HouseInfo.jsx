@@ -527,7 +527,9 @@ const HouseInfo = () => {
                                 value={formData.constructionDate}
                                 onChange={handleInputChange}
                                 className="size-input" />
-                </div>
+                            <span>년</span>
+                        </div>
+                        
                 </div>
                 
              </div> {/*direction-date-wrapper 닫는 div */}
