@@ -5,6 +5,7 @@ import { useState } from 'react';
 import "../css/GlobalStyles.scss";
 import { useNavigate } from 'react-router-dom';
 import ConfirmModal from '../components/ConfirmModal';
+import LimitModal from '../components/LimitModal';
 
 const HouseInfo = () => {
     const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
@@ -19,10 +20,11 @@ const HouseInfo = () => {
 
     const [isNoneSelected, setIsNoneSelected] = useState(false);
 
-    const [showModal, setShowModal] = useState(false); //모달 표시 여부 상태
+    const [showConfirmModal, setShowConfirmModal] = useState(false); //ConfirmModal 모달 표시 여부 상태
+    const [showLimitModal, setShowLimitModal] = useState(false); //LimitModal 모달 표시 여부 상태
     
 
-    const resetForm = () => {
+    const resetForm = () => { //폼 초기화 하는 함수
         setFormData({
           houseName: '',
           houseType: '',
@@ -49,24 +51,33 @@ const HouseInfo = () => {
       };
       
 
-
-    const handleModalYes = () => {
+    const handleLimitModal = () => { //LimitModal.jsx에서 고마워! 버튼 누를시 -> 로딩 페이지로 이동하는 로직
+            setShowLimitModal(false);
+           // navigate("/loading"); // 로딩 페이지로 이동
+      }
+    
+    
+    const handleModalYes = () => { // ConfirmModal.jsx에 네 버튼 누를시
         resetForm();                 // 폼 상태 초기화
-        setShowModal(false);
+        setShowConfirmModal(false);
         navigate("/houseinfo");
-        window.scrollTo(0, 0);         // 스크롤 맨 위로 이동
+        window.scrollTo(0, 0);         // houseinfo 폼 스크롤 맨 위로 이동
     }
 
-    const handleModalNo = () => {
-        setShowModal(false);  
+    const handleModalNo = () => { // ConfirmModal.jsx에 아니오 버튼 누를시 -> 로딩중 페이지로 이동
+        setShowConfirmModal(false);  
+        //navigate("/main"); // 로딩 페이지로 이동
     }
 
 
-
+    // 데이터베이스 받으면 여기 작성!!
     const handleNext = () => {
         if (validateForm()) {
             //모든 유효성 검사를 통과하면 모달을 띄워줌
-            setShowModal(true);
+            // if 누적된 집 정보 2개이하이면 -> ConfirmModal
+            setShowConfirmModal(true);
+            // else if 누적된 집 정보 3개이면 -> LimitModal 
+            //setShowLimitModal(true);
         }
     };
 
@@ -686,7 +697,7 @@ const HouseInfo = () => {
             </div>{/* big-box 닫는div */}
     
             <div className="button-wrapper">
-                <button className="next-button" onClick={handleUserInfo}>
+                <button className="next-button" onClick={handleUserInfo}> 
                     이전으로
                 </button>
                 <button className="next-button" onClick={handleNext}>
@@ -694,11 +705,16 @@ const HouseInfo = () => {
                 </button>
             </div>
 
-            {/*모달 조건부 렌더링 */}
-            {showModal && (
-                <ConfirmModal onYes={handleModalYes} onNo={handleModalNo} />
+            {/*모달 조건부 렌더링 */} {/*Confirm.jsx에 있는 네 버튼 눌렀을 때 -> onYes*/} {/*아니오 버튼 눌렀을 때 onNo */}
+            {showConfirmModal && (
+                <ConfirmModal onYes={handleModalYes} onNo={handleModalNo}  /> 
             )}
 
+        {/*LimitModal.jsx에 있는 고마워! 버튼 눌렀을 때 -> 로딩 페이지로 이동*/}
+        {showLimitModal && ( 
+        <LimitModal onClose={handleLimitModal}/>
+)}
+            
 
         </div>
     );
