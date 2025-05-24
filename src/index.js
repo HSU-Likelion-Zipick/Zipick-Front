@@ -14,6 +14,7 @@ import Recommend from "./pages/Recommend";
 import Home from "./pages/Home";
 import Guide from "./pages/Guide";
 import LoadingModal from "./components/LoadingModal";
+import Tips from "./pages/Tips";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: "mainnext", element: <Mainnext /> },
       { path: "recommend", element: <Recommend /> },
       { path: "loadingmodal", element: <LoadingModal /> },
+      { path: "tips", element: <Tips /> },
     ],
   },
 ]);
