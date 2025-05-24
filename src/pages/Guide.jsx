@@ -12,7 +12,7 @@ const Guide = () => {
     const handleToMain = () => {
       navigate('/main'); 
     }
-    
+
   return (
       <div className="guide">
        
@@ -34,7 +34,7 @@ const Guide = () => {
               
               <div className='box3'>
                   <p className='content'>
-                      3.나에게 <span className='highlight'>더 잘 맞는</span> 집을 골라줘요
+                      3. 나에게 <span className='highlight'>더 잘 맞는</span> 집을 골라줘요
                   </p>
                   <div className='subs'>
                   <p className='subcontent'>나의 정보와 집의 정보를 토대로</p><br />
