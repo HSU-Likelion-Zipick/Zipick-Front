@@ -137,7 +137,7 @@ const HouseInfo = () => {
 
   const handleNext = () => {
     if (validateForm()) {
-      navigate("/userinfo"); // 다음 페이지로 이동
+      navigate("/recommend"); // 다음 페이지로 이동
     }
   };
 
