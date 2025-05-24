@@ -1,0 +1,203 @@
+.guide {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #fff5eb;
+
+  .title {
+    display: flex;
+    align-items: baseline;
+    font-size: 34px;
+    font-weight: 600;
+    margin-top: 70px;
+    margin-left: 130px;
+    margin-bottom: 50px;
+    .zip {
+      color: #ff5927;
+    }
+  }
+
+  .guide-content {
+    display: flex;
+    justify-content: flex-start; // 왼쪽 부터 정렬
+    align-items: flex-start;
+    padding: 0 130px;
+    gap: 40px;
+
+    .left-section {
+      display: flex;
+      flex-direction: column;
+    }
+    .guidebox {
+      display: flex;
+      //flex-wrap: wrap; // 공간 부족시 줄 바꿈
+      justify-content: left;
+      justify-items: center;
+      gap: 20px;
+
+      .box1 {
+        text-align: center;
+        color: white;
+        width: 500px;
+        height: 250px;
+        border-radius: 25.251px;
+
+        background: linear-gradient(180deg, #ff5927 0%, #fff5eb 100%);
+
+        .content {
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          margin-top: 40px;
+        }
+        .subcontent {
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          margin-top: 20px;
+        }
+        .guide1 {
+          width: 430px;
+          height: 130px;
+        }
+      }
+
+      .box3 {
+        text-align: center;
+        color: #424242;
+        width: 250px;
+        height: 500px;
+        flex-shrink: 0;
+        border-radius: 25.251px;
+        background: linear-gradient(180deg, #fff5eb 0%, #ff5927 100%);
+
+        .content {
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 600;
+          margin-top: 40px;
+          margin-bottom: 20px;
+          .highlight {
+            color: #ff5927;
+          }
+        }
+        .subs {
+          .subcontent {
+            color: var(--3, #959595);
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: -20px;
+          }
+        }
+
+        .guide3 {
+          width: 250px;
+          height: 210px;
+          flex-shrink: 0;
+          aspect-ratio: 179/155;
+          margin-top: 90px;
+          margin-left: 0px;
+        }
+      }
+    }
+
+    .underbox {
+      display: flex;
+      //flex-wrap: wrap;
+      width: 100%;
+      justify-content: flex-start;
+      gap: 20px;
+      margin-top: -240px;
+      .mascotbox {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        width: 240px;
+        height: 240px;
+        border-radius: 25.251px;
+        background: #ffcaba;
+
+        .guidemascot {
+          width: 160px;
+          height: 160px;
+          flex-shrink: 0;
+          align-items: center;
+        }
+      }
+
+      .box2 {
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        width: 240px;
+        height: 240px;
+        border-radius: 25.251px;
+        background: #ffcaba;
+
+        .content {
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 600;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          .highlight {
+            color: #ff5927;
+          }
+        }
+
+        .subs {
+          .subcontent {
+            color: var(--3, #959595);
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: -20px;
+          }
+        }
+
+        .guide2 {
+          display: flex;
+          width: 240px;
+          height: 170px;
+          margin-top: -40px;
+        }
+      }
+    }
+
+    .help {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      align-self: flex-start;
+      margin-top: 320px;
+      .zip {
+        font-size: 30px;
+        font-weight: 600;
+        color: #ff5927;
+      }
+
+      .use {
+        font-size: 30px;
+        font-weight: 600;
+        margin-top: 5px;
+        margin-bottom: 20px;
+      }
+
+      .help-button {
+        width: 100%;
+        max-width: 250px;
+        margin-top: 20px;
+        height: 48px;
+        border: none;
+        border-radius: 8px;
+        background: #ff5927;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+    //help 닫는 div
+  } //guide-content 닫는 div
+}
