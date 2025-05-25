@@ -8,6 +8,7 @@ import ConfirmModal from '../components/ConfirmModal';
 import LimitModal from '../components/LimitModal';
 import Header from "../components/Header";
 import infomascot from "../assets/infomascot.png";
+
 const HouseInfo = () => {
     const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
     const [parkingType, setParkingType] = useState(""); //주차 가능 여부 상태 관리
@@ -27,18 +28,18 @@ const HouseInfo = () => {
 
     const resetForm = () => { //폼 초기화 하는 함수
         setFormData({
-          houseName: '',
-          houseType: '',
-          size: '',
-          rentAmount: '',
-          deposit: '',
-          monthlyRent: '',
-          maintenanceFee: '',
-          totalFloor: '',
-          currentFloor: '',
-          constructionDate: '',
-          walkTimeStation: '',
-          walkTimeDestination: ''
+            houseName: '',
+            houseType: '',
+            size: '',
+            rentAmount: '',
+            deposit: '',
+            monthlyRent: '',
+            maintenanceFee: '',
+            totalFloor: '',
+            currentFloor: '',
+            constructionDate: '',
+            walkTimeStation: '',
+            walkTimeDestination: ''
         });
         setSelectedButton(null);
         setRentType('');
@@ -49,7 +50,7 @@ const HouseInfo = () => {
         setSelectedOptions([]);
         setIsNoneSelected(false);
         setErrors({});
-      };
+    };
       
     
     
@@ -72,9 +73,9 @@ const HouseInfo = () => {
     
 
     const handleLimitModal = () => { //LimitModal.jsx에서 고마워! 버튼 누를시 -> 로딩 페이지로 이동하는 로직
-            setShowLimitModal(false);
-           // navigate("/loading"); // 로딩 페이지로 이동
-      }
+        setShowLimitModal(false);
+        // navigate("/loading"); // 로딩 페이지로 이동
+    }
     
     
     const handleModalYes = () => { // ConfirmModal.jsx에 네 버튼 누를시
@@ -85,7 +86,7 @@ const HouseInfo = () => {
     }
 
     const handleModalNo = () => { // ConfirmModal.jsx에 아니오 버튼 누를시 -> 로딩중 페이지로 이동
-        setShowConfirmModal(false);  
+        setShowConfirmModal(false);
         //navigate("/main"); // 로딩 페이지로 이동
     }
 
@@ -230,30 +231,30 @@ const HouseInfo = () => {
     
 
    
-   const handleUtilityClick = (utility) => {
-    if (utility === '없음') {
-        setIsNoneSelected(true);
-        setSelectedUtilities(['없음']);
-    } else {
-        if (selectedUtilities.includes('없음')) {
-            setIsNoneSelected(false);
-            setSelectedUtilities([utility]);
+    const handleUtilityClick = (utility) => {
+        if (utility === '없음') {
+            setIsNoneSelected(true);
+            setSelectedUtilities(['없음']);
         } else {
-            setSelectedUtilities(prev => {
-                if (prev.includes(utility)) {
-                    return prev.filter(item => item !== utility);
-                } else {
-                    return [...prev, utility];
-                }
-            });
+            if (selectedUtilities.includes('없음')) {
+                setIsNoneSelected(false);
+                setSelectedUtilities([utility]);
+            } else {
+                setSelectedUtilities(prev => {
+                    if (prev.includes(utility)) {
+                        return prev.filter(item => item !== utility);
+                    } else {
+                        return [...prev, utility];
+                    }
+                });
+            }
         }
-    }
-};
+    };
 
 
 
 
- const handleButtonClick = (buttonName) => {
+    const handleButtonClick = (buttonName) => {
         setSelectedButton(buttonName);
     }
 
@@ -276,7 +277,7 @@ const HouseInfo = () => {
         setElevatorType(e.target.value);
     }
 
-  
+
 
     return (
         <div className="house"> {/* 밑에 div 들의 대빵 설정 */}
@@ -753,9 +754,9 @@ const HouseInfo = () => {
 )}
             
 
-        </div>
+            </div>
+            </div>
     );
 };
 
 export default HouseInfo
-

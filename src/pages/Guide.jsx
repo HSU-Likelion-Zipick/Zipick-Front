@@ -26,14 +26,14 @@ const Guide = () => {
               <div className='left-section'>
           <div className='guidebox'>
               <div className='box1'>
-                  <p className='content'>1. 나에 대해 알려줘요!</p>
+                  <p className='g-content'>1. 나에 대해 알려줘요!</p>
                   <p className='subcontent'>나의 직업, 수익, 생활패턴 등 정보를 입력해요.</p>
                   <img src={guide1} alt='guide1' className='guide1'/>
               </div> {/*guidebox 닫는 div */}
 
               
               <div className='box3'>
-                  <p className='content'>
+                  <p className='g-content'>
                       3. 나에게 <span className='highlight'>더 잘 맞는</span> 집을 골라줘요
                   </p>
                   <div className='subs'>
@@ -53,7 +53,7 @@ const Guide = () => {
               </div>
 
                   <div className='box2'>
-                      <p className='content'>
+                      <p className='g-content'>
                           <span className='highlight'>2. 집</span>에 대해 알려줘요!
                       </p>
                   <div className='subs'>
