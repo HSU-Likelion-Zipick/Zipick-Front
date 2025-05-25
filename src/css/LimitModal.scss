@@ -23,9 +23,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); // 살짝 그림자 효과
 }
 
-
-.confirm-content {
-
+.limit-content {
   display: flex;
   gap: 20px;
   margin-top: 20px;
@@ -45,60 +43,34 @@
     }
     // 서브 메시지 (작은 설명 텍스트)
     .modal-subtitle {
+      font-weight: bold;
+      text-align: left;
       font-size: 15px;
       color: #333;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+    }
+    .recommend {
+      color: #959595;
+      font-size: 14px;
+      text-align: left;
     }
   } //titles div
 } //content div
 
-.modal-buttons {
+.button {
   margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  min-width: 300px; // 최소 너비 지정
+  background-color: #ff5927;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
 
-
-  /*
-
-  .no-button {
-    min-width: 120px; // 최소 너비 지정
-    background-color: white;
-    color: #ff5927;
-    border: 2px solid #ff5927;
-    padding: 10px 30px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  .no-button:hover {
-    background-color: #ffe6df;
-  }
-
-*/
-
-  // "네" 버튼: 배경이 채워진 스타일
-  .no-button,
-  .yes-button {
-    min-width: 120px; // 최소 너비 지정
-    background-color: #ff5927;
-    color: white;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-
-  .no-button:hover {
-    background-color: #e34e20;
-  }
-
-  .yes-button:hover {
-    background-color: #e34e20;
-  }
+.yes-button:hover {
+  background-color: #e34e20;
 }
