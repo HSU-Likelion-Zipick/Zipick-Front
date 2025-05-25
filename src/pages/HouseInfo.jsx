@@ -351,7 +351,7 @@ const HouseInfo = () => {
                             value={formData.size}
                             onChange={handleInputChange}
                             className={`size-input ${errors.size ? 'error-border' : ''}`} />
-                        <span>만원</span>
+                        <span>㎡</span>
                     </div>
                 </div>
                 
@@ -408,7 +408,7 @@ const HouseInfo = () => {
                                         name="deposit"
                                         value={formData.deposit}
                                         onChange={handleInputChange}
-                                        className={`monthly-input ${errors.deposit ? 'error-border' : ''}`} />
+                                        className={`m-input ${errors.deposit ? 'error-border' : ''}`} />
                                     <span> / 월</span>
                                     <input
                                         type="text"
