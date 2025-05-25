@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import ZIPPICK from "../assets/ZIPPICK.png";
 import "../css/UserInfo.scss";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const UserInfo = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    const handleHouseInf = () => {
-        navigate('/houseinfo');
-    }
+  const [errors, setErrors] = useState({});
 
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
@@ -19,15 +16,25 @@ const UserInfo = () => {
   const [transportation, setTransportation] = useState("");
   const [livingPattern, setLivingPattern] = useState("");
 
-  const isFormValid =
-    gender &&
-    age &&
-    job &&
-    monthlyIncome &&
-    fund &&
-    transportation &&
-    livingPattern;
+  //유효성 검사
+  const validateForm = () => {
+    const newErrors = {};
+    if (!gender) newErrors.gender = "성별을 선택해주세요.";
+    if (!age) newErrors.age = "나이를 입력해주세요.";
+    if (!job) newErrors.job = "직업을 선택해주세요.";
+    if (!monthlyIncome) newErrors.monthlyIncome = "월수익을 입력해주세요.";
+    if (!fund) newErrors.fund = "여유자금을 입력해주세요.";
+    if (!transportation) newErrors.transportation = "이동수단을 선택해주세요.";
+    if (!livingPattern) newErrors.livingPattern = "생활 패턴을 선택해주세요.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
+  const handleHouseInf = () => {
+    if (validateForm()) {
+      navigate("/houseinfo");
+    }
+  };
 
   return (
     <div className="top">
@@ -52,77 +59,84 @@ const UserInfo = () => {
         </div>
 
         <div className="gender-age">
+          {/* 성별 */}
           <div className="gender">
             <div className="gender-title">성별</div>
             <div className="gender-btns">
               <button
-                className={`gender-btn ${gender === "남자" ? "active" : ""}`}
+                className={`gender-btn ${gender === "남자" ? "active" : ""} ${errors.gender ? "error-border" : ""}`}
                 onClick={() => setGender("남자")}
               >
                 남자{" "}
               </button>
               <button
-                className={`gender-btn ${gender === "여자" ? "active" : ""}`}
+                className={`gender-btn ${gender === "여자" ? "active" : ""} ${errors.gender ? "error-border" : ""}`}
                 onClick={() => setGender("여자")}
               >
                 여자{" "}
               </button>
             </div>
-            {!gender && <div className="warning">성별을 선택해주세요</div>}
+            {/* 유효성 에러 메시지 표시 */}
+            {errors.gender && (
+              <span className="error-message">{errors.gender}</span>
+            )}
           </div>
 
+          {/* 나이 */}
           <div className="age">
             <div className="age-title">나이</div>
             <div className="age-input-group">
               <span>만</span>
               <input
                 type="text"
-                className="age-input"
+                className={`age-input ${errors.age ? "error-border" : ""}`}
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
               />
               <span>세</span>
             </div>
-            {!age && <div className="warning-text">나이를 입력해주세요.</div>}
+            {errors.age && <span className="error-message">{errors.age}</span>}
           </div>
         </div>
         {/* gender-age 닫는 div */}
         <hr />
+
+        {/* 직업 */}
         <div className="job-section">
           <div className="job-title">직업</div>
           <div className="job-btns">
             <button
-              className={`job-btn ${job === "학생" ? "active" : ""}`}
+              className={`job-btn ${job === "학생" ? "active" : ""} ${errors.job ? "error-border" : ""}`}
               onClick={() => setJob("학생")}
             >
               학생
             </button>
             <button
-              className={`job-btn ${job === "취준생" ? "active" : ""}`}
+              className={`job-btn ${job === "취준생" ? "active" : ""} ${errors.job ? "error-border" : ""}`}
               onClick={() => setJob("취준생")}
             >
               취준생
             </button>
             <button
-              className={`job-btn ${job === "직장인" ? "active" : ""}`}
+              className={`job-btn ${job === "직장인" ? "active" : ""} ${errors.job ? "error-border" : ""}`}
               onClick={() => setJob("직장인")}
             >
               직장인
             </button>
             <button
-              className={`job-btn ${job === "프리랜서" ? "active" : ""}`}
+              className={`job-btn ${job === "프리랜서" ? "active" : ""} ${errors.job ? "error-border" : ""}`}
               onClick={() => setJob("프리랜서")}
             >
               프리랜서
             </button>
             <button
-              className={`job-btn ${job === "무직" ? "active" : ""}`}
+              className={`job-btn ${job === "무직" ? "active" : ""} ${errors.job ? "error-border" : ""}`}
               onClick={() => setJob("무직")}
             >
               무직
             </button>
           </div>
-          {!job && <div className="warning-text">직업을 선택해주세요.</div>}
+          {errors.job && <span className="error-message">{errors.job}</span>}
         </div>
 
         {/* 월수익 부분 */}
@@ -132,14 +146,14 @@ const UserInfo = () => {
             <span>약</span>
             <input
               type="text"
-              className="monthly-input"
+              className={`monthly-input ${errors.monthlyIncome ? "error-border" : ""}`}
               value={monthlyIncome}
               onChange={(e) => setMonthlyIncome(e.target.value)}
             />
             <span>만원</span>
           </div>
-          {!monthlyIncome && (
-            <div className="warning-text">월수익을 입력해주세요.</div>
+          {errors.monthlyIncome && (
+            <span className="error-message">{errors.monthlyIncome}</span>
           )}
         </div>
         {/* 여유자금 부분 */}
@@ -149,15 +163,13 @@ const UserInfo = () => {
             <span>약</span>
             <input
               type="text"
-              className="fund-input"
+              className={`fund-input ${errors.fund ? "error-border" : ""}`}
               value={fund}
               onChange={(e) => setFund(e.target.value)}
             />
             <span>만원</span>
           </div>
-          {!fund && (
-            <div className="warning-text">여유자금을 입력해주세요.</div>
-          )}
+          {errors.fund && <span className="error-message">{errors.fund}</span>}
         </div>
         {/* 여유자금 부분 마감 */}
         <hr />
@@ -167,35 +179,32 @@ const UserInfo = () => {
           <div className="transportation-title">이동수단</div>
           <div className="transportation-btns">
             <button
-              className={`transportation-btn ${transportation === "도보" ? "active" : ""}`}
+              className={`transportation-btn ${transportation === "도보" ? "active" : ""} ${errors.transportation ? "error-border" : ""}`}
               onClick={() => setTransportation("도보")}
             >
               도보
             </button>
-
             <button
-              className={`transportation-btn ${transportation === "자전거" ? "active" : ""}`}
+              className={`transportation-btn ${transportation === "자전거" ? "active" : ""} ${errors.transportation ? "error-border" : ""}`}
               onClick={() => setTransportation("자전거")}
             >
               자전거
             </button>
-
             <button
-              className={`transportation-btn ${transportation === "대중교통" ? "active" : ""}`}
+              className={`transportation-btn ${transportation === "대중교통" ? "active" : ""} ${errors.transportation ? "error-border" : ""}`}
               onClick={() => setTransportation("대중교통")}
             >
               대중교통
             </button>
-
             <button
-              className={`transportation-btn ${transportation === "자가용" ? "active" : ""}`}
+              className={`transportation-btn ${transportation === "자가용" ? "active" : ""} ${errors.transportation ? "error-border" : ""}`}
               onClick={() => setTransportation("자가용")}
             >
               자가용
             </button>
           </div>
-          {!transportation && (
-            <div className="warning-text">이동수단을 선택해주세요.</div>
+          {errors.transportation && (
+            <span className="error-message">{errors.transportation}</span>
           )}
         </div>
         {/* 이동 수단 부분 마감 */}
@@ -205,38 +214,34 @@ const UserInfo = () => {
           <div className="livingpattern-title">생활 패턴</div>
           <div className="livingpattern-btns">
             <button
-              className={`livingpattern-btn ${
-                livingPattern === "아침형" ? "active" : ""
-              }`}
+              className={`livingpattern-btn ${livingPattern === "아침형" ? "active" : ""} ${errors.livingPattern ? "error-border" : ""}`}
               onClick={() => setLivingPattern("아침형")}
             >
               아침형
             </button>
             <button
-              className={`livingpattern-btn ${
-                livingPattern === "야행성" ? "active" : ""
-              }`}
+              className={`livingpattern-btn ${livingPattern === "야행성" ? "active" : ""} ${errors.livingPattern ? "error-border" : ""}`}
               onClick={() => setLivingPattern("야행성")}
             >
               야행성
             </button>
             <button
-              className={`livingpattern-btn ${
-                livingPattern === "불규칙" ? "active" : ""
-              }`}
+              className={`livingpattern-btn ${livingPattern === "불규칙" ? "active" : ""} ${errors.livingPattern ? "error-border" : ""}`}
               onClick={() => setLivingPattern("불규칙")}
             >
               불규칙
             </button>
           </div>
-          {!livingPattern && (
-            <div className="warning-text">생활 패턴을 선택해주세요.</div>
+          {errors.livingPattern && (
+            <span className="error-message">{errors.livingPattern}</span>
           )}
         </div>
         {/* 생활 패턴 부분 마감 */}
       </div>
       {/* big-box 닫는div */}
-      <button className="next-button" onClick={handleHouseInf}>다음으로</button>
+      <button className="next-button" onClick={handleHouseInf}>
+        다음으로
+      </button>
     </div>
   );
 };

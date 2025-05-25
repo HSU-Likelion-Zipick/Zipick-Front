@@ -42,7 +42,6 @@
     display: flex;
     align-items: center;
 
-
     .step-progress1 {
       position: absolute; //부모(위에 relative) 기준으로 위치를 잡기 위한 것: 자유로움움
       left: 0;
@@ -72,7 +71,7 @@
     .gender {
       display: flex;
       flex-direction: column;
-      min-width: 340px; // 성별과 나이 거리 조절
+      min-width: 340px; //성별과 나이 거리 조절
 
       .gender-title {
         font-weight: bold;
@@ -179,7 +178,6 @@
       margin-bottom: 12px;
       margin-top: 40px;
       margin-left: 10px;
-
     }
     .monthly-input-group {
       display: flex;
@@ -251,7 +249,7 @@
         background: #fff;
         font-size: 1rem;
         color: #666;
-        cursor: pointer; //커서 올라가면 손모양으로 바뀜
+        cursor: pointer;
 
         &:hover,
         &.active {
@@ -296,6 +294,19 @@
       }
     }
   }
+
+  //에러 부분
+
+  .error-message {
+    color: #ff4040;
+    font-size: 0.95rem;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  .error-border {
+    border: 1.5px solid #ff4040 !important;
+  }
 }
 
 .next-button {
@@ -314,58 +325,56 @@
   display: block;
 }
 
+.livingpattern-section {
+  display: flex;
+  flex-direction: column;
+  .livingpattern-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  .livingpattern-btns {
+    display: flex;
+    gap: 20px;
+    .livingpattern-btn {
+      width: 150px;
+      height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 1rem;
+      color: #666;
+      cursor: pointer; //커서 올라가면 손모양으로 바뀜
 
-.livingpattern-section{
-        display:flex;
-        flex-direction: column;
-    .livingpattern-title{
-        font-weight: bold;
-        font-size: 1.1rem;
-        margin-bottom: 12px;
+      &:hover,
+      &.active {
+        border: 2px solid #ff5927;
+        color: #ff5927;
+        background: #fff7f3;
+      }
     }
-    .livingpattern-btns{
-            display: flex;;
-            gap:20px;
-            .livingpattern-btn{
-                width:150px;
-                height: 40px;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-                background:#fff;
-                font-size: 1rem;
-                color:#666;
-                cursor:pointer; //커서 올라가면 손모양으로 바뀜
-                
-                &:hover, &.active {
-                    border: 2px solid #FF5927;
-                    color: #FF5927;
-                    background: #fff7f3;
-            }
-        }
-    }
+  }
 }
 
-
 .next-button {
-  width: 90%;                 
-  max-width: 440px;           
-  margin: 25px auto  auto;    
-  height: 48px;               
+  width: 90%;
+  max-width: 440px;
+  margin: 25px auto auto;
+  height: 48px;
   border: none;
-  border-radius: 8px;        
-  background: #FF5927;         
-  color: #fff;                
+  border-radius: 8px;
+  background: #ff5927;
+  color: #fff;
   font-size: 1.1rem;
   font-weight: bold;
   text-align: center;
   cursor: pointer;
   display: block;
-
 }
 
 hr {
   border: none;
-  border-top: 1.5px solid #b0b0b0; // 두께, 색상 원하는 대로
-  margin: 40px 0; // 위아래 여백
+  border-top: 1.5px solid #b0b0b0; //두께, 색상 원하는 대로
+  margin: 40px 0; //위아래 여백
   width: 100%;
 }

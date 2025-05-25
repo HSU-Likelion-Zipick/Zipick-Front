@@ -94,7 +94,7 @@ const Recommend = () => {
           <br />
           <span>방음 주방/욕실 옵션점검 거주환경 기타 체크포인트</span>
         </p>
-        <button onClick={() => navigate("/tip")}>알아보러 가기 →</button>
+        <button onClick={() => navigate("/tips")}>알아보러 가기 →</button>
       </div>
 
       {/* 하단 텍스트 */}
