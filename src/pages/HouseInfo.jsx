@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import ConfirmModal from '../components/ConfirmModal';
 import LimitModal from '../components/LimitModal';
 import Header from "../components/Header";
+import infomascot from "../assets/infomascot.png";
 const HouseInfo = () => {
     const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
     const [parkingType, setParkingType] = useState(""); //주차 가능 여부 상태 관리
@@ -276,9 +277,8 @@ const HouseInfo = () => {
     return (
         <div className="house"> {/* 밑에 div 들의 대빵 설정 */}
             <Header />
-            <div className="top-text"> {/* ZIPPICK 이미지 밑 글씨 */}
-                <h3> &nbsp; &nbsp; &nbsp;꼭 맞는 집을 찾기 전<br />
-                    <span className="yourinfo">&nbsp;당신의 정보</span>가 필요해요!</h3>
+            <div className="infomascot"> {/* ZIPPICK 이미지 밑 글씨 */}
+               <img src={infomascot} alt='infomascot' className='infomascot'/>
             </div>
     
             <div className="big-box">

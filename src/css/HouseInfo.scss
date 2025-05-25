@@ -1,40 +1,28 @@
 .house {
   background-color: #fff5eb;
-  .top-image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 45px; //맨 위에서부터 img 머리 부분까지 거리리
-
-    img {
-      width: 121px;
-      height: 24px;
-      margin-bottom: 23px;
-    }
+  .infomascot {
+    position: absolute;
+    top: 35px; // 위로 띄우는 정도
+    left: 50%; // 가운데보다 약간 오른쪽
+    transform: translateX(50%);
+    width: 90px;
+    height: 120px;
+    z-index: 0;
+    position: absolute;
   }
-
-  .top-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-
-    .yourinfo {
-      color: #ff5927;
-    }
-  }
-
   .big-box {
+    position: relative;
     width: 950px;
     background: white;
     margin: 15px auto;
     border-radius: 20px;
-    box-shadow: 0 2px 40px black;
+    box-shadow: 0px 4px 14px 13px rgba(0, 0, 0, 0.1);
     padding: 25px 40px 60px 40px;
     min-height: 300px;
     display: flex;
     flex-direction: column; //이걸 써야 big-box 안에 있는 것들이 세로로 쌓임(밑에 성별, 나이 등)
-
+    z-index: 1;
+    margin-top: 40px;
     // 에러 메시지 관련 스타일
     .field-container {
       display: flex;
