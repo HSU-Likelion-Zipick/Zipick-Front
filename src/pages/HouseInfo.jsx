@@ -725,6 +725,7 @@ const HouseInfo = () => {
                                 onChange={handleInputChange}
                                 className={`size-input ${errors.walkTimeDestination ? 'error-border' : ''}`}  />
                             <span>분</span>
+                           
                         </div>
                     </div>
                 </div> {/*walktime wrapper 닫는 div */}
