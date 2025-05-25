@@ -733,7 +733,7 @@ const HouseInfo = () => {
                 </div> {/*walktime wrapper 닫는 div */}
 
             </div>{/* big-box 닫는div */}
-    
+            </div>
             <div className="button-wrapper">
                 <button className="next-button" onClick={handleUserInfo}> 
                     이전으로
@@ -741,7 +741,8 @@ const HouseInfo = () => {
                 <button className="next-button" onClick={handleNext}>
                     다음으로
                 </button>
-            </div>
+                </div>
+            
 
             {/*모달 조건부 렌더링 */} {/*Confirm.jsx에 있는 네 버튼 눌렀을 때 -> onYes*/} {/*아니오 버튼 눌렀을 때 onNo */}
             {showConfirmModal && (
@@ -754,7 +755,6 @@ const HouseInfo = () => {
 )}
             
 
-            </div>
             </div>
     );
 };
