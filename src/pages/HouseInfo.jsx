@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 import ZIPPICK from "../assets/ZIPPICK.png";
 import "../css/HouseInfo.scss";
-import { useState } from "react";
+import { useState } from 'react';
 import "../css/GlobalStyles.scss";
 import { useNavigate } from 'react-router-dom';
 import ConfirmModal from '../components/ConfirmModal';
@@ -230,30 +230,27 @@ const HouseInfo = () => {
     
 
    
-   const handleUtilityClick = (utility) => {
-    if (utility === '없음') {
-        setIsNoneSelected(true);
-        setSelectedUtilities(['없음']);
-    } else {
-        if (selectedUtilities.includes('없음')) {
-            setIsNoneSelected(false);
-            setSelectedUtilities([utility]);
+    const handleUtilityClick = (utility) => {
+        if (utility === '없음') {
+            setIsNoneSelected(true);
+            setSelectedUtilities(['없음']);
         } else {
-            setSelectedUtilities(prev => {
-                if (prev.includes(utility)) {
-                    return prev.filter(item => item !== utility);
-                } else {
-                    return [...prev, utility];
-                }
-            });
+            if (selectedUtilities.includes('없음')) {
+                setIsNoneSelected(false);
+                setSelectedUtilities([utility]);
+            } else {
+                setSelectedUtilities(prev => {
+                    if (prev.includes(utility)) {
+                        return prev.filter(item => item !== utility);
+                    } else {
+                        return [...prev, utility];
+                    }
+                });
+            }
         }
-    }
-};
+    };
 
-
-
-
- const handleButtonClick = (buttonName) => {
+    const handleButtonClick = (buttonName) => {
         setSelectedButton(buttonName);
     }
 
@@ -276,8 +273,7 @@ const HouseInfo = () => {
         setElevatorType(e.target.value);
     }
 
-  
-
+    
     return (
         <div className="house"> {/* 밑에 div 들의 대빵 설정 */}
             <Header />
@@ -306,6 +302,7 @@ const HouseInfo = () => {
                        
                     </div>
 
+                </div>
 
 
                 <div className="house-type">
@@ -758,4 +755,3 @@ const HouseInfo = () => {
 };
 
 export default HouseInfo
-
