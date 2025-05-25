@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./css/Main.scss";
 import mascot from "./assets/mascot.png";
 import zippick from "./assets/ZIPPICK.png";
 
 const Main = () => {
   const [nickname, setNickname] = useState("");
+  const navigate = useNavigate();
+
+  const handleNext = () => {
+    navigate("/userinfo");
+  };
 
   return (
     <div className="maintop">
@@ -29,8 +35,9 @@ const Main = () => {
           </div>
         </div>
 
-        {/*이름 입력이 안되면 버튼 활성화 안됌 */}
-        <button className="next-button">다음으로</button>
+        <button className="next-button" onClick={handleNext}>
+          다음으로
+        </button>
       </div>
     </div>
   );
