@@ -6,7 +6,7 @@ const LimitModal = ({onClose}) => { //HouseInfo.jsx에서 props 전달 받음 ->
   return (
     <div className='modal-overlay'>
           <div className='modal-box'>
-              <div className='content'>
+              <div className='limit-content'>
                   <img src={guidemascot} alt='guidemascot' className='guidemascot'></img>
                   <div className='titles'>
               <p className='modal-title'><strong style={{ color: "#FF5927" }}>‘자취방’</strong>에 대한 정보가 저장되었어요!</p>

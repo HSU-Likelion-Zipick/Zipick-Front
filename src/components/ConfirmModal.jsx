@@ -7,7 +7,7 @@ const ConfirmModal = ({ onYes, onNo}) => {
   return (
     <div className='modal-overlay'>
           <div className='modal-box'>
-              <div className='content'>
+              <div className='confirm-content'>
                   <img src={guidemascot} alt='guidemascot' className='guidemascot'></img>
                   <div className='titles'>
               <p className='modal-title'><strong style={{ color: "#FF5927" }}>‘자취방’</strong>에 대한 정보가 저장되었어요!</p>
