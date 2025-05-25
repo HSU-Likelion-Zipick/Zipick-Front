@@ -47,3 +47,20 @@
     color: #ff5927;
   }
 }
+
+.next-button {
+  border: none;
+  border-radius: 8px;
+  background: #ff5927;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 40px;
+
+  &:hover {
+    background-color: #e34e20;
+  }
+}

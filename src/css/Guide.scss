@@ -196,6 +196,10 @@
         font-weight: bold;
         text-align: center;
         cursor: pointer;
+
+        &:hover {
+          background-color: #e34e20;
+        }
       }
     }
     //help 닫는 div

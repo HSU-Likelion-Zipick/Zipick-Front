@@ -12,7 +12,7 @@
   }
   .big-box {
     position: relative;
-    width: 950px;
+    width: 970px;
     background: white;
     margin: 15px auto;
     border-radius: 20px;
@@ -179,6 +179,7 @@
         }
 
         .size-input {
+          text-align: center;
           width: 220px;
           height: 40px;
           border: 1px solid #ccc; //월수입 박스 테두리
@@ -267,6 +268,7 @@
             }
 
             .monthly-input {
+              text-align: center;
               width: 220px;
               height: 40px;
               border: 1px solid #ccc;
@@ -393,6 +395,7 @@
           }
 
           .floor-input {
+            text-align: center;
             width: 100px;
             height: 40px;
             border: 1px solid #ccc; //월수입 박스 테두리
@@ -595,6 +598,7 @@
             margin: 0 40px;
           }
           .size-input {
+            text-align: center;
             width: 220px;
             height: 40px;
             border: 1px solid #ccc; //월수입 박스 테두리
@@ -627,7 +631,7 @@
       margin-bottom: 40px;
 
       &:hover {
-        background: #ff4713;
+        background-color: #e34e20;
       }
     }
   }
