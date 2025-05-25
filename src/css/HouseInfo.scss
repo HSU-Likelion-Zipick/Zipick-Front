@@ -605,11 +605,10 @@
 
   .button-wrapper {
     display: flex;
-    flex-direction: row; // 가로 배치
-    justify-content: center;
-    gap: 0px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    justify-content: space-between;
+    width: 800px; // 적당히 버튼 2개 너비 + 여백만큼 설정
+    margin: 40px auto;
+    gap: 50px;
 
     .next-button {
       width: 300px; // 버튼 너비 늘림
