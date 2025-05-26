@@ -3,8 +3,11 @@ import "../css/Tips.scss";
 import logo from "../assets/logo.svg";
 import sublogo from "../assets/Subtract.svg";
 import hidemascot from "../assets/hidemascot.png";
+import { useNavigate } from "react-router-dom";
 
 const Tips = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="tips-big">
       <div className="top-image">
@@ -118,7 +121,7 @@ const Tips = () => {
         </div>
         {/* 하단 버튼 */}
         <div className="next-btn">
-          <button>다음으로</button>
+          <button onClick={() => navigate("/starmodal")}>다음으로</button>
         </div>
       </div>
     </div>

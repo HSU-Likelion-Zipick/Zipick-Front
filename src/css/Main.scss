@@ -1,29 +1,7 @@
-.top-image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 45px;
-
-  .sublogo {
-    width: 121px;
-    height: 24px;
-    margin-bottom: 12px;
-  }
-  .logo {
-    width: 121px;
-    height: 24px;
-    margin-bottom: 23px;
-  }
-}
-
 .maintop {
   display: flex;
   height: 100vh;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 245, 235, 0.5) 0%,
-    rgba(255, 181, 128, 0.5) 100%
-  );
+  background: linear-gradient(180deg, #fff5eb 0%, #ffe3c6 65%, #ffd6b0 100%);
 
   .main-left {
     width: 50vw;
@@ -38,7 +16,10 @@
       height: auto;
       z-index: 2;
       position: relative;
-      left: 6%;
+      left: 0;
+      top: 0;
+      margin-left: 60px;
+      margin-top: -200px;
     }
     .mascot-bg {
       width: 440px;
@@ -48,10 +29,10 @@
         rgba(237, 89, 63, 0.28) 0%,
         rgba(255, 255, 255, 0) 100%
       );
-      border-radius: 8px 8px 0 0;
+      border-radius: px 8px 0 0;
       position: absolute;
       left: 56%;
-      bottom: 180px;
+      bottom: 300px;
       transform: translateX(-50%);
       z-index: 1;
       box-shadow: 0 6px 24px 0 rgba(255, 181, 128, 0.15);
@@ -142,5 +123,23 @@
         background: #e8521f;
       }
     }
+  }
+}
+
+.top-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 45px;
+
+  .sublogo {
+    width: 121px;
+    height: 24px;
+    margin-bottom: 12px;
+  }
+  .logo {
+    width: 121px;
+    height: 24px;
+    margin-bottom: 23px;
   }
 }
