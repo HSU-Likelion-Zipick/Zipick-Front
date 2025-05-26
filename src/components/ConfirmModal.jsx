@@ -8,6 +8,7 @@ const ConfirmModal = ({ onYes }) => {
 
   const onNo = () => {
     navigate("/recommend"); // 로딩 페이지로 이동
+    window.scrollTo(0, 0); // recommend 페이지 스크롤 맨 위로 이동
   };
 
   return (
