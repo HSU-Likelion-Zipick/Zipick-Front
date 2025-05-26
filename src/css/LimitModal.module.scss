@@ -1,6 +1,7 @@
-.limit-modal-overlay {
+.modal-overlay {
+  height: 900px;
   position: fixed;
-  top: 0;
+  //top: 0; // 상단부터 시작
   left: 0;
   right: 0;
   bottom: 0;
@@ -12,11 +13,11 @@
   backdrop-filter: blur(4px);
 }
 
-.limit-modal-box {
+.modal-box {
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-  width: 420px;
+  width: 550px;
   min-height: 260px;
   padding: 36px 28px 30px 28px;
   text-align: center;
@@ -26,7 +27,7 @@
   align-items: center;
 }
 
-.limit-content {
+.content {
   display: flex;
   flex-direction: row;
   gap: 20px;
