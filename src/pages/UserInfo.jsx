@@ -40,6 +40,7 @@ const UserInfo = () => {
   const handleHouseInf = () => {
     if (validateForm()) {
       navigate("/houseinfo");
+      window.scrollTo(0, 0); // 페이지 스크롤 맨 위로 이동
     }
   };
 
