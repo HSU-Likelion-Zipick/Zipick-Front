@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.svg";
+import sublogo from "../assets/Subtract.svg";
 import "../css/UserInfo.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -63,6 +64,7 @@ const UserInfo = () => {
       {/* 밑에 div 들의 대빵 설정 */}
       <div className="top-image">
         {/* ZIPPICK 이미지 */}
+        <img src={sublogo} alt="substract" className="sublogo" />
         <img src={logo} alt="ZIPPICK" />
       </div>
       <div className="top-text">
