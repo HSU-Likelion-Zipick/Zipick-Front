@@ -15,6 +15,9 @@ import Home from "./pages/Home";
 import Guide from "./pages/Guide";
 import LoadingModal from "./components/LoadingModal";
 import Tips from "./pages/Tips";
+import ConfirmModal from "./components/ConfirmModal";
+import LimitModal from "./components/LimitModal";
+import StarModal from "./components/StarModal";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +33,10 @@ const router = createBrowserRouter([
       { path: "main", element: <Main /> },
       { path: "mainnext", element: <Mainnext /> },
       { path: "recommend", element: <Recommend /> },
+      { path: "confirmmodal", element: <ConfirmModal /> },
+      { path: "limitmodal", element: <LimitModal /> },
       { path: "loadingmodal", element: <LoadingModal /> },
+      { path: "starmodal", element: <StarModal /> },
       { path: "tips", element: <Tips /> },
     ],
   },
