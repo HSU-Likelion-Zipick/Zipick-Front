@@ -67,10 +67,10 @@ const UserInfo = () => {
       </div>
       <div className="top-text">
         {/* ZIPPICK 이미지 밑 글씨씨 */}
-        <h3>
+        {/* <h3>
           &nbsp; &nbsp; &nbsp;꼭 맞는 집을 찾기 전<br />
           <span className="yourinfo">&nbsp;당신의 정보</span>가 필요해요!
-        </h3>
+        </h3> */}
       </div>
       <div className="big-box">
         <div className="step-bar">
