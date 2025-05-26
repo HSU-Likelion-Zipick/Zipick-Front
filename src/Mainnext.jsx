@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/Main.scss";
 import mascot from "./assets/mascot.png";
-import zippick from "./assets/ZIPPICK.png";
+import logo from "./assets/logo.svg";
+import sublogo from "./assets/Subtract.svg";
 
 const Main = () => {
   const [nickname, setNickname] = useState("");
@@ -16,10 +17,12 @@ const Main = () => {
     <div className="maintop">
       <div className="main-left">
         <img src={mascot} alt="ZIPPICK" className="mascot" />
+
         <div className="mascot-bg"></div>
       </div>
       <div className="main-right">
-        <img src={zippick} alt="ZIPPICK 로고" className="logo-img" />
+        <img src={sublogo} alt="ZIPPICK 서브 로고" className="sub-logo" />
+        <img src={logo} alt="ZIPPICK 로고" className="logo-img" />
         <div className="main-text">
           <span className="mrpick">PICK씨는</span> <br />
           당신이 궁금해요

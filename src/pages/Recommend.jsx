@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ZIPPICK from "../assets/ZIPPICK.png";
+import logo from "../assets/logo.svg";
+import sublogo from "../assets/Subtract.svg";
 import PlusHome from "../assets/plushome.png";
 import HiMascot from "../assets/himascot.png";
 import LoadingModal from "../components/LoadingModal";
@@ -18,16 +19,12 @@ const Recommend = () => {
   }, []);
 
   return (
-    <div className="recommend-wrapper-outer" style={{ position: "relative" }}>
-      <div className={`recommend-wrapper${loading ? " blurred" : ""}`}>
-        {/* 상단 로고/닉네임 바 */}
-        <div className="top-bar">
-          <div className="top-left">아기사자 (님)</div>
-          <div className="top-logo">
-            <img src={ZIPPICK} alt="ZIPPICK 로고" />
-          </div>
-        </div>
-
+    <div className="recommend-wrapper-outer">
+      <div className="top-image">
+        <img src={sublogo} alt="substract" className="sublogo" />
+        <img src={logo} alt="logo" className="logo" />
+      </div>
+      <div className="recommend-wrapper">
         {/* 상단 영역 */}
         <div className="top">
           {/* 좌측 텍스트 영역 */}

@@ -1,6 +1,27 @@
-// ★ 블러 오버레이 위한 감싸는 div
 .recommend-wrapper-outer {
   position: relative;
+  background-color: #fff5eb;
+  min-height: 100vh;
+}
+
+.top-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 45px;
+
+  .sublogo {
+    width: 121px;
+    height: 24px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .logo {
+    width: 121px;
+    height: 24px;
+    margin-bottom: 23px;
+    display: block;
+  }
 }
 
 // ★ 로딩 중 Recommend에만 blur 처리 (JSX에서 loading일 때 blurred 클래스 붙임)

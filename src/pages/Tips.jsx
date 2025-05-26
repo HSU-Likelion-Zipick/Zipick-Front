@@ -1,15 +1,17 @@
 import React from "react";
 import "../css/Tips.scss";
-import ZIPPICK from "../assets/zipickandlocation.png";
+import logo from "../assets/logo.svg";
+import sublogo from "../assets/Subtract.svg";
 import hidemascot from "../assets/hidemascot.png";
 
 const Tips = () => {
   return (
     <div className="tips-big">
-      {/* 상단 로고 */}
-      <div className="tips-header-center">
-        <img src={ZIPPICK} alt="ZIPICK 로고" className="tips-logo" />
+      <div className="top-image">
+        <img src={sublogo} alt="substract" className="sublogo" />
+        <img src={logo} alt="logo" className="logo" />
       </div>
+      {/* 상단 로고 */}
 
       {/* 마스코트 겹치기 */}
       <div className="tips-container">

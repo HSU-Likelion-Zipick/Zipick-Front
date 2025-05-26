@@ -1,13 +1,24 @@
+.page-bg {
+  background-color: #fff5eb;
+  min-height: 100vh;
+}
+
 .top-image {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fff5eb;
   padding-top: 45px; //맨 위에서부터 img 머리 부분까지 거리리
 
-  img {
+  .sublogo {
     width: 121px;
     height: 24px;
-    margin-bottom: 23px;
+    margin-bottom: 12px; // substract와 logo 사이 간격
+  }
+  .logo {
+    width: 121px;
+    height: 24px;
+    margin-bottom: 23px; // logo 아래 기존 간격
   }
 }
 
