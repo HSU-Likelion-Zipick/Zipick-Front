@@ -3,6 +3,7 @@ import logo from "../assets/logo.svg";
 import sublogo from "../assets/Subtract.svg";
 import "../css/UserInfo.scss";
 import { useNavigate } from "react-router-dom";
+import hidemascot from "../assets/hidemascot.png";
 
 const UserInfo = () => {
   const navigate = useNavigate();
@@ -67,6 +68,7 @@ const UserInfo = () => {
         {/* ZIPPICK 이미지 */}
         <img src={sublogo} alt="substract" className="sublogo" />
         <img src={logo} alt="ZIPPICK" />
+        <img src={hidemascot} alt="마스코트" className="hidemascot" />
       </div>
       <div className="top-text">
         {/* ZIPPICK 이미지 밑 글씨씨 */}

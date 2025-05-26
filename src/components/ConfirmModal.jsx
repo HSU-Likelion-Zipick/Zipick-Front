@@ -25,7 +25,9 @@ const ConfirmModal = ({ onYes }) => {
               <strong style={{ color: "#FF5927" }}>‘자취방’</strong>에 대한
               정보가 저장되었어요!
             </p>
-            <p className={styles["modal-subtitle"]}>고민 중인 집이 더 있나요?</p>
+            <p className={styles["modal-subtitle"]}>
+              고민 중인 집이 더 있나요?
+            </p>
           </div>{" "}
           {/*titles div */}
         </div>
