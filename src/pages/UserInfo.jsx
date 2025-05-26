@@ -60,7 +60,7 @@ const UserInfo = () => {
   };
 
   return (
-    <div className="top">
+    <div className="page-bg">
       {/* 밑에 div 들의 대빵 설정 */}
       <div className="top-image">
         {/* ZIPPICK 이미지 */}
