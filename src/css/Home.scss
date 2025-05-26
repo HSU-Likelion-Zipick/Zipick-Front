@@ -52,6 +52,7 @@
 }
 
 .next-button {
+  min-height: 60px;
   border: none;
   border-radius: 8px;
   background: #ff5927;
@@ -62,6 +63,8 @@
   cursor: pointer;
   transition: background-color 0.2s;
   margin-bottom: 40px;
+  margin-top: 10px;
+  
 
   &:hover {
     background-color: #e34e20;

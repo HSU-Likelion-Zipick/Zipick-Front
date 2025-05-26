@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 import ZIPPICK from "../assets/ZIPPICK.png";
 import "../css/HouseInfo.scss";
-import { useState } from "react";
+import { useState } from 'react';
 import "../css/GlobalStyles.scss";
 import { useNavigate } from "react-router-dom";
 import ConfirmModal from "../components/ConfirmModal";
@@ -122,6 +122,7 @@ const HouseInfo = () => {
         return [...prev, option];
       });
     }
+
   };
 
   const handleDirectionClick = (direction) => {
@@ -154,6 +155,7 @@ const HouseInfo = () => {
     walkTimeStation: "",
     walkTimeDestination: "",
   });
+  
   //유효성 검사 함수
   const validateForm = () => {
     const newErrors = {};
@@ -182,6 +184,7 @@ const HouseInfo = () => {
 
     if (!formData.maintenanceFee.trim()) {
       newErrors.maintenanceFee = "관리비를 입력해주세요";
+
     }
 
     if (selectedUtilities.length === 0) {
@@ -223,6 +226,7 @@ const HouseInfo = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+
 
   const handleUtilityClick = (utility) => {
     if (utility === "없음") {
@@ -854,4 +858,6 @@ const HouseInfo = () => {
   );
 };
 
-export default HouseInfo;
+
+export default HouseInfo
+
