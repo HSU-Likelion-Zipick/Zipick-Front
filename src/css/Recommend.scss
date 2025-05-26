@@ -1,3 +1,15 @@
+// ★ 블러 오버레이 위한 감싸는 div
+.recommend-wrapper-outer {
+  position: relative;
+}
+
+// ★ 로딩 중 Recommend에만 blur 처리 (JSX에서 loading일 때 blurred 클래스 붙임)
+.recommend-wrapper.blurred {
+  filter: blur(6px);
+  pointer-events: none; // 클릭 막기
+  user-select: none;
+}
+
 .recommend-wrapper {
   font-family: "Noto Sans KR", sans-serif;
   padding: 40px;

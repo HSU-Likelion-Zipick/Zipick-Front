@@ -1,76 +1,87 @@
-.modal-overlay {
-  height: 900px;
+.limit-modal-overlay {
   position: fixed;
-  top: o;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  backdrop-filter: blur(6px); //뒷배경 흐림 효과
+  z-index: 1001; // 로딩모달보다 더 위에 두고 싶으면 1000 이상으로
+  background: rgba(255, 255, 255, 0.45); // 밝은 오버레이 (선택)
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  backdrop-filter: blur(4px);
 }
 
-.modal-box {
-  background-color: white;
-  border-radius: 20px;
-  padding: 40px;
-  width: 500px;
-  height: 300px;
+.limit-modal-box {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  width: 420px;
+  min-height: 260px;
+  padding: 36px 28px 30px 28px;
   text-align: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); // 살짝 그림자 효과
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .limit-content {
   display: flex;
+  flex-direction: row;
   gap: 20px;
-  margin-top: 20px;
-  // 마스코트 이미지 스타일
+  margin-top: 10px;
+  margin-bottom: 18px;
+
   .guidemascot {
-    justify-content: center;
-    width: 150px;
+    width: 100px;
+    height: auto;
+    margin-right: 8px;
+    align-self: center;
   }
   .titles {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+
     .modal-title {
-      font-size: 16px;
-      font-weight: bold;
+      font-size: 18px;
+      font-weight: 700;
+      color: #ff5927;
       margin-bottom: 8px;
     }
-    // 서브 메시지 (작은 설명 텍스트)
     .modal-subtitle {
-      font-weight: bold;
-      text-align: left;
       font-size: 15px;
-      color: #333;
+      color: #222;
       margin-bottom: 10px;
+      font-weight: 500;
     }
     .recommend {
       color: #959595;
       font-size: 14px;
+      margin-top: 4px;
       text-align: left;
     }
-  } //titles div
-} //content div
+  }
+}
 
+// 버튼 스타일
 .button {
-  margin-top: 20px;
-  min-width: 300px; // 최소 너비 지정
+  margin-top: 22px;
+  min-width: 220px;
   background-color: #ff5927;
   color: white;
   border: none;
-  padding: 10px 30px;
-  border-radius: 6px;
-  font-size: 16px;
+  padding: 12px 0;
+  border-radius: 7px;
+  font-size: 17px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.yes-button:hover {
+.button:hover,
+.button:focus {
   background-color: #e34e20;
 }
