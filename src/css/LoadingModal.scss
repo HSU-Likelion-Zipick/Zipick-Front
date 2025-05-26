@@ -1,7 +1,7 @@
 .modal-overlay {
   height: 900px;
   position: fixed;
-  top: o;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -77,18 +77,8 @@
   height: 100%;
   background: #ff5927;
   border-radius: 20px;
-  width: 80%;
-  animation: progress-move 1.25s cubic-bezier(0.9, 0.25, 0.6, 1) infinite
-    alternate;
-}
-
-@keyframes progress-move {
-  0% {
-    width: 10%;
-  }
-  100% {
-    width: 95%;
-  }
+  width: 0%; // JS에서 width 동적으로 할당!
+  transition: width 0.18s cubic-bezier(0.9, 0.25, 0.6, 1); // 부드럽게 변하도록
 }
 
 // ---- 기존 .content, .modal-buttons 스타일도 유지 ----
