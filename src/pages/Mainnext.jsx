@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./css/Main.scss";
-import mascot from "./assets/mascot.png";
-import logo from "./assets/logo.svg";
-import sublogo from "./assets/Subtract.svg";
+import "../css/Main.scss";
+import mascot from "../assets/mascot.png";
+import logo from "../assets/logo.svg";
+import sublogo from "../assets/Subtract.svg";
 
 const Main = () => {
   const [nickname, setNickname] = useState("");
