@@ -71,7 +71,7 @@
     .gender {
       display: flex;
       flex-direction: column;
-      min-width: 340px; //성별과 나이 거리 조절
+      min-width: 340px; // 성별과 나이 거리 조절
 
       .gender-title {
         font-weight: bold;
@@ -82,24 +82,6 @@
       .gender-btns {
         display: flex;
         gap: 20px;
-
-        .gender-btn {
-          width: 150px;
-          height: 40px;
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          background: #fff;
-          font-size: 1rem;
-          color: #666;
-          cursor: pointer; //커서 올라가면 손모양으로 바뀜
-
-          &:hover,
-          &.active {
-            border: 2px solid #ff5927;
-            color: #ff5927;
-            background: #fff7f3;
-          }
-        }
       }
     }
 
@@ -147,44 +129,46 @@
     .job-btns {
       display: flex;
       gap: 20px;
+    }
+  }
 
-      .job-btn {
-        width: 150px;
-        height: 40px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        background: #fff;
-        font-size: 1rem;
-        color: #666;
-        cursor: pointer; //커서 올라가면 손모양으로 바뀜
-
-        &:hover,
-        &.active {
-          border: 2px solid #ff5927;
-          color: #ff5927;
-          background: #fff7f3;
-        }
-      }
+  // 월수익 & 여유자금 한 줄
+  .income-fund-wrapper {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 0;
+    .field-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .input-guide {
+      color: #ff5927;
+      font-size: 0.95rem;
+      font-weight: normal;
+      margin-left: 10px;
+    }
+    .error-message {
+      color: #ff4040;
+      font-size: 0.9rem;
+      margin-left: 3px;
+      margin-top: 7px;
     }
   }
 
   .monthly-income {
-    display: flex;
-    flex-direction: column;
-
     .monthly-title {
       font-weight: bold;
       font-size: 1.1rem;
-      margin-bottom: 12px;
+      margin-bottom: 7px;
       margin-top: 40px;
-      margin-left: 10px;
+      margin-left: -5px;
     }
     .monthly-input-group {
-      display: flex;
-      align-items: center;
+      display: flex; // 반드시 flex!
+      align-items: center; // 세로 중앙정렬
       gap: 8px;
       span {
-        //"약" 이랑 "만원" 글자 설정정
         margin-left: 10px;
         color: #888;
         font-size: 1rem;
@@ -192,28 +176,82 @@
       .monthly-input {
         width: 220px;
         height: 40px;
-        border: 1px solid #ccc; //월수입입 박스 테두리
+        border: 1px solid #ccc;
         border-radius: 8px;
+        padding: 0 10px;
+        font-size: 1rem;
+        margin-left: -40px; // ← 여기만 원하는 만큼 음수로 조절!
+        &.error-border {
+          border: 1.5px solid #ff4040;
+        }
+        &[readonly] {
+          background: #d0d0d0;
+          color: #aaa;
+          cursor: pointer;
+        }
       }
+
+      .radio-label {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        margin-left: 16px;
+        margin-bottom: 0; // 줄바꿈 방지!
+        .radio-input {
+          appearance: none;
+          width: 28px;
+          height: 28px; // 더 동그랗게(세로도 넉넉)
+          border: 2.5px solid #ff5927;
+          border-radius: 50%;
+          margin-right: 6px;
+          position: relative;
+          background: #fff;
+          vertical-align: middle;
+          &:checked {
+            border-color: #ff5927;
+            &::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 14px;
+              height: 14px;
+              background-color: #ff5927;
+              border-radius: 50%;
+            }
+          }
+        }
+        .radio-text {
+          color: #888;
+          font-size: 1rem;
+          margin-right: 10px;
+          display: inline;
+          white-space: nowrap; // 한 줄로!
+        }
+      }
+    }
+    .error-message {
+      color: #ff4040;
+      font-size: 0.9rem;
+      margin-left: 3px;
+      margin-top: 7px;
     }
   }
 
   .fund {
-    display: flex;
-    flex-direction: column;
     .fund-title {
       font-weight: bold;
       font-size: 1.1rem;
-      margin-bottom: 12px;
+      margin-bottom: 7px;
       margin-top: 40px;
-      margin-left: 10px;
+      margin-left: 30px;
     }
     .fund-input-group {
       display: flex;
       align-items: center;
       gap: 8px;
       span {
-        //"약" 이랑 "만원" 글자 설정정
         margin-left: 10px;
         color: #888;
         font-size: 1rem;
@@ -221,9 +259,65 @@
       .fund-input {
         width: 220px;
         height: 40px;
-        border: 1px solid #ccc; //월수입 박스 테두리
+        border: 1px solid #ccc;
         border-radius: 8px;
+        padding: 0 10px;
+        font-size: 1rem;
+        &.error-border {
+          border: 1.5px solid #ff4040;
+        }
+        // readOnly(무관 선택시) 스타일
+        &[readonly] {
+          background: #d0d0d0;
+          color: #aaa;
+          cursor: pointer;
+        }
       }
+      .radio-label {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        margin-left: 16px;
+        margin-bottom: 0;
+        .radio-input {
+          appearance: none;
+          width: 28px;
+          height: 28px;
+          border: 2.5px solid #ff5927;
+          border-radius: 50%;
+          margin-right: 6px;
+          position: relative;
+          background: #fff;
+          vertical-align: middle;
+          &:checked {
+            border-color: #ff5927;
+            &::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 14px;
+              height: 14px;
+              background-color: #ff5927;
+              border-radius: 50%;
+            }
+          }
+        }
+        .radio-text {
+          color: #888;
+          font-size: 1rem;
+          margin-right: 10px;
+          display: inline;
+          white-space: nowrap;
+        }
+      }
+    }
+    .error-message {
+      color: #ff4040;
+      font-size: 0.9rem;
+      margin-left: 3px;
+      margin-top: 7px;
     }
   }
 
@@ -240,24 +334,6 @@
     .transportation-btns {
       display: flex;
       gap: 20px;
-
-      .transportation-btn {
-        width: 150px;
-        height: 40px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        background: #fff;
-        font-size: 1rem;
-        color: #666;
-        cursor: pointer;
-
-        &:hover,
-        &.active {
-          border: 2px solid #ff5927;
-          color: #ff5927;
-          background: #fff7f3;
-        }
-      }
     }
   }
 
@@ -274,85 +350,32 @@
     .livingpattern-btns {
       display: flex;
       gap: 20px;
-
-      .livingpattern-btn {
-        width: 150px;
-        height: 40px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        background: #fff;
-        font-size: 1rem;
-        color: #666;
-        cursor: pointer; //커서 올라가면 손모양으로 바뀜
-
-        &:hover,
-        &.active {
-          border: 2px solid #ff5927;
-          color: #ff5927;
-          background: #fff7f3;
-        }
-      }
     }
-  }
-
-  //에러 부분
-
-  .error-message {
-    color: #ff4040;
-    font-size: 0.95rem;
-    margin-left: 10px;
-    margin-top: 10px;
-    font-weight: 500;
-  }
-  .error-border {
-    border: 1.5px solid #ff4040 !important;
   }
 }
 
-.next-button {
-  width: 90%;
-  max-width: 440px;
-  margin: 25px auto auto;
-  height: 48px;
-  border: none;
+// ===============================
+// 공통 버튼 스타일 (hover/active 통일)
+// ===============================
+.gender-btn,
+.job-btn,
+.transportation-btn,
+.livingpattern-btn {
+  width: 150px;
+  height: 40px;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  background: #ff5927;
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-  display: block;
-}
+  background: #fff;
+  font-size: 1rem;
+  color: #666;
+  cursor: pointer; //커서 올라가면 손모양으로 바뀜
+  transition: all 0.15s;
 
-.livingpattern-section {
-  display: flex;
-  flex-direction: column;
-  .livingpattern-title {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-  }
-  .livingpattern-btns {
-    display: flex;
-    gap: 20px;
-    .livingpattern-btn {
-      width: 150px;
-      height: 40px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: #fff;
-      font-size: 1rem;
-      color: #666;
-      cursor: pointer; //커서 올라가면 손모양으로 바뀜
-
-      &:hover,
-      &.active {
-        border: 2px solid #ff5927;
-        color: #ff5927;
-        background: #fff7f3;
-      }
-    }
+  &:hover,
+  &.active {
+    border: 2px solid #ff5927;
+    color: #ff5927;
+    background: #fff7f3;
   }
 }
 
@@ -375,6 +398,13 @@
 hr {
   border: none;
   border-top: 1.5px solid #b0b0b0; //두께, 색상 원하는 대로
-  margin: 40px 0; //위아래 여백
+  margin: 40px 0; // 위아래 여백
   width: 100%;
+}
+
+.error-message {
+  color: #ff4040;
+  font-size: 0.9rem;
+  margin-left: 3px;
+  margin-top: 7px;
 }
