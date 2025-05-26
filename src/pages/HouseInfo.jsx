@@ -849,9 +849,12 @@ const HouseInfo = () => {
       {/*모달 조건부 렌더링 */}{" "}
       {/*Confirm.jsx에 있는 네 버튼 눌렀을 때 -> onYes*/}{" "}
       {/*아니오 버튼 눌렀을 때 onNo */}
+
       {showConfirmModal && (
         <ConfirmModal onYes={handleModalYes} onNo={handleModalNo} />
       )}
+
+
       {/*LimitModal.jsx에 있는 고마워! 버튼 눌렀을 때 -> 로딩 페이지로 이동*/}
       {showLimitModal && <LimitModal onClose={handleLimitModal} />}
     </div>
