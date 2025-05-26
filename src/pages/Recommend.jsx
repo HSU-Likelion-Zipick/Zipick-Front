@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ZIPPICK from "../assets/ZIPPICK.png";
+import logo from "../assets/logo.svg";
+import sublogo from "../assets/Subtract.svg";
 import PlusHome from "../assets/plushome.png";
 import HiMascot from "../assets/himascot.png";
 import LoadingModal from "../components/LoadingModal";
@@ -24,7 +25,8 @@ const Recommend = () => {
         <div className="top-bar">
           <div className="top-left">아기사자 (님)</div>
           <div className="top-logo">
-            <img src={ZIPPICK} alt="ZIPPICK 로고" />
+            <img src={sublogo} alt="ZIPPICK 서브 로고" />
+            <img src={logo} alt="ZIPPICK 로고" />
           </div>
         </div>
 
