@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ZIPPICK from "../assets/ZIPPICK.png";
+import logo from "../assets/logo.svg";
 import "../css/UserInfo.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -63,7 +63,7 @@ const UserInfo = () => {
       {/* 밑에 div 들의 대빵 설정 */}
       <div className="top-image">
         {/* ZIPPICK 이미지 */}
-        <img src={ZIPPICK} alt="ZIPPICK" />
+        <img src={logo} alt="ZIPPICK" />
       </div>
       <div className="top-text">
         {/* ZIPPICK 이미지 밑 글씨씨 */}
