@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import loadingmascot from "../assets/loadingmascot.png";
 import styles from "../css/LoadingModal.module.scss";
 
-// ★ 게이지 애니메이션 구현
 const LoadingModal = () => {
   const [progress, setProgress] = useState(0);
 
@@ -14,9 +13,9 @@ const LoadingModal = () => {
           clearInterval(interval);
           return 100;
         }
-        return prev + 2.5; //숫자(2.5) 조절로 속도 변경 가능
+        return prev + 3; //숫자(2) 조절하면 속도 달라짐
       });
-    }, 40); //40ms마다 2.5씩 증가: 약 1.5초~2초에 100 도달
+    }, 40); //40ms마다 2씩 증가: 2초에 100에 도달
     return () => clearInterval(interval);
   }, []);
 
@@ -37,7 +36,9 @@ const LoadingModal = () => {
           <br />
           잠시만 기다려주세요!
         </div>
-        <div className={styles["loading-text"]}>꼭 맞는 집을 추천해드릴게요!</div>
+        <div className={styles["loading-text"]}>
+          꼭 맞는 집을 추천해드릴게요!
+        </div>
         <div className={styles["progress-wrap"]}>
           <div className={styles["progress-bar"]}>
             <div
