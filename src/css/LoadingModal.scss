@@ -1,5 +1,5 @@
 .modal-overlay {
-  height: 900px;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,57 +15,78 @@
 .modal-box {
   background-color: white;
   border-radius: 20px;
-  padding: 40px;
-  width: 500px;
-  height: 300px;
-  text-align: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); // 살짝 그림자 효과
+  padding: 44px 44px 32px 44px;
+  width: 650px;
+  min-height: 320px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); //살짝 그림자 효과
+  position: relative;
+}
+
+//이미지+텍스트를 좌우로 배치
+.loading-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 36px;
+  margin-bottom: 14px;
+}
+
+.loading-mascot {
+  width: 120px;
+  margin-right: 10px;
+  margin-left: 10px;
+  display: block;
+}
+
+.loading-texts {
+  flex: 1;
 }
 
 .loading-title {
   color: #ff5927;
   font-weight: 600;
   font-size: 15px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   letter-spacing: 0.5px;
 }
 
-.loading-mascot {
-  width: 100px;
-  margin: 12px 0 8px 0;
-  display: block;
-}
-
 .loading-message {
-  margin: 8px 0 8px 0;
-  font-size: 17px;
+  font-size: 18px;
   color: #232323;
-  text-align: center;
-  font-weight: 500;
-
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 8px;
   .highlight {
     color: #ff5927;
     font-weight: 700;
   }
 }
 
-.loading-text {
+.loading-text,
+.loading-sub {
   color: #bdbdbd;
   font-size: 13px;
-  margin-bottom: 18px;
   margin-top: 4px;
-  text-align: center;
+  text-align: left;
 }
 
 .progress-wrap {
-  width: 85%;
-  margin-top: 10px;
+  width: 92%;
+  margin: 0 auto;
+  position: absolute;
+  left: 4%;
+  bottom: 24px;
 }
 
 .progress-bar {
   background: #ffe6df;
-  border-radius: 20px;
+  border-radius: 12px;
   height: 12px;
   width: 100%;
   overflow: hidden;
@@ -76,12 +97,10 @@
 .progress-bar-inner {
   height: 100%;
   background: #ff5927;
-  border-radius: 20px;
-  width: 0%; // JS에서 width 동적으로 할당!
-  transition: width 0.18s cubic-bezier(0.9, 0.25, 0.6, 1); // 부드럽게 변하도록
+  border-radius: 12px;
+  width: 0%; //JS에서 width 동적으로 할당!
+  transition: width 0.18s cubic-bezier(0.9, 0.25, 0.6, 1); //부드럽게 변하도록
 }
-
-// ---- 기존 .content, .modal-buttons 스타일도 유지 ----
 
 .content {
   display: flex;
