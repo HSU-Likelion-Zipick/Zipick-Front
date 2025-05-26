@@ -11,6 +11,7 @@ const Main = () => {
 
   const handleNext = () => {
     navigate("/userinfo");
+    window.scrollTo(0, 0); // 페이지 스크롤 맨 위로 이동
   };
 
   return (
