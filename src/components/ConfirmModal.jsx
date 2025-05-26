@@ -7,7 +7,7 @@ const ConfirmModal = ({ onYes }) => {
   const navigate = useNavigate();
 
   const onNo = () => {
-    navigate("/loadingmodal"); // 로딩 페이지로 이동
+    navigate("/recommend"); // 로딩 페이지로 이동
   };
 
   return (

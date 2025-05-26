@@ -8,7 +8,7 @@ const LimitModal = () => {
   const navigate = useNavigate();
 
   const onClose = () => {
-    navigate("/loadingmodal");
+    navigate("/recommend");
   };
 
   return (
