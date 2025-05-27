@@ -1,4 +1,4 @@
-import defaultInstance from "../user/utils/instance";
+import defaultInstance from "../../utils/instance";
 
 // 집 정보 등록 API
 const housePostApi = async (

@@ -7,6 +7,7 @@ import ConfirmModal from "../components/ConfirmModal";
 import LimitModal from "../components/LimitModal";
 import Header from "../components/Header";
 import infomascot from "../assets/infomascot.png";
+import housePostApi from "../api/user/housePostApi";
 
 const HouseInfo = () => {
   const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
@@ -51,7 +52,6 @@ const HouseInfo = () => {
     setErrors({});
   };
 
-
   /* 
   // 층수 항목에서 current > total 이면 옥상으로 취급
   const getFormattedFloor = () => {
@@ -69,8 +69,7 @@ const HouseInfo = () => {
     return ""; //입력이 비었거나 숫자가 아닐경우
   };
 */
-  
-  
+
   const handleLimitModal = () => {
     //LimitModal.jsx에서 고마워! 버튼 누를시 -> 로딩 페이지로 이동하는 로직
     setShowLimitModal(false);
@@ -105,7 +104,7 @@ const HouseInfo = () => {
       //전송 결과 -> { formattedFloor: "5/4" }
       console.log("백엔드 옥상 전송용 데이터: ", payload);
 */
-      
+
       // if 누적된 집 정보 2개이하이면 -> ConfirmModal
       setShowConfirmModal(true);
       // else if 누적된 집 정보 3개이면 -> LimitModal
@@ -851,12 +850,9 @@ const HouseInfo = () => {
       {/*모달 조건부 렌더링 */}{" "}
       {/*Confirm.jsx에 있는 네 버튼 눌렀을 때 -> onYes*/}{" "}
       {/*아니오 버튼 눌렀을 때 onNo */}
-
       {showConfirmModal && (
         <ConfirmModal onYes={handleModalYes} onNo={handleModalNo} />
       )}
-
-
       {/*LimitModal.jsx에 있는 고마워! 버튼 눌렀을 때 -> 로딩 페이지로 이동*/}
       {showLimitModal && <LimitModal onClose={handleLimitModal} />}
     </div>
