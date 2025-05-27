@@ -51,6 +51,8 @@ const HouseInfo = () => {
     setErrors({});
   };
 
+
+  /* 
   // 층수 항목에서 current > total 이면 옥상으로 취급
   const getFormattedFloor = () => {
     const total = parseInt(formData.totalFloor);
@@ -66,7 +68,9 @@ const HouseInfo = () => {
     }
     return ""; //입력이 비었거나 숫자가 아닐경우
   };
-
+*/
+  
+  
   const handleLimitModal = () => {
     //LimitModal.jsx에서 고마워! 버튼 누를시 -> 로딩 페이지로 이동하는 로직
     setShowLimitModal(false);
@@ -92,6 +96,7 @@ const HouseInfo = () => {
     if (validateForm()) {
       //모든 유효성 검사를 통과하면 모달을 띄워줌
 
+      /*
       // 옥상 데이터
       const floorData = getFormattedFloor();
       const payload = {
@@ -99,7 +104,8 @@ const HouseInfo = () => {
       };
       //전송 결과 -> { formattedFloor: "5/4" }
       console.log("백엔드 옥상 전송용 데이터: ", payload);
-
+*/
+      
       // if 누적된 집 정보 2개이하이면 -> ConfirmModal
       setShowConfirmModal(true);
       // else if 누적된 집 정보 3개이면 -> LimitModal
