@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import ZIPPICK from "../assets/ZIPPICK.png";
+import logo from "../assets/logo.svg";
+import sublogo from "../assets/Subtract.svg";
 import "../css/UserInfo.scss";
 import { useNavigate } from "react-router-dom";
+import hidemascot from "../assets/hidemascot.png";
 
 const UserInfo = () => {
   const navigate = useNavigate();
@@ -39,6 +41,7 @@ const UserInfo = () => {
   const handleHouseInf = () => {
     if (validateForm()) {
       navigate("/houseinfo");
+      window.scrollTo(0, 0); // 페이지 스크롤 맨 위로 이동
     }
   };
 
@@ -59,18 +62,20 @@ const UserInfo = () => {
   };
 
   return (
-    <div className="top">
+    <div className="page-bg">
       {/* 밑에 div 들의 대빵 설정 */}
       <div className="top-image">
         {/* ZIPPICK 이미지 */}
-        <img src={ZIPPICK} alt="ZIPPICK" />
+        <img src={sublogo} alt="substract" className="sublogo" />
+        <img src={logo} alt="ZIPPICK" />
+        <img src={hidemascot} alt="마스코트" className="hidemascot" />
       </div>
       <div className="top-text">
         {/* ZIPPICK 이미지 밑 글씨씨 */}
-        <h3>
+        {/* <h3>
           &nbsp; &nbsp; &nbsp;꼭 맞는 집을 찾기 전<br />
           <span className="yourinfo">&nbsp;당신의 정보</span>가 필요해요!
-        </h3>
+        </h3> */}
       </div>
       <div className="big-box">
         <div className="step-bar">

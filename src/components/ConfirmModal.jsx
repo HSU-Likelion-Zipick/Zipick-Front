@@ -8,6 +8,7 @@ const ConfirmModal = ({ onYes }) => {
 
   const onNo = () => {
     navigate("/recommend"); // 로딩 페이지로 이동
+    window.scrollTo(0, 0); // recommend 페이지 스크롤 맨 위로 이동
   };
 
   return (
@@ -24,7 +25,9 @@ const ConfirmModal = ({ onYes }) => {
               <strong style={{ color: "#FF5927" }}>‘자취방’</strong>에 대한
               정보가 저장되었어요!
             </p>
-            <p className={styles["modal-subtitle"]}>고민 중인 집이 더 있나요?</p>
+            <p className={styles["modal-subtitle"]}>
+              고민 중인 집이 더 있나요?
+            </p>
           </div>{" "}
           {/*titles div */}
         </div>

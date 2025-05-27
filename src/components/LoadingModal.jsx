@@ -36,7 +36,9 @@ const LoadingModal = () => {
           <br />
           잠시만 기다려주세요!
         </div>
-        <div className={styles["loading-text"]}>꼭 맞는 집을 추천해드릴게요!</div>
+        <div className={styles["loading-text"]}>
+          꼭 맞는 집을 추천해드릴게요!
+        </div>
         <div className={styles["progress-wrap"]}>
           <div className={styles["progress-bar"]}>
             <div

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
-import ZIPPICK from "../assets/ZIPPICK.png";
+import logo from "../assets/logo.svg";
+import sublogo from "../assets/Subtract.svg";
 import PlusHome from "../assets/plushome.png";
 import HiMascot from "../assets/himascot.png";
 import LoadingModal from "../components/LoadingModal";
 import "../css/Recommend.scss";
 import { useNavigate } from "react-router-dom";
+import StarModal from "../components/StarModal";
 
 const Recommend = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [starmodal, setStarmodal] = useState(false);
 
   //페이지 진입후 로딩
   useEffect(() => {
@@ -17,17 +20,17 @@ const Recommend = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  return (
-    <div className="recommend-wrapper-outer" style={{ position: "relative" }}>
-      <div className={`recommend-wrapper${loading ? " blurred" : ""}`}>
-        {/* 상단 로고/닉네임 바 */}
-        <div className="top-bar">
-          <div className="top-left">아기사자 (님)</div>
-          <div className="top-logo">
-            <img src={ZIPPICK} alt="ZIPPICK 로고" />
-          </div>
-        </div>
+const handleStarModal = () => { // 고마워! 버튼 누르면 starModal 열림
+    setStarmodal(true);
+  };
 
+  return (
+    <div className="recommend-wrapper-outer">
+      <div className="top-image">
+        <img src={sublogo} alt="substract" className="sublogo" />
+        <img src={logo} alt="logo" className="logo" />
+      </div>
+      <div className="recommend-wrapper">
         {/* 상단 영역 */}
         <div className="top">
           {/* 좌측 텍스트 영역 */}
@@ -147,11 +150,12 @@ const Recommend = () => {
         </div>
 
         {/* 하단 버튼튼*/}
-        <div className="thx">
+        <div className="thx" onClick={handleStarModal}> {/* 고마워! 버튼 클릭 시 starModal 열림 */ }
           <button>고마워!</button>
         </div>
       </div>
       {loading && <LoadingModal />}
+      {starmodal && <StarModal />}
     </div>
   );
 };

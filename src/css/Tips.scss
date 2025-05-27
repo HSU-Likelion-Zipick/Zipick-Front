@@ -1,3 +1,23 @@
+.top-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 45px;
+
+  .sublogo {
+    width: 121px;
+    height: 24px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .logo {
+    width: 121px;
+    height: 24px;
+    margin-bottom: 23px;
+    display: block;
+  }
+}
+
 .tips-big {
   background: #fdf5ec;
   min-height: 100vh;

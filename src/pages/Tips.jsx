@@ -1,15 +1,20 @@
 import React from "react";
 import "../css/Tips.scss";
-import ZIPPICK from "../assets/zipickandlocation.png";
+import logo from "../assets/logo.svg";
+import sublogo from "../assets/Subtract.svg";
 import hidemascot from "../assets/hidemascot.png";
+import { useNavigate } from "react-router-dom";
 
 const Tips = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="tips-big">
-      {/* 상단 로고 */}
-      <div className="tips-header-center">
-        <img src={ZIPPICK} alt="ZIPICK 로고" className="tips-logo" />
+      <div className="top-image">
+        <img src={sublogo} alt="substract" className="sublogo" />
+        <img src={logo} alt="logo" className="logo" />
       </div>
+      {/* 상단 로고 */}
 
       {/* 마스코트 겹치기 */}
       <div className="tips-container">
@@ -116,7 +121,7 @@ const Tips = () => {
         </div>
         {/* 하단 버튼 */}
         <div className="next-btn">
-          <button>다음으로</button>
+          <button onClick={() => navigate("/starmodal")}>다음으로</button>
         </div>
       </div>
     </div>

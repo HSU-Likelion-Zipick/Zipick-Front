@@ -8,8 +8,8 @@ import { Navigate } from "react-router-dom"; // Navigate 컴포넌트 import
 
 import HouseInfo from "./pages/HouseInfo";
 import UserInfo from "./pages/UserInfo";
-import Main from "./Main";
-import Mainnext from "./Mainnext";
+import Main from "./pages/Main";
+import Mainnext from "./pages/Mainnext";
 import Recommend from "./pages/Recommend";
 import Home from "./pages/Home";
 import Guide from "./pages/Guide";
