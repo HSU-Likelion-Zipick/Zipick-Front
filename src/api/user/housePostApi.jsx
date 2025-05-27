@@ -12,7 +12,7 @@ const housePostApi = async (
   direction, // 집 방향
   completion_date, // 준공일
   station, // 역/정류장까지 거리
-  destination, // 목적지까지 거리 (← 오타 수정)
+  desination, // 목적지까지 거리 (← 오타 수정)
   year_rent, // 전세금
   monthly_rent, // 월세
   deposit, // 보증금
@@ -35,7 +35,7 @@ const housePostApi = async (
         direction,
         completion_date,
         station,
-        destination,
+        desination,
         year_rent,
         monthly_rent,
         deposit,

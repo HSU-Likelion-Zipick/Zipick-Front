@@ -4,6 +4,7 @@ import sublogo from "../assets/Subtract.svg";
 import "../css/UserInfo.scss";
 import { useNavigate } from "react-router-dom";
 import hidemascot from "../assets/hidemascot.png";
+import userPostApi from "../api/user/userPostApi";
 
 const UserInfo = () => {
   const navigate = useNavigate();
@@ -37,11 +38,81 @@ const UserInfo = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const convertJob = (job) => {
+    switch (job) {
+      case "학생":
+        return "STUDENT";
+      case "취준생":
+        return "SEEKER";
+      case "직장인":
+        return "WORKER";
+      case "프리랜서":
+        return "FREELANCER";
+      case "무직":
+        return "UNEMPLOYED";
+      default:
+        return "";
+    }
+  };
+
+  const convertTransport = (t) => {
+    switch (t) {
+      case "도보":
+        return "WALK";
+      case "자전거":
+        return "BICYCLE";
+      case "대중교통":
+        return "PUBLIC_TRANSPORT";
+      case "자가용":
+        return "CAR";
+      default:
+        return "";
+    }
+  };
+
+  const convertLifestyle = (l) => {
+    switch (l) {
+      case "아침형":
+        return "MORNING";
+      case "야행성":
+        return "NIGHT";
+      case "불규칙":
+        return "IRREGULARITY";
+      default:
+        return "";
+    }
+  };
+
   // 다음 버튼 클릭 핸들러
-  const handleHouseInf = () => {
+  const handleHouseInf = async () => {
     if (validateForm()) {
-      navigate("/houseinfo");
-      window.scrollTo(0, 0); // 페이지 스크롤 맨 위로 이동
+      const payload = {
+        nickname: "testUser", // 임시 닉네임 (← 백엔드가 허용하는 값이어야 함)
+        sex: gender === "남자" ? "MALE" : "FEMALE",
+        age: Number(age),
+        job: convertJob(job),
+        month_income: monthlyIncomeIrrelevant ? 0 : Number(monthlyIncome),
+        reserve_money: fundIrrelevant ? 0 : Number(fund),
+        transport: convertTransport(transportation),
+        lifestyle_pattern: convertLifestyle(livingPattern),
+      };
+
+      console.log("🔥 보낼 사용자 데이터 (payload):", payload);
+
+      try {
+        const userId = await userPostApi(payload);
+        console.log("✅ 서버 응답 userId:", userId);
+
+        if (userId) {
+          localStorage.setItem("userId", userId);
+          navigate("/houseinfo");
+          window.scrollTo(0, 0);
+        } else {
+          alert("사용자 정보 저장에 실패했습니다. (userId 없음)");
+        }
+      } catch (error) {
+        console.error("❌ 사용자 등록 중 예외 발생:", error);
+      }
     }
   };
 

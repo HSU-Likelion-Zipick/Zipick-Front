@@ -8,6 +8,7 @@ import LimitModal from "../components/LimitModal";
 import Header from "../components/Header";
 import infomascot from "../assets/infomascot.png";
 import housePostApi from "../api/user/housePostApi";
+import houseCountGetApi from "../api/user/houseCountGetApi";
 
 const HouseInfo = () => {
   const [rentType, setRentType] = useState(""); //라디오 버튼 상태 관리
@@ -91,24 +92,83 @@ const HouseInfo = () => {
   };
 
   // 데이터베이스 받으면 여기 작성!!
-  const handleNext = () => {
+  const handleNext = async () => {
     if (validateForm()) {
-      //모든 유효성 검사를 통과하면 모달을 띄워줌
+      try {
+        const userId = Number(localStorage.getItem("userId"));
 
-      /*
-      // 옥상 데이터
-      const floorData = getFormattedFloor();
-      const payload = {
-        formattedFloor: floorData, //여기에 옥상 여부 반영된 값 추가
-      };
-      //전송 결과 -> { formattedFloor: "5/4" }
-      console.log("백엔드 옥상 전송용 데이터: ", payload);
-*/
+        // const userId = 1; // 예시: 실제 userId는 props, context, localStorage 등에서 가져올 것
 
-      // if 누적된 집 정보 2개이하이면 -> ConfirmModal
-      setShowConfirmModal(true);
-      // else if 누적된 집 정보 3개이면 -> LimitModal
-      //setShowLimitModal(true);
+        // ✅ 1. 등록된 집 개수 조회
+        const houseCount = await houseCountGetApi(userId);
+        console.log("등록된 집 개수:", houseCount); // 테스트용 확인
+        // ✅ 2. 3개 이상이면 LimitModal 표시 후 종료
+
+        if (houseCount >= 3) {
+          // 3개 이상 등록된 경우 limitModal 표시
+          setShowLimitModal(true);
+          return;
+        }
+        // ✅ 2. 3개 미만이면 ConfirmModal 표시 => 0, 1, 2개 등록 가능
+        else if (houseCount < 3) {
+          setShowConfirmModal(true);
+        }
+
+        // ✅ 3. 등록 요청
+        // ✅ 이 위치에 payload 선언
+        const payload = {
+          houseName: formData.houseName,
+          kind: selectedButton,
+          size: Number(formData.size),
+          management: Number(formData.maintenanceFee),
+          parking: parkingType === "가능",
+          elevator: elevatorType === "있음",
+          direction: selectedDirection,
+          completion_date: Number(formData.constructionDate),
+          station: Number(formData.walkTimeStation),
+          destination: Number(formData.walkTimeDestination),
+          year_rent: rentType === "전세" ? Number(formData.rentAmount) : 0,
+          monthly_rent:
+            rentType === "월세" ? Number(formData.monthlyRent) : null,
+          deposit: rentType === "월세" ? Number(formData.deposit) : null,
+          full_floors: Number(formData.totalFloor),
+          floor: Number(formData.currentFloor),
+          rank: 1,
+          selectedCharges: selectedUtilities,
+          selectedOptions: selectedOptions,
+        };
+
+        console.log("✅ 전송 데이터:", payload); // 테스트용 확인
+
+        const postId = await housePostApi(
+          userId,
+          payload.houseName,
+          payload.kind,
+          payload.size,
+          payload.management,
+          payload.parking,
+          payload.elevator,
+          payload.direction,
+          payload.completion_date,
+          payload.station,
+          payload.desination,
+          payload.year_rent,
+          payload.monthly_rent,
+          payload.deposit,
+          payload.full_floors,
+          payload.floor,
+          payload.rank,
+          payload.selectedCharges,
+          payload.selectedOptions
+        );
+
+        // ✅ 4. 등록 성공 시 ConfirmModal 표시
+        if (postId) {
+          setShowConfirmModal(true);
+        }
+      } catch (error) {
+        console.error("handleNext 처리 중 오류:", error);
+      }
     }
   };
 
