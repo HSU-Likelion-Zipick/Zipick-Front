@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.svg";
 import sublogo from "../assets/Subtract.svg";
 import PlusHome from "../assets/plushome.png";
+import WhiteHome from "../assets/whitehome.png";
+import BlackHome from "../assets/blackhome.png";
 import HiMascot from "../assets/himascot.png";
 import LoadingModal from "../components/LoadingModal";
 import "../css/Recommend.scss";
@@ -20,7 +22,8 @@ const Recommend = () => {
     return () => clearTimeout(timer);
   }, []);
 
-const handleStarModal = () => { // 고마워! 버튼 누르면 starModal 열림
+  const handleStarModal = () => {
+    // 고마워! 버튼 누르면 starModal 열림
     setStarmodal(true);
   };
 
@@ -31,6 +34,13 @@ const handleStarModal = () => { // 고마워! 버튼 누르면 starModal 열림
         <img src={logo} alt="logo" className="logo" />
       </div>
       <div className="recommend-wrapper">
+        {/* 상단 사용자 이름과 로고 */}
+        <div className="top-bar">
+          <div className="top-left">{}님</div>
+          <div className="top-logo">
+            <img src={logo} alt="logo" />
+          </div>
+        </div>
         {/* 상단 영역 */}
         <div className="top">
           {/* 좌측 텍스트 영역 */}
@@ -46,7 +56,7 @@ const handleStarModal = () => { // 고마워! 버튼 누르면 starModal 열림
           {/* 추천 카드들 */}
           <div className="recommend-cards">
             <div className="card highlight">
-              <img src={PlusHome} alt="아이콘" className="card-icon" />
+              <img src={WhiteHome} alt="아이콘" className="card-icon" />
               <h4>✨ 한성대 입구 자취방 ✨</h4>
               <p>
                 원룸
@@ -59,7 +69,7 @@ const handleStarModal = () => { // 고마워! 버튼 누르면 starModal 열림
               </p>
             </div>
             <div className="card">
-              <img src={PlusHome} alt="아이콘" className="card-icon" />
+              <img src={BlackHome} alt="아이콘" className="card-icon" />
               <h4>성신여대 빌라</h4>
               <p>
                 빌라
@@ -150,7 +160,9 @@ const handleStarModal = () => { // 고마워! 버튼 누르면 starModal 열림
         </div>
 
         {/* 하단 버튼튼*/}
-        <div className="thx" onClick={handleStarModal}> {/* 고마워! 버튼 클릭 시 starModal 열림 */ }
+        <div className="thx" onClick={handleStarModal}>
+          {" "}
+          {/* 고마워! 버튼 클릭 시 starModal 열림 */}
           <button>고마워!</button>
         </div>
       </div>
