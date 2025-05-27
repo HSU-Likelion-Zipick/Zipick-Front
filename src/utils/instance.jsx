@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const BASE_URL = `http://15.164.167.104:8080/api/`;
+const BASE_URL = `http://3.39.136.160:8080/api/`;
 
 const defaultInstance = axios.create({
   baseURL: BASE_URL,
@@ -10,4 +10,4 @@ const defaultInstance = axios.create({
   }, //headers
 }); // const defaultInstande = axios.create
 
-export default instance;
+export default defaultInstance;
