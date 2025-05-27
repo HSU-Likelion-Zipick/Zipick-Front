@@ -10,4 +10,4 @@ const defaultInstance = axios.create({
   }, //headers
 }); // const defaultInstande = axios.create
 
-export default instance;
+export default defaultInstance;

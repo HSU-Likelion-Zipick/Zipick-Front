@@ -12,7 +12,7 @@ const myPostApi = async (
   lifestyle_pattern
 ) => {
   try {
-    const response = await defaultInstance.post(`post`, {
+    const response = await defaultInstance.post(`user/MyData`, {
       nickname,
       sex,
       age,
@@ -25,7 +25,7 @@ const myPostApi = async (
 
     if (response.data.httpStatus === 200) {
       console.log("작성 성공");
-      return reponse.data.data.postId;
+      return response.data.data.postId;
     }
   } catch (e) {
     console.error(e);
