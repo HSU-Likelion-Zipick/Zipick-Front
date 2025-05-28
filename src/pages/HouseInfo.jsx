@@ -26,6 +26,7 @@ const HouseInfo = () => {
   const [showConfirmModal, setShowConfirmModal] = useState(false); //ConfirmModal 모달 표시 여부 상태
   const [showLimitModal, setShowLimitModal] = useState(false); //LimitModal 모달 표시 여부 상태
 
+  /*
   const resetForm = () => {
     //폼 초기화 하는 함수
     setFormData({
@@ -52,6 +53,7 @@ const HouseInfo = () => {
     setIsNoneSelected(false);
     setErrors({});
   };
+*/
 
   /* 
   // 층수 항목에서 current > total 이면 옥상으로 취급
