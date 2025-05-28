@@ -79,10 +79,12 @@ const HouseInfo = () => {
 
   const handleModalYes = () => {
     // ConfirmModal.jsx에 네 버튼 누를시
-    resetForm(); // 폼 상태 초기화
     setShowConfirmModal(false);
-    navigate("/houseinfo");
-    window.scrollTo(0, 0); // houseinfo 폼 스크롤 맨 위로 이동
+    navigate("/houseinfo"); // 이동
+    setTimeout(() => {
+      window.location.reload(); // 페이지 새로고침
+      window.scrollTo(0, 0); // houseinfo 폼 스크롤 맨 위로 이동
+    }, 100);
   };
 
   const handleModalNo = () => {
@@ -110,7 +112,7 @@ const HouseInfo = () => {
           return;
         }
         // ✅ 2. 3개 미만이면 ConfirmModal 표시 => 0, 1, 2개 등록 가능
-        else if (houseCount < 3) {
+        if (houseCount < 3) {
           setShowConfirmModal(true);
         }
 
