@@ -12,7 +12,7 @@ const Main = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  console.log("테스트입니다.");
+  // console.log("테스트입니다.");
 
   useEffect(() => {
     const fetch = async () => {
