@@ -145,7 +145,7 @@
           position: relative;
           .mascot-above {
             position: absolute;
-            top: -84px; //카드 위로 절반 정도 겹치도록 조절
+            top: 0px; //카드 위로 절반 정도 겹치도록 조절
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;

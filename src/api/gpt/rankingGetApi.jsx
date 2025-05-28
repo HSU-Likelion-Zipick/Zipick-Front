@@ -8,9 +8,9 @@ import defaultInstance from "../../utils/instance";
 const getRankingData = async (userId) => {
   try {
     const id = Number(userId);
-
+    console.log(id); // -> 지금  id가 호출이 안됨
     // PUT 메서드로 변경, body는 없으므로 빈 객체 전달
-    const response = await defaultInstance.put(`/gpt/${id}/ranking`, {});
+    const response = await defaultInstance.put(`gpt/${id}/ranking`, {});
 
     if (response.status === 200 && response.data.data) {
       return response.data.data.recommend;

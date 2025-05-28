@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import logo from "../assets/logo.svg";
 import sublogo from "../assets/Subtract.svg";
 import "../css/UserInfo.scss";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import hidemascot from "../assets/hidemascot.png";
 import userPostApi from "../api/user/userPostApi";
 
 const UserInfo = () => {
-  const { state } = useLocation();
   const navigate = useNavigate();
-  const nickname = state?.nickname || "";
 
   // 입력값 state
   const [gender, setGender] = useState("");
@@ -89,9 +87,7 @@ const UserInfo = () => {
   const handleHouseInf = async () => {
     if (validateForm()) {
       const payload = {
-        // 닉네임 수정
-        // nickname: "testUser", // 임시 닉네임 (← 백엔드가 허용하는 값이어야 함)
-        nickname: nickname,
+        nickname: "testUser", // 임시 닉네임 (← 백엔드가 허용하는 값이어야 함)
         sex: gender === "남자" ? "MALE" : "FEMALE",
         age: Number(age),
         job: convertJob(job),
@@ -108,9 +104,7 @@ const UserInfo = () => {
         console.log("✅ 서버 응답 userId:", userId);
 
         if (userId) {
-          // 로컬스토리지에 userId 저장
           localStorage.setItem("userId", userId);
-          localStorage.setItem("nickname", nickname);
           navigate("/houseinfo");
           window.scrollTo(0, 0);
         } else {
