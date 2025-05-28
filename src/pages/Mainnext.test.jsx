@@ -10,9 +10,10 @@ const Mainnext = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const nickname = state?.nickname || "";
+  console.log(state);
 
   const handleToUserInfo = () => {
-    navigate("/userinfo", { state: { nickname } });
+    navigate("/userinfo", { state });
     window.scrollTo(0, 0);
   };
 

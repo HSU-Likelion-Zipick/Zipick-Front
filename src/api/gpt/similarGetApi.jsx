@@ -3,7 +3,7 @@ import defaultInstance from "../../utils/instance";
 
 const getSimilarUserData = async (userId) => {
   try {
-    const response = await defaultInstance.put(`/gpt/${userId}/similar`);
+    const response = await defaultInstance.get(`/gpt/${userId}/similar`);
     if (response.status === 200) {
       return response.data.data;
     }

@@ -7,7 +7,7 @@ import BlackHome from "../assets/blackhome.png";
 import HiMascot from "../assets/himascot.png";
 import LoadingModal from "../components/LoadingModal";
 import "../css/Recommend.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import StarModal from "../components/StarModal";
 
 import getRankingData from "../api/gpt/rankingGetApi";
@@ -19,9 +19,13 @@ const Recommend = () => {
   const [rankingData, setRankingData] = useState([]);
   const [similarData, setSimilarData] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const nickname = localStorage.getItem("nickname") || "";
-  const userId = localStorage.getItem("userId");
+  const nickname = location.state?.nickname || "";
+  const userId = location.state?.userId;
+
+  console.log("userId:", userId);
+  console.log("nickname:", nickname);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
@@ -34,16 +38,13 @@ const Recommend = () => {
         if (userId) {
           const ranking = await getRankingData(userId);
           const similar = await getSimilarUserData(userId);
-          setRankingData(ranking || []);
-          setSimilarData(similar || []);
-          console.log("🏠 rankingData:", ranking);
-          console.log("👥 similarUserData:", similar);
+          setRankingData(ranking);
+          setSimilarData(similar);
+          console.log("\ud83c\udfe0 rankingData:", ranking);
+          console.log("\ud83d\udc65 similarUserData:", similar);
         }
       } catch (err) {
         console.error("API \ud638\ucd9c \uc2e4\ud328:", err);
-        console.error("API 호출 실패:", err);
-        setRankingData([]);
-        setSimilarData([]);
       }
     };
 
@@ -53,9 +54,6 @@ const Recommend = () => {
   const handleStarModal = () => {
     setStarmodal(true);
   };
-
-  // console.log("userId:", userId);
-  // console.log("nickname:", nickname);
 
   return (
     <div className="recommend-wrapper-outer">
@@ -80,51 +78,43 @@ const Recommend = () => {
           </div>
 
           <div className="recommend-cards">
-            {rankingData && rankingData.length > 0 ? (
-              rankingData.map((item, index) => (
-                <div
-                  className={`card ${index === 0 ? "highlight" : ""}`}
-                  key={index}
-                >
-                  {index === 2 && (
-                    <div className="mascot-above">
-                      <img src={HiMascot} alt="마스코트" />
-                    </div>
-                  )}
-                  <img
-                    src={
-                      index === 0
-                        ? WhiteHome
-                        : index === 1
-                          ? BlackHome
-                          : PlusHome
-                    }
-                    alt="아이콘"
-                    className="card-icon"
-                  />
-                  <h4>
-                    {index === 0 ? `✨ ${item.houseName} ✨` : item.houseName}
-                  </h4>
-                  <p>
-                    {item.kind}
-                    <br />
-                    {item.size}
-                    <br />
-                    월세 {item.monthly_rent}
-                    <br />
-                    관리비 {item.management}
-                  </p>
-                </div>
-              ))
-            ) : (
-              <div className="no-data">추천 데이터가 없습니다.</div>
-            )}
+            {rankingData.map((item, index) => (
+              <div
+                className={`card ${index === 0 ? "highlight" : ""}`}
+                key={index}
+              >
+                {index === 2 && (
+                  <div className="mascot-above">
+                    <img src={HiMascot} alt="마스코트" />
+                  </div>
+                )}
+                <img
+                  src={
+                    index === 0 ? WhiteHome : index === 1 ? BlackHome : PlusHome
+                  }
+                  alt="아이콘"
+                  className="card-icon"
+                />
+                <h4>
+                  {index === 0 ? `✨ ${item.houseName} ✨` : item.houseName}
+                </h4>
+                <p>
+                  {item.kind}
+                  <br />
+                  {item.size}
+                  <br />
+                  월세 {item.monthly_rent}
+                  <br />
+                  관리비 {item.management}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="tip-section">
           <p>
-            'PICK씨'가 알려주는 쾌적한 자취방 고르는 TIP
+            ‘PICK씨’가 알려주는 쾌적한 자취방 고르는 TIP
             <br />
             <span>방음 주방/욕실 옵션점검 거주환경 기타 체크포인트</span>
           </p>
@@ -136,27 +126,21 @@ const Recommend = () => {
         </div>
 
         <div className="recommend-others">
-          {similarData && similarData.length > 0 ? (
-            similarData.map((item, index) => (
-              <div className="card" key={index}>
-                <img src={PlusHome} alt="아이콘" className="card-icon" />
-                <h4>{item.houseName}</h4>
-                <p>
-                  {item.kind}
-                  <br />
-                  {item.size}
-                  <br />
-                  월세 {item.monthly_rent}
-                  <br />
-                  관리비 {item.management}
-                </p>
-              </div>
-            ))
-          ) : (
-            <div className="no-data">
-              비슷한 사용자의 추천 데이터가 없습니다.
+          {similarData.map((item, index) => (
+            <div className="card" key={index}>
+              <img src={PlusHome} alt="아이콘" className="card-icon" />
+              <h4>{item.houseName}</h4>
+              <p>
+                {item.kind}
+                <br />
+                {item.size}
+                <br />
+                월세 {item.monthly_rent}
+                <br />
+                관리비 {item.management}
+              </p>
             </div>
-          )}
+          ))}
         </div>
 
         <div className="thx" onClick={handleStarModal}>
