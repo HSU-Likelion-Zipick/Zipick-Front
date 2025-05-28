@@ -1,4 +1,3 @@
-import React from "react";
 import axios from "axios";
 
 const BASE_URL = `http://3.39.136.160:8080/api/`;
