@@ -29,7 +29,6 @@ const Recommend = () => {
     return () => clearTimeout(timer);
   }, []);
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,7 +49,6 @@ const Recommend = () => {
   }, [userId]);
 
   const handleStarModal = () => {
-
     setStarmodal(true);
   };
 
@@ -66,7 +64,6 @@ const Recommend = () => {
           <div className="top-logo"></div>
         </div>
 
-
         <div className="top">
           <div className="left-text">
             <h3>
@@ -78,7 +75,6 @@ const Recommend = () => {
           </div>
 
           <div className="recommend-cards">
-
             {rankingData.map((item, index) => (
               <div
                 className={`card ${index === 0 ? "highlight" : ""}`}
@@ -108,7 +104,6 @@ const Recommend = () => {
                   <br />
                   관리비 {item.management}
                 </p>
-
               </div>
             ))}
           </div>
@@ -145,9 +140,7 @@ const Recommend = () => {
           ))}
         </div>
 
-
         <div className="thx" onClick={handleStarModal}>
-
           <button>고마워!</button>
         </div>
       </div>
