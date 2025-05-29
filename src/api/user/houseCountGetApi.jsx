@@ -10,14 +10,14 @@ const houseCountGetApi = async (userId) => {
     const response = await defaultInstance.get(`user/${userId}/HouseCount`);
 
     if (response.status === 200 && response.data.isSuccess) {
-      return response.data.data.house_count;
+      return response.data.data.house_count + 1;
     } else {
       console.warn("응답은 왔지만 성공 코드가 아님:", response.data);
-      return 0;
+      return 1;
     }
   } catch (error) {
     console.error("집 개수 조회 API 호출 오류:", error);
-    return 0;
+    return 1;
   }
 };
 

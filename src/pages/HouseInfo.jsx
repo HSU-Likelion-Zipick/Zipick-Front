@@ -557,8 +557,8 @@ const HouseInfo = () => {
                   전기료
                 </button>
                 <button
-                  className={`type-btn ${selectedUtilities.includes("일반 관리비") ? "active" : ""} ${errors.utilities ? "error-border" : ""} `}
-                  onClick={() => handleUtilityClick("일반 관리비")}
+                  className={`type-btn ${selectedUtilities.includes("일반관리비") ? "active" : ""} ${errors.utilities ? "error-border" : ""} `}
+                  onClick={() => handleUtilityClick("일반관리비")}
                 >
                   일반(공용)관리비
                 </button>
