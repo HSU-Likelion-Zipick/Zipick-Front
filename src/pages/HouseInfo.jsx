@@ -76,7 +76,7 @@ const HouseInfo = () => {
   const handleLimitModal = () => {
     //LimitModal.jsx에서 고마워! 버튼 누를시 -> 로딩 페이지로 이동하는 로직
     setShowLimitModal(false);
-    // navigate("/loading"); // 로딩 페이지로 이동
+    navigate("/loading"); // 로딩 페이지로 이동
   };
 
   const handleModalYes = () => {
@@ -100,26 +100,23 @@ const HouseInfo = () => {
     if (validateForm()) {
       try {
         const userId = Number(localStorage.getItem("userId"));
+        
+        // 초기 집 개수 가져오기
+        const initialHouseCount = await houseCountGetApi(userId);
+        // localStorage에 초기 집 개수 저장
+        localStorage.setItem(`houseCount`, String(initialHouseCount));
+        
+        // localStorage에서 현재 저장된 집 개수 가져오기
+        const storedHouseCount = localStorage.getItem(`houseCount`);
+        const houseCount = storedHouseCount ? Number(storedHouseCount) : 0;
+        console.log("등록된 집 개수:", houseCount);
 
-        // const userId = 1; // 예시: 실제 userId는 props, context, localStorage 등에서 가져올 것
+        
 
-        // ✅ 1. 등록된 집 개수 조회
-        const houseCount = await houseCountGetApi(userId);
-        console.log("등록된 집 개수:", houseCount); // 테스트용 확인
-        // ✅ 2. 3개 이상이면 LimitModal 표시 후 종료
+        // 3개 미만일 때만 ConfirmModal 표시
+        setShowConfirmModal(true);
 
-        if (houseCount >= 3) {
-          // 3개 이상 등록된 경우 limitModal 표시
-          setShowLimitModal(true);
-          return;
-        }
-        // ✅ 2. 3개 미만이면 ConfirmModal 표시 => 0, 1, 2개 등록 가능
-        if (houseCount < 3) {
-          setShowConfirmModal(true);
-        }
-
-        // ✅ 3. 등록 요청
-        // ✅ 이 위치에 payload 선언
+        // 등록 요청
         const payload = {
           houseName: formData.houseName,
           kind: selectedButton,
@@ -132,8 +129,7 @@ const HouseInfo = () => {
           station: Number(formData.walkTimeStation),
           destination: Number(formData.walkTimeDestination),
           year_rent: rentType === "전세" ? Number(formData.rentAmount) : 0,
-          monthly_rent:
-            rentType === "월세" ? Number(formData.monthlyRent) : null,
+          monthly_rent: rentType === "월세" ? Number(formData.monthlyRent) : null,
           deposit: rentType === "월세" ? Number(formData.deposit) : null,
           full_floors: Number(formData.totalFloor),
           floor: Number(formData.currentFloor),
@@ -141,8 +137,6 @@ const HouseInfo = () => {
           selectedCharges: selectedUtilities,
           selectedOptions: selectedOptions,
         };
-
-        console.log("✅ 전송 데이터:", payload); // 테스트용 확인
 
         const postId = await housePostApi(
           userId,
@@ -155,7 +149,7 @@ const HouseInfo = () => {
           payload.direction,
           payload.completion_date,
           payload.station,
-          payload.desination,
+          payload.destination,
           payload.year_rent,
           payload.monthly_rent,
           payload.deposit,
@@ -166,9 +160,17 @@ const HouseInfo = () => {
           payload.selectedOptions
         );
 
-        // ✅ 4. 등록 성공 시 ConfirmModal 표시
+        // 등록 성공 시 localStorage의 집 개수 업데이트
         if (postId) {
-          setShowConfirmModal(true);
+          const newCount = houseCount + 1;
+          localStorage.setItem(`houseCount`, String(newCount));
+          console.log("업데이트된 집 개수:", newCount);
+        }
+
+        // 3개 이상이면 LimitModal 표시 후 종료
+        if (houseCount >= 3) {
+          setShowLimitModal(true);
+          return;
         }
       } catch (error) {
         console.error("handleNext 처리 중 오류:", error);
