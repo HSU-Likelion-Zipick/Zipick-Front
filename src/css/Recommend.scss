@@ -140,19 +140,15 @@
           }
         }
 
-        //동대문 자취방 카드에만 마스코트 겹치게
-        &.mascot-card {
-          position: relative;
-          .mascot-above {
-            position: absolute;
-            top: 0px; //카드 위로 절반 정도 겹치도록 조절
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            img {
-              width: 100px;
-              height: auto;
-            }
+        .mascot-above {
+          position: absolute;
+          top: -60px;
+          right: 0px;
+          z-index: 2;
+
+          img {
+            width: 80px;
+            height: auto;
           }
         }
       }
@@ -257,4 +253,12 @@
       cursor: pointer;
     }
   }
+}
+
+.error-message {
+  text-align: center;
+  color: #ff5927;
+  font-size: 16px;
+  margin: 20px 0;
+  padding: 20px;
 }
